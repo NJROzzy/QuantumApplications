@@ -1,0 +1,452 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-10-18",
+  "editorialNote": "Profiles are curated and source-linked. Live mentions are updated from Quantum Live. Company claims and future targets are attributed; no cross-platform performance ranking is implied.",
+  "companies": [
+    {
+      "id": "ibm",
+      "name": "IBM",
+      "mark": "IBM",
+      "technologies": [
+        "superconducting",
+        "hybrid"
+      ],
+      "tagline": "Superconducting systems. An open software ecosystem.",
+      "description": "Builds superconducting quantum processors and the Qiskit software stack, with research spanning error correction, algorithms, and quantum–classical workflows.",
+      "areas": [
+        "Quantum error correction",
+        "Qiskit & compilers",
+        "Quantum simulation"
+      ],
+      "website": "https://www.ibm.com/quantum",
+      "newsroom": "https://www.ibm.com/quantum/blog",
+      "applications": [
+        2,
+        5,
+        9
+      ],
+      "lab": "qubit",
+      "achievement": {
+        "title": "Direct control over quantum execution",
+        "date": "2026-10-05",
+        "summary": "IBM describes client-side control of error-mitigation and correction workflows through its directed execution model.",
+        "url": "https://www.ibm.com/quantum/blog/directed-execution"
+      },
+      "developments": [
+        {
+          "title": "IBM Quantum’s Q3 platform update",
+          "date": "2026-10-07",
+          "summary": "Updates cover Nighthawk r2 access, mitigation tools, and Qiskit interfaces beyond Python.",
+          "url": "https://www.ibm.com/quantum/blog/whats-new-q3-2026",
+          "kind": "Company update"
+        }
+      ],
+      "sources": [
+        {
+          "title": "IBM Quantum blog and platform",
+          "url": "https://www.ibm.com/quantum/blog"
+        }
+      ]
+    },
+    {
+      "id": "google",
+      "name": "Google Quantum AI",
+      "mark": "GQ",
+      "technologies": [
+        "superconducting"
+      ],
+      "tagline": "Error-corrected computing, one logical step at a time.",
+      "description": "Develops superconducting processors and quantum error-correction methods, including Willow, alongside algorithms and experimental quantum simulation.",
+      "areas": [
+        "Logical qubits",
+        "Magic-state preparation",
+        "Quantum algorithms"
+      ],
+      "website": "https://quantumai.google/",
+      "newsroom": "https://blog.google/innovation-and-ai/models-and-research/quantum-computing/",
+      "applications": [
+        2,
+        5,
+        11
+      ],
+      "lab": "qubit",
+      "achievement": {
+        "title": "Below-threshold error correction with Willow",
+        "date": "2024-12-09",
+        "summary": "Google reported that increasing the size of an error-correcting code reduced logical errors on Willow.",
+        "url": "https://research.google/blog/making-quantum-error-correction-work/"
+      },
+      "developments": [
+        {
+          "title": "Magic-state cultivation on Willow",
+          "date": "2026-10-15",
+          "summary": "Google reports a hardware demonstration of magic-state cultivation, with results published in Science. Larger-scale fault tolerance remains an engineering goal.",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/quantum-computing/magic-state-cultivation-quantum-computing/",
+          "kind": "Company research"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Google Quantum AI research",
+          "url": "https://quantumai.google/"
+        }
+      ]
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "mark": "MS",
+      "technologies": [
+        "topological",
+        "hybrid"
+      ],
+      "tagline": "Topological-device research meets a quantum cloud ecosystem.",
+      "description": "Investigates semiconductor–superconductor devices for topological quantum computing and develops Azure Quantum tools for quantum and classical research workflows.",
+      "areas": [
+        "Topological devices",
+        "Quantum error correction",
+        "Azure Quantum"
+      ],
+      "website": "https://quantum.microsoft.com/",
+      "newsroom": "https://quantum.microsoft.com/en-us/insights",
+      "applications": [
+        2,
+        5,
+        14
+      ],
+      "lab": "qubit",
+      "achievement": {
+        "title": "Majorana device research and Azure Quantum",
+        "date": null,
+        "summary": "Combines a topological-device research program with a cloud and software ecosystem. Device claims should be assessed alongside the underlying technical research.",
+        "url": "https://azure.microsoft.com/en-us/solutions/quantum-computing/"
+      },
+      "developments": [
+        {
+          "title": "Microsoft describes its Majorana 2 approach",
+          "date": null,
+          "summary": "Microsoft reports a changed material stack and longer-lived device states. Its 2029 scalable-system date is a company target, not a delivered machine.",
+          "url": "https://quantum.microsoft.com/en-us/insights/blogs/majorana-2-scalable-quantum-processor",
+          "kind": "Company research & roadmap"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Microsoft’s Majorana 2 technical account",
+          "url": "https://quantum.microsoft.com/en-us/insights/blogs/majorana-2-scalable-quantum-processor"
+        }
+      ]
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "mark": "NV",
+      "technologies": [
+        "hybrid"
+      ],
+      "tagline": "The classical compute layer around quantum machines.",
+      "description": "Builds GPU-accelerated simulation, hybrid programming, interconnect, and AI tools through cuQuantum, CUDA-Q, NVQLink, and Ising. It supports quantum hardware builders rather than supplying its own qubit platform.",
+      "areas": [
+        "Hybrid quantum–GPU computing",
+        "AI for calibration & decoding",
+        "Quantum simulation"
+      ],
+      "website": "https://www.nvidia.com/en-us/solutions/quantum-computing/",
+      "newsroom": "https://nvidianews.nvidia.com/",
+      "applications": [
+        2,
+        5,
+        11
+      ],
+      "lab": "qubit",
+      "achievement": {
+        "title": "NVQLink connects quantum and accelerated computing",
+        "date": "2025-10-28",
+        "summary": "Introduced an architecture for coupling quantum processors to GPUs for control, decoding, and hybrid applications.",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-nvqlink-quantum-gpu-computing"
+      },
+      "developments": [
+        {
+          "title": "Ising models for quantum calibration and decoding",
+          "date": "2026-04-14",
+          "summary": "NVIDIA announced open AI models for processor calibration and error-correction decoding, complementing CUDA-Q and NVQLink.",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-launches-ising-the-worlds-first-open-ai-models-to-accelerate-the-path-to-useful-quantum-computers",
+          "kind": "Company announcement"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NVIDIA quantum computing platform",
+          "url": "https://www.nvidia.com/en-us/solutions/quantum-computing/"
+        }
+      ]
+    },
+    {
+      "id": "ionq",
+      "name": "IonQ",
+      "mark": "IQ",
+      "technologies": [
+        "ions",
+        "photonics"
+      ],
+      "tagline": "Trapped-ion processors and photonic connections.",
+      "description": "Develops trapped-ion quantum computers and networking technologies, with research into processor interconnects and architectures for fault-tolerant computation.",
+      "areas": [
+        "Trapped-ion gates",
+        "Photonic networking",
+        "Fault-tolerant architectures"
+      ],
+      "website": "https://www.ionq.com/",
+      "newsroom": "https://www.ionq.com/news",
+      "applications": [
+        2,
+        4,
+        11
+      ],
+      "lab": "bell",
+      "achievement": {
+        "title": "Interconnecting trapped-ion quantum systems",
+        "date": "2026-04-14",
+        "summary": "IonQ reports entanglement-related photonic links between two independent commercial trapped-ion systems in a joint project with AFRL.",
+        "url": "https://www.ionq.com/news/ionq-achieves-key-photonic-interconnect-milestone-demonstrating-networked-quantum-systems-using-entanglement"
+      },
+      "developments": [
+        {
+          "title": "Walking Cat fault-tolerance architecture",
+          "date": "2026-04-22",
+          "summary": "A proposed trapped-ion architecture describes how error correction and ion transport could support a larger fault-tolerant computer.",
+          "url": "https://www.ionq.com/blog/blueprint-for-fault-tolerant-trapped-ion-quantum-computing-the-walking-cat-architecture",
+          "kind": "Architecture proposal"
+        }
+      ],
+      "sources": [
+        {
+          "title": "IonQ’s trapped-ion platform",
+          "url": "https://www.ionq.com/"
+        }
+      ]
+    },
+    {
+      "id": "quantinuum",
+      "name": "Quantinuum",
+      "mark": "QT",
+      "technologies": [
+        "ions",
+        "hybrid"
+      ],
+      "tagline": "Trapped-ion hardware with a full quantum software stack.",
+      "description": "Develops trapped-ion quantum processors and integrated software for hybrid programs, error correction, and scientific applications. Its Helios system builds on a quantum charge-coupled-device approach.",
+      "areas": [
+        "Trapped-ion processors",
+        "Logical computation",
+        "Hybrid programming & chemistry"
+      ],
+      "website": "https://www.quantinuum.com/",
+      "newsroom": "https://www.quantinuum.com/news",
+      "applications": [
+        2,
+        10,
+        11
+      ],
+      "lab": "qubit",
+      "achievement": {
+        "title": "Commercial introduction of Helios",
+        "date": "2025-11-05",
+        "summary": "Quantinuum introduced Helios with real-time classical control and Guppy, a language for combining quantum and classical operations.",
+        "url": "https://www.quantinuum.com/press-releases/quantinuum-announces-commercial-launch-of-new-helios-quantum-computer-that-offers-unprecedented-accuracy-to-enable-generative-quantum-ai-genqai"
+      },
+      "developments": [
+        {
+          "title": "Hybrid-compute collaboration with Oracle",
+          "date": "2026-08-11",
+          "summary": "Quantinuum and Oracle announced work to integrate quantum and classical computing through Oracle Cloud Infrastructure.",
+          "url": "https://ir.quantinuum.com/news-releases/news-release-details/quantinuum-and-oracle-partner-accelerate-hybrid-quantum-compute",
+          "kind": "Company announcement"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Quantinuum Helios product data sheet",
+          "url": "https://docs.quantinuum.com/systems/data_sheets/Quantinuum%20Helios%20Product%20Data%20Sheet.pdf"
+        }
+      ]
+    },
+    {
+      "id": "rigetti",
+      "name": "Rigetti",
+      "mark": "RG",
+      "technologies": [
+        "superconducting"
+      ],
+      "tagline": "Superconducting processors built from connected chiplets.",
+      "description": "Builds superconducting quantum processors, modular chiplet architectures, and Quantum Cloud Services, with an emphasis on control, fidelity, and system scaling.",
+      "areas": [
+        "Modular chiplets",
+        "Fast quantum gates",
+        "Quantum cloud services"
+      ],
+      "website": "https://www.rigetti.com/",
+      "newsroom": "https://www.rigetti.com/rigetti-computing-news",
+      "applications": [
+        0,
+        2,
+        5
+      ],
+      "lab": "tunnel",
+      "achievement": {
+        "title": "Cepheus-1-108Q becomes generally available",
+        "date": "2026-04-07",
+        "summary": "Rigetti announced a 108-physical-qubit system assembled from twelve interconnected nine-qubit chiplets, accessible through QCS and Amazon Braket.",
+        "url": "https://investors.rigetti.com/node/10951/pdf"
+      },
+      "developments": [
+        {
+          "title": "108-qubit system deployment update",
+          "date": "2026-04-07",
+          "summary": "The announcement describes the modular architecture and reports gate-performance figures. Physical-qubit count alone is not a measure of useful computational advantage.",
+          "url": "https://www.rigetti.com/news/rigetti-announces-general-availability-of-108-qubit-system",
+          "kind": "Company announcement"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Rigetti’s official system announcement",
+          "url": "https://investors.rigetti.com/node/10951/pdf"
+        }
+      ]
+    },
+    {
+      "id": "dwave",
+      "name": "D-Wave",
+      "mark": "DW",
+      "technologies": [
+        "annealing",
+        "superconducting"
+      ],
+      "tagline": "Quantum annealing, with an expanding gate-model program.",
+      "description": "Develops quantum annealing systems and hybrid solvers for optimization. Its acquisition of Quantum Circuits adds a superconducting gate-model development program.",
+      "areas": [
+        "Quantum annealing",
+        "Hybrid optimization",
+        "Dual-rail gate-model research"
+      ],
+      "website": "https://www.dwavequantum.com/",
+      "newsroom": "https://www.dwavequantum.com/company/newsroom/",
+      "applications": [
+        9,
+        10,
+        12
+      ],
+      "lab": "tunnel",
+      "achievement": {
+        "title": "Annealing and gate-model technology under one roof",
+        "date": "2026-01-20",
+        "summary": "D-Wave completed its acquisition of Quantum Circuits, adding an error-detecting superconducting gate-model approach alongside its annealing business.",
+        "url": "https://www.dwavequantum.com/company/newsroom/press-release/d-wave-completes-acquisition-of-quantum-circuits/"
+      },
+      "developments": [
+        {
+          "title": "A dual-platform development strategy",
+          "date": "2026-01-20",
+          "summary": "The acquisition announcement outlines gate-model plans. Future delivery dates and projected error-correction performance remain company roadmap statements.",
+          "url": "https://www.dwavequantum.com/company/newsroom/press-release/d-wave-completes-acquisition-of-quantum-circuits/",
+          "kind": "Company announcement & roadmap"
+        }
+      ],
+      "sources": [
+        {
+          "title": "D-Wave acquisition announcement",
+          "url": "https://www.dwavequantum.com/company/newsroom/press-release/d-wave-completes-acquisition-of-quantum-circuits/"
+        }
+      ]
+    },
+    {
+      "id": "psiquantum",
+      "name": "PsiQuantum",
+      "mark": "ΨQ",
+      "technologies": [
+        "photonics"
+      ],
+      "tagline": "Silicon photonics and a path through semiconductor manufacturing.",
+      "description": "Develops photonic quantum computing using the Omega silicon-photonics platform, optical networking, and the Construct suite for fault-tolerant algorithm design.",
+      "areas": [
+        "Photonic components",
+        "Fault-tolerant architectures",
+        "Algorithm resource estimation"
+      ],
+      "website": "https://www.psiquantum.com/",
+      "newsroom": "https://www.psiquantum.com/news-import",
+      "applications": [
+        2,
+        5,
+        8
+      ],
+      "lab": "slit",
+      "achievement": {
+        "title": "Omega photonics platform",
+        "date": null,
+        "summary": "Integrates photon sources, detectors, and switches in a foundry-based platform. Planned utility-scale systems require further integration and validation.",
+        "url": "https://www.psiquantum.com/technology"
+      },
+      "developments": [
+        {
+          "title": "Construct collaboration with Brookhaven Lab",
+          "date": "2026-09-02",
+          "summary": "The partners announced work on algorithms and scientific applications using Construct for future fault-tolerant computers.",
+          "url": "https://www.psiquantum.com/news-import/psiquantum-brookhaven-lab-partner-to-accelerate-quantum-application-development-using-construct-software-tool",
+          "kind": "Research collaboration"
+        }
+      ],
+      "sources": [
+        {
+          "title": "PsiQuantum’s photonic technology",
+          "url": "https://www.psiquantum.com/technology"
+        }
+      ]
+    },
+    {
+      "id": "quera",
+      "name": "QuEra",
+      "mark": "QA",
+      "technologies": [
+        "neutral-atoms"
+      ],
+      "tagline": "Reconfigurable atoms, analog simulation, and logical-qubit research.",
+      "description": "Develops neutral-atom processors using optical control and Rydberg interactions, from Aquila’s analog simulations to research into error-corrected quantum computing.",
+      "areas": [
+        "Neutral-atom arrays",
+        "Quantum simulation",
+        "Logical qubits & error correction"
+      ],
+      "website": "https://www.quera.com/",
+      "newsroom": "https://www.quera.com/news",
+      "applications": [
+        2,
+        5,
+        9
+      ],
+      "lab": "qubit",
+      "achievement": {
+        "title": "Aquila and a neutral-atom roadmap",
+        "date": null,
+        "summary": "Aquila provides access to analog neutral-atom simulation. Logical-qubit research supports a separate path toward fault-tolerant operation.",
+        "url": "https://www.quera.com/press-releases/quera-unveils-gigaquop-class-fault-tolerant-roadmap-and-invites-organizations-to-co-design-quantum-applications"
+      },
+      "developments": [
+        {
+          "title": "Fault-tolerant systems roadmap",
+          "date": "2026-06-25",
+          "summary": "QuEra describes a 2028–2029 roadmap beyond Libra and invites application co-design. The dates and capabilities are targets, not completed deployments.",
+          "url": "https://www.quera.com/press-releases/quera-unveils-gigaquop-class-fault-tolerant-roadmap-and-invites-organizations-to-co-design-quantum-applications",
+          "kind": "Company roadmap"
+        }
+      ],
+      "sources": [
+        {
+          "title": "QuEra’s official roadmap",
+          "url": "https://www.quera.com/our-quantum-roadmap"
+        }
+      ]
+    }
+  ]
+}

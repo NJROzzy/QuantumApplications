@@ -1,0 +1,1000 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-18T05:37:43.744Z",
+  "snapshotAt": "2026-10-18T05:35:38.776Z",
+  "mode": "partial",
+  "refreshAfterMs": 900000,
+  "sources": [
+    {
+      "id": "arxiv",
+      "name": "arXiv · quant-ph",
+      "homepage": "https://arxiv.org/list/quant-ph/recent",
+      "state": "live",
+      "checkedAt": "2026-10-18T05:37:43.744Z",
+      "itemCount": 12
+    },
+    {
+      "id": "ibm",
+      "name": "IBM Quantum",
+      "homepage": "https://www.ibm.com/quantum/blog",
+      "state": "live",
+      "checkedAt": "2026-10-18T05:37:43.744Z",
+      "itemCount": 6
+    },
+    {
+      "id": "google",
+      "name": "Google Quantum AI",
+      "homepage": "https://quantumai.google/",
+      "state": "live",
+      "checkedAt": "2026-10-18T05:37:43.744Z",
+      "itemCount": 12
+    },
+    {
+      "id": "mit",
+      "name": "MIT News",
+      "homepage": "https://news.mit.edu/topic/quantum-physics",
+      "state": "live",
+      "checkedAt": "2026-10-18T05:37:43.744Z",
+      "itemCount": 12
+    },
+    {
+      "id": "nature",
+      "name": "Nature · npj Quantum Information",
+      "homepage": "https://www.nature.com/npjqi/",
+      "state": "unavailable",
+      "checkedAt": "2026-10-18T05:37:43.744Z",
+      "lastSuccessAt": "2026-10-18T05:35:38.776Z",
+      "itemCount": 0
+    }
+  ],
+  "articles": [
+    {
+      "id": "30b77afd86fd20a8",
+      "title": "Bringing the magic: Google breaks open a bottleneck in quantum computing",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/quantum-computing/magic-state-cultivation-quantum-computing/",
+      "summary": "In a paper published in Science, Google has shown that Magic State Cultivation works on Google Quantum AI hardware.",
+      "publishedAt": "2026-10-15T18:00:00.000Z",
+      "sourceId": "google",
+      "sourceName": "Google Quantum AI",
+      "kind": "Company research",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "ai",
+        "hardware"
+      ],
+      "companies": [
+        "google"
+      ],
+      "applications": [
+        11
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "c1cb20c8436197cc",
+      "title": "Discovering state-of-the-art quantum circuits with large language models",
+      "url": "https://arxiv.org/abs/2610.22367v1",
+      "summary": "Significant efforts are currently being directed toward the implementation of large-scale quantum information processors, but realizing useful quantum advantage also requires the development of efficient quantum algorithms. While for many practical…",
+      "publishedAt": "2026-10-15T17:59:20.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "ai",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [
+        11
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "47e331c1976939da",
+      "title": "Stability of Quantum LDPC States under Local Pauli Noise",
+      "url": "https://arxiv.org/abs/2610.22357v1",
+      "summary": "Quantum low-density parity-check (qLDPC) codes have a canonical mixed state---the normalized projector onto the code space---that lies at the intersection of quantum error correction and quantum many-body physics, yet the stability of its…",
+      "publishedAt": "2026-10-15T17:58:40.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "39e23851980c3ed8",
+      "title": "Magic in quantum trajectory unravelings of noisy random quantum circuits",
+      "url": "https://arxiv.org/abs/2610.22318v1",
+      "summary": "The quantum-trajectory description of a noisy quantum circuit is not unique: every Kraus representation of the noise channel defines a different unraveling, i.e., a different ensemble of pure states that averages to the same density matrix. While…",
+      "publishedAt": "2026-10-15T17:51:22.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "e35818b5464c41ce",
+      "title": "Magna: simulating magic state factories as cheaply as Clifford circuits",
+      "url": "https://arxiv.org/abs/2610.22315v1",
+      "summary": "Classical simulation of magic state factories, including distillation, cultivation, and code switching, is challenging because of their substantial non-Clifford content. We introduce $\\texttt{magna}$ (magic-state-factory assessment via global…",
+      "publishedAt": "2026-10-15T17:51:13.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "31be2f0391d1ecaa",
+      "title": "Classical Capacity of Single-Mode Bosonic Gaussian Channels",
+      "url": "https://arxiv.org/abs/2610.22308v1",
+      "summary": "The classical capacity of a noisy optical channel is the maximum rate at which information can be transmitted reliably, given a constraint on the mean input energy. For the ubiquitous bosonic Gaussian channels, which include standard models of loss…",
+      "publishedAt": "2026-10-15T17:49:43.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [
+        6,
+        12
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "264f3c84f59ec352",
+      "title": "Adding Temperature to the Adiabatic Connection: Hybrid Functionals for Static and Dynamic Correlation",
+      "url": "https://arxiv.org/abs/2610.22284v1",
+      "summary": "Capturing static and dynamic electron correlation simultaneously at manageable computational cost remains a key challenge in electronic structure theory. Motivated by the recurring role of effective temperature in self-consistent field methods we…",
+      "publishedAt": "2026-10-15T17:41:39.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        2
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "5766fa0b0a2d9e77",
+      "title": "SynDebug: A Framework to Debug Logic Bugs in Fault-Tolerant Quantum Computing Programs",
+      "url": "https://arxiv.org/abs/2610.22275v1",
+      "summary": "Fault-tolerant quantum computing (FTQC) introduces substantial systems-level complexity through quantum error correction (QEC), making debugging FTQC programs challenging. Existing quantum debugging approaches primarily target logical-level circuits…",
+      "publishedAt": "2026-10-15T17:37:29.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "ef59b414c577ae3b",
+      "title": "Constrained dissipation and the lifetime of quantum many-body scars",
+      "url": "https://arxiv.org/abs/2610.22223v1",
+      "summary": "We investigate the fate of quantum many-body scars in the PXP model subject to Markovian dissipation. We show that when local jump operators respect the same symmetries of the Hamiltonian the full Liouvillian spectrum displays a tower of states with…",
+      "publishedAt": "2026-10-15T17:03:36.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "ce1f0ce614a528d3",
+      "title": "Programmable all-to-all entangling gates for cavity-coupled atoms",
+      "url": "https://arxiv.org/abs/2610.22220v1",
+      "summary": "Fault tolerant quantum computers greatly benefit from having both high fidelity entangling gates and a non-local qubit connectivity. However, most entangling gates for neutral atoms are local, requiring separated atoms to be moved using optical…",
+      "publishedAt": "2026-10-15T17:03:11.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "physics",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [
+        6
+      ],
+      "lab": "bell"
+    },
+    {
+      "id": "cf23c549de5b4670",
+      "title": "Efficient quantum simulation of unitary gates based on atomic ensembles",
+      "url": "https://arxiv.org/abs/2610.22207v1",
+      "summary": "We develop a technique to perform efficient unitary time evolution of a general spin Hamiltonian based on the system with identical qubits, as naturally realized by permutation symmetric atomic ensembles. We employ Cartan decomposition method to the…",
+      "publishedAt": "2026-10-15T16:55:55.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "physics",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "b83b61459301f6eb",
+      "title": "Classification of bipartite observables III: simplicity, mixtures and quantum error correction",
+      "url": "https://arxiv.org/abs/2610.22205v1",
+      "summary": "The paradigm of a simple unstable theory in the sense of Shelah is the theory of the random graph, the Fraïssé limit of the finite graphs. Quantum error correction has a paradigm of its own, and we show that it is the counterpart of the random…",
+      "publishedAt": "2026-10-15T16:54:41.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "9399efc0d128bcf5",
+      "title": "Energetics of Fault-Tolerant Spin-Qubit Quantum Computation",
+      "url": "https://arxiv.org/abs/2610.22199v1",
+      "summary": "Semiconductor spin qubits offer a promising route to compact and scalable quantum computers, combining long coherence times in isotopically purified silicon with compatibility with semiconductor manufacturing. Beyond computational speedup, their…",
+      "publishedAt": "2026-10-15T16:50:41.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "physics",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [
+        0
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "21fc07b111056366",
+      "title": "What's new at IBM Quantum Q3 2026",
+      "url": "https://www.ibm.com/quantum/blog/whats-new-q3-2026",
+      "summary": "Explore new updates, releases, and resources from IBM Quantum and Qiskit with this convenient one-pager, designed to get you started with the latest capabilities right away.",
+      "publishedAt": "2026-10-07T00:00:00.000Z",
+      "sourceId": "ibm",
+      "sourceName": "IBM Quantum",
+      "kind": "Company research",
+      "summaryType": "Source summary",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "ibm"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "eb96e415e63b660f",
+      "title": "Qiskit beyond Python: Fortran, C++, and Julia",
+      "url": "https://www.ibm.com/quantum/blog/qiskit-beyond-python",
+      "summary": "Qiskit’s C API connects the SDK’s Rust core to the languages of HPC and scientific computing, so you can build and run circuits natively—no Python required.",
+      "publishedAt": "2026-10-06T00:00:00.000Z",
+      "sourceId": "ibm",
+      "sourceName": "IBM Quantum",
+      "kind": "Company research",
+      "summaryType": "Source summary",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "ibm"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "e9b9d85ea42661c2",
+      "title": "Directed execution: Scaling a research platform for quantum error correction",
+      "url": "https://www.ibm.com/quantum/blog/directed-execution",
+      "summary": "See, customize, and extend how your circuits use the error mitigation and correction methods researchers are exploring today on IBM quantum hardware",
+      "publishedAt": "2026-10-05T00:00:00.000Z",
+      "sourceId": "ibm",
+      "sourceName": "IBM Quantum",
+      "kind": "Company research",
+      "summaryType": "Source summary",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "hardware"
+      ],
+      "companies": [
+        "ibm"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "d0cc73fd2d197687",
+      "title": "The continuous path from error mitigation to fault-tolerant quantum computing",
+      "url": "https://www.ibm.com/quantum/blog/qec-continuum",
+      "summary": "A spectrum of error-correcting techniques is enabling useful quantum computation, measured not by logical qubits but by the circuits you can run with them.",
+      "publishedAt": "2026-09-15T00:00:00.000Z",
+      "sourceId": "ibm",
+      "sourceName": "IBM Quantum",
+      "kind": "Company research",
+      "summaryType": "Source summary",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "hardware"
+      ],
+      "companies": [
+        "ibm"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "07162c0ab4b4300a",
+      "title": "Switzerland will soon get its first IBM Quantum System Two",
+      "url": "https://www.ibm.com/quantum/blog/swiss-innovation-hub",
+      "summary": "Lockheed Martin and IBM are launching a Swiss quantum innovation hub at ETH Zurich to advance research, industry collaboration, and workforce development.",
+      "publishedAt": "2026-09-10T00:00:00.000Z",
+      "sourceId": "ibm",
+      "sourceName": "IBM Quantum",
+      "kind": "Company research",
+      "summaryType": "Source summary",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [
+        "ibm"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "8cf8a2a4de10ea56",
+      "title": "Cleveland Clinic, RIKEN, IBM named Gordon Bell finalists",
+      "url": "https://www.ibm.com/quantum/blog/gordon-bell-finalists-2026",
+      "summary": "Finalist recognition for one of supercomputing’s top prizes arrives as researchers report new progress in automated quantum-HPC chemistry workflows.",
+      "publishedAt": "2026-09-09T00:00:00.000Z",
+      "sourceId": "ibm",
+      "sourceName": "IBM Quantum",
+      "kind": "Company research",
+      "summaryType": "Source summary",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [
+        "ibm"
+      ],
+      "applications": [
+        2
+      ],
+      "lab": "bell"
+    },
+    {
+      "id": "2454552264b02567",
+      "title": "MIT Quantum Initiative launches postdoctoral fellowship program",
+      "url": "https://news.mit.edu/2026/mit-quantum-initiative-launches-postdoctoral-fellowship-0831",
+      "summary": "The Institute welcomes its first cohort of QMIT Fellows this fall to advance interdisciplinary quantum research.",
+      "publishedAt": "2026-08-31T19:30:00.000Z",
+      "sourceId": "mit",
+      "sourceName": "MIT News",
+      "kind": "Research news",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "physics",
+        "ai"
+      ],
+      "companies": [],
+      "applications": [
+        2,
+        5,
+        11
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "4c52b2bdf8e921c3",
+      "title": "Physicists watch a material’s electrons assemble, and reassemble, into coexisting phases",
+      "url": "https://news.mit.edu/2026/physicists-watch-materials-electrons-assemble-reassemble-coexisting-phases-0807",
+      "summary": "The study could help scientists understand how superconductivity and other more complex phenomena emerge in quantum materials.",
+      "publishedAt": "2026-08-07T09:00:00.000Z",
+      "sourceId": "mit",
+      "sourceName": "MIT News",
+      "kind": "Research news",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        5,
+        12
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "00d89f1a67709c25",
+      "title": "How to create distinguishable states for quantum systems",
+      "url": "https://news.mit.edu/2026/how-to-create-distinguishable-states-for-quantum-systems-0615",
+      "summary": "Researchers establish key insights for reading and writing information for quantum sensing, communication, computing, and control.",
+      "publishedAt": "2026-06-15T19:55:00.000Z",
+      "sourceId": "mit",
+      "sourceName": "MIT News",
+      "kind": "Research news",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        3,
+        4
+      ],
+      "lab": "slit"
+    },
+    {
+      "id": "a51ff26b05866e1a",
+      "title": "Pablo Jarillo-Herrero wins Kavli Prize in Nanoscience",
+      "url": "https://news.mit.edu/2026/pablo-jarillo-herrero-wins-kavli-prize-nanoscience-0610",
+      "summary": "The MIT physicist shares the honor with two others for foundational research establishing the field of twistronics.",
+      "publishedAt": "2026-06-10T14:00:00.000Z",
+      "sourceId": "mit",
+      "sourceName": "MIT News",
+      "kind": "Research news",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        5
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "d8951679a130c7d5",
+      "title": "The latest AI news we announced in May 2026",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/",
+      "summary": "Here are Google’s latest AI updates from May 2026",
+      "publishedAt": "2026-06-05T14:45:00.000Z",
+      "sourceId": "google",
+      "sourceName": "Google Quantum AI",
+      "kind": "Company research",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "google"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "5f9f051694074a21",
+      "title": "Our new initiative to apply quantum science and AI to the life sciences",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/quantum-computing/repliqa-quantum-computing-life-sciences/",
+      "summary": "Google's REPLIQA program funds academic institutions to apply quantum science and AI to life sciences for scientific breakthroughs.",
+      "publishedAt": "2026-05-11T17:30:00.000Z",
+      "sourceId": "google",
+      "sourceName": "Google Quantum AI",
+      "kind": "Company research",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "google"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "e44e5f55d93f2261",
+      "title": "New study bridges the worlds of classical and quantum physics",
+      "url": "https://news.mit.edu/2026/new-study-bridges-classical-and-quantum-physics-0421",
+      "summary": "The weird quantum behavior of subatomic particles can be understood through everyday classical ideas, MIT researchers show.",
+      "publishedAt": "2026-04-21T23:05:00.000Z",
+      "sourceId": "mit",
+      "sourceName": "MIT News",
+      "kind": "Research news",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "1ee6f8536181b22e",
+      "title": "Multitasking quantum sensors can measure several properties at once",
+      "url": "https://news.mit.edu/2026/multitasking-quantum-sensors-can-measure-several-properties-0415",
+      "summary": "The devices represent a key step toward practical quantum sensing, with applications in biomedical sensing, materials characterization, and more.",
+      "publishedAt": "2026-04-15T04:00:00.000Z",
+      "sourceId": "mit",
+      "sourceName": "MIT News",
+      "kind": "Research news",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        5,
+        3
+      ],
+      "lab": "slit"
+    },
+    {
+      "id": "20fffbd1e5548d0f",
+      "title": "Answering your trending questions on World Quantum Day",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/quantum-computing/world-quantum-day-2026/",
+      "summary": "Google celebrated World Quantum Day 2026 with a Doodle and a video about quantum computing.",
+      "publishedAt": "2026-04-14T14:21:00.000Z",
+      "sourceId": "google",
+      "sourceName": "Google Quantum AI",
+      "kind": "Company research",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "google"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "7cdc1620a644697d",
+      "title": "Electrons in moiré crystals explore higher-dimensional quantum worlds",
+      "url": "https://news.mit.edu/2026/electrons-in-moire-crystals-explore-higher-dimensional-quantum-worlds-0403",
+      "summary": "MIT physicists have discovered 3D “moiré crystals” that simulate four-dimensional quantum materials to a T.",
+      "publishedAt": "2026-04-03T21:30:00.000Z",
+      "sourceId": "mit",
+      "sourceName": "MIT News",
+      "kind": "Research news",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        5,
+        12
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "bb26f6bf82a605f1",
+      "title": "Quantum frontiers may be closer than they appear",
+      "url": "https://blog.google/innovation-and-ai/technology/safety-security/cryptography-migration-timeline/",
+      "summary": "An overview of how Google is accelerating its timeline for post-quantum cryptography migration.",
+      "publishedAt": "2026-03-25T13:00:00.000Z",
+      "sourceId": "google",
+      "sourceName": "Google Quantum AI",
+      "kind": "Company research",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "google"
+      ],
+      "applications": [
+        14
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "a2e54f886f01760b",
+      "title": "Building superconducting and neutral atom quantum computers",
+      "url": "https://blog.google/innovation-and-ai/technology/research/neutral-atom-quantum-computers/",
+      "summary": "An overview of Google Quantum AI’s work on superconducting and neutral atom quantum computers.",
+      "publishedAt": "2026-03-24T17:00:00.000Z",
+      "sourceId": "google",
+      "sourceName": "Google Quantum AI",
+      "kind": "Company research",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "ai",
+        "hardware"
+      ],
+      "companies": [
+        "google"
+      ],
+      "applications": [
+        11
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "2a1b4ebb881c7445",
+      "title": "The quantum era is coming. Are we ready to secure it?",
+      "url": "https://blog.google/innovation-and-ai/technology/safety-security/the-quantum-era-is-coming-are-we-ready-to-secure-it/",
+      "summary": "Google shares an update on its work and suggestions for how policymakers can help everyone be more secure in the Quantum Era.",
+      "publishedAt": "2026-02-06T22:15:00.000Z",
+      "sourceId": "google",
+      "sourceName": "Google Quantum AI",
+      "kind": "Company research",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "google"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "fe5ff00b04e72ba7",
+      "title": "Anything-goes “anyons” may be at the root of surprising quantum experiments",
+      "url": "https://news.mit.edu/2025/anything-goes-anyons-may-be-root-surprising-quantum-experiments-1222",
+      "summary": "MIT physicists say these quasiparticles may explain how superconductivity and magnetism can coexist in certain materials.",
+      "publishedAt": "2025-12-22T15:00:00.000Z",
+      "sourceId": "mit",
+      "sourceName": "MIT News",
+      "kind": "Research news",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        5
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "1397cea2858ed331",
+      "title": "The 7 finalists in the XPRIZE Quantum Applications competition",
+      "url": "https://blog.google/innovation-and-ai/technology/research/google-gesda-xprize-quantum-applications-finalists/",
+      "summary": "Google announces the 7 finalists in the XPRIZE Quantum Applications competition.",
+      "publishedAt": "2025-12-10T17:00:00.000Z",
+      "sourceId": "google",
+      "sourceName": "Google Quantum AI",
+      "kind": "Company research",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "google"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "f230d8d0bc55e08c",
+      "title": "Leading quantum at an inflection point",
+      "url": "https://news.mit.edu/2025/leading-quantum-inflection-point-1110",
+      "summary": "The MIT Quantum Initiative is taking shape, leveraging quantum breakthroughs to drive the future of scientific and technological progress.",
+      "publishedAt": "2025-11-10T15:00:00.000Z",
+      "sourceId": "mit",
+      "sourceName": "MIT News",
+      "kind": "Research news",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        2,
+        3,
+        14
+      ],
+      "lab": "slit"
+    },
+    {
+      "id": "275374f109934b80",
+      "title": "Our Quantum Echoes algorithm is a big step toward real-world applications for quantum computing",
+      "url": "https://blog.google/innovation-and-ai/technology/research/quantum-echoes-willow-verifiable-quantum-advantage/",
+      "summary": "Our latest quantum breakthrough, Quantum Echoes, offers a path toward unprecedented scientific discoveries and analysis.",
+      "publishedAt": "2025-10-22T15:00:00.000Z",
+      "sourceId": "google",
+      "sourceName": "Google Quantum AI",
+      "kind": "Company research",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "google"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "b7040d592be13dee",
+      "title": "Our quantum hardware: the engine for verifiable quantum advantage",
+      "url": "https://blog.google/innovation-and-ai/technology/research/quantum-hardware-verifiable-advantage/",
+      "summary": "Michel Devorat and Yu Chen provide an overview of the quantum hardware that made the Quantum Echoes breakthrough possible.",
+      "publishedAt": "2025-10-22T15:00:00.000Z",
+      "sourceId": "google",
+      "sourceName": "Google Quantum AI",
+      "kind": "Company research",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "hardware"
+      ],
+      "companies": [
+        "google"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "d20b8d949ce48f4a",
+      "title": "Why some quantum materials stall while others scale",
+      "url": "https://news.mit.edu/2025/why-some-quantum-materials-stall-while-others-scale-1015",
+      "summary": "In a new study, MIT researchers evaluated quantum materials’ potential for scalable commercial success — and identified promising candidates.",
+      "publishedAt": "2025-10-15T04:00:00.000Z",
+      "sourceId": "mit",
+      "sourceName": "MIT News",
+      "kind": "Research news",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        5,
+        12
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "761b4340a87aaa66",
+      "title": "Riccardo Comin, two MIT alumni named 2025 Moore Experimental Physics Investigators",
+      "url": "https://news.mit.edu/2025/riccardo-comin-mit-alumni-named-moore-experimental-physics-investigators-1008",
+      "summary": "MIT physicist seeks to use award to study magnetoelectric multiferroics that could lead to energy-efficient storage devices.",
+      "publishedAt": "2025-10-08T19:00:00.000Z",
+      "sourceId": "mit",
+      "sourceName": "MIT News",
+      "kind": "Research news",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        12
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "46ada3235d49f65d",
+      "title": "MIT-affiliated physicists win McMillan Award for discovery of exotic electronic state",
+      "url": "https://news.mit.edu/2025/mit-affiliated-physicists-win-mcmillan-award-discovery-exotic-electronic-state-1002",
+      "summary": "Jiaqi Cai and Zhengguang Lu independently discovered that electrons can become fractions of themselves.",
+      "publishedAt": "2025-10-02T20:15:00.000Z",
+      "sourceId": "mit",
+      "sourceName": "MIT News",
+      "kind": "Research news",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        5
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "c1e90423c52dec8c",
+      "title": "We’re scaling quantum computing even faster with Atlantic Quantum.",
+      "url": "https://blog.google/innovation-and-ai/technology/research/scaling-quantum-computing-even-faster-with-atlantic-quantum/",
+      "summary": "Google Quantum AI was founded in 2012 and our mission today remains the same — build quantum computing for otherwise unsolvable problems. We’re making steady progress on…",
+      "publishedAt": "2025-10-02T16:30:00.000Z",
+      "sourceId": "google",
+      "sourceName": "Google Quantum AI",
+      "kind": "Company research",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "ai"
+      ],
+      "companies": [
+        "google"
+      ],
+      "applications": [
+        11
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "256b39ed5802a0ef",
+      "title": "3 real-world problems that quantum computers could help solve",
+      "url": "https://blog.google/innovation-and-ai/technology/research/google-quantum-computer-real-world-applications/",
+      "summary": "For World Quantum Day, we’re sharing three real-world ways quantum computers may advance science and benefit people.",
+      "publishedAt": "2025-04-14T00:00:00.000Z",
+      "sourceId": "google",
+      "sourceName": "Google Quantum AI",
+      "kind": "Company research",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "google"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    }
+  ]
+}
