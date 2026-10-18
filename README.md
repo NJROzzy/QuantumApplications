@@ -2,6 +2,10 @@
 
 An interactive, responsive website about quantum physics, its historical evolution, and real-world applications. Content is adapted from the supplied **Quantum Evolution Applications Comprehensive Guide**, prepared October 2026. The complete 19-chapter guide and its tables are preserved in `public/content/guide.json`; the original document is available to download on the site.
 
+**Live website:** https://quantumapplicationsbynjr.vercel.app
+
+**Source repository:** https://github.com/NJROzzy/QuantumApplications
+
 ## Development
 
 Requires Node.js 20.19 or newer. The website has no runtime packages. Install the development dependency to run interaction checks.
@@ -22,6 +26,8 @@ The guide distinguishes established quantum technologies from research, explorat
 ## Deployment
 
 `vercel.json` configures a static Vercel deployment. The Vercel project slug uses lowercase (`quantumapplicationsbynjr`); the website's project name is **QuantumApplicationsbyNJR**. Vercel authentication and local project identity are excluded from Git.
+
+The project is deployed in the existing `workfornjr-7532s-projects` Vercel workspace and connected to the GitHub repository. Pushes to `main` trigger production deployments.
 
 ## Verification
 
