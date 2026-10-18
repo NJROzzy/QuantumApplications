@@ -5,5 +5,5 @@ try { snapshot = JSON.parse(await readFile('public/content/news-snapshot.json', 
 const data = await collectNews({ snapshot });
 if (!data.articles.length) throw new Error('No news retrieved; existing snapshot has not been overwritten.');
 await writeFile('public/content/news-snapshot.json', JSON.stringify(data, null, 2) + '\n');
-for (const source of data.sources) console.log(`${source.name}: ${source.state} / ${source.itemCount} items`);
+for (const source of data.sources) console.log(`${source.name}: ${source.state} / ${source.itemCount} items${source.reason ? ` (${source.reason})` : ''}`);
 console.log(`Saved ${data.articles.length} research updates at ${data.checkedAt}.`);

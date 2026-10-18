@@ -2,10 +2,13 @@ import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 import { JSDOM, VirtualConsole } from 'jsdom';
 import { initSimulations } from '../public/simulations.js';
+import { initFrontier } from '../public/frontier.js';
 
 const html = await readFile('public/index.html', 'utf8');
 const source = await readFile('public/app.js', 'utf8');
 const guide = JSON.parse(await readFile('public/content/guide.json', 'utf8'));
+const industry = JSON.parse(await readFile('public/content/industry.json', 'utf8'));
+const news = JSON.parse(await readFile('public/content/news-snapshot.json', 'utf8'));
 const errors = [];
 const virtualConsole = new VirtualConsole();
 virtualConsole.on('jsdomError', error => errors.push(error));
@@ -31,9 +34,10 @@ window.HTMLCanvasElement.prototype.getBoundingClientRect = function () { return 
 window.HTMLElement.prototype.scrollIntoView = function () {};
 window.HTMLDialogElement.prototype.showModal = function () { this.open = true; };
 window.HTMLDialogElement.prototype.close = function () { this.open = false; };
-window.fetch = async () => ({ ok: true, json: async () => guide });
+window.fetch = async url => ({ ok: true, json: async () => url === '/content/guide.json' ? guide : url === '/content/industry.json' ? industry : news });
 window.initSimulations = initSimulations;
-window.eval(source.replace(/^import \{ initSimulations \} from '.\/simulations.js';\s*/, ''));
+window.initFrontier = initFrontier;
+window.eval(source.replace(/^import .+;\s*/gm, ''));
 const $ = selector => window.document.querySelector(selector);
 const $$ = selector => [...window.document.querySelectorAll(selector)];
 const click = selector => { const element = $(selector); assert.ok(element, `Missing control ${selector}`); element.click(); };
@@ -307,6 +311,31 @@ await check('Mobile navigation toggles and closes when a section is chosen', () 
   assert.equal($('.menu-button').getAttribute('aria-expanded'), 'true');
   click('#main-nav a');
   assert.equal($('.menu-button').getAttribute('aria-expanded'), 'false');
+});
+await check('Industry profiles open the corresponding application dialog',()=>{
+  click('#company-google [data-company-profile]');
+  click('#industry-dialog [data-frontier-app="2"]');
+  assert.equal($('#industry-dialog').open,false);
+  assert.equal($('#application-dialog').open,true);
+  assert.equal($('#application-dialog-title').textContent,'Chemistry & catalysis');
+});
+await check('Applications open related research and company filters',()=>{
+  click('#application-dialog [data-news-app="2"]');
+  assert.equal($('#application-dialog').open,false);
+  assert.equal($('#news-context').hidden,false);
+  click('[data-app="0"]');click('#application-dialog [data-atlas-app="0"]');
+  assert.equal($('#atlas-context').hidden,false);
+  assert.ok($$('.industry-card').some(card=>card.textContent.includes('Rigetti')));
+  click('#clear-atlas-context');
+});
+await check('New research connects to the existing simulator and timeline controls',()=>{
+  click('#clear-news-context');
+  const labButton=$('#news-grid [data-launch-sim]');
+  assert.ok(labButton);const target=labButton.dataset.launchSim;labButton.click();
+  assert.equal($(`#simulation-${target}`).hidden,false);
+  click('#company-ibm [data-company-profile]');click('#industry-dialog [data-frontier-timeline]');
+  assert.equal($('#era-3').getAttribute('aria-selected'),'true');
+  assert.equal($('#industry-dialog').open,false);
 });
 await check('No script errors occurred during interaction checks', () => assert.deepEqual(errors, []));
 dom.window.close();

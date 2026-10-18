@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "checkedAt": "2026-10-18T05:37:43.744Z",
-  "snapshotAt": "2026-10-18T05:35:38.776Z",
-  "mode": "partial",
+  "checkedAt": "2026-10-18T05:51:19.459Z",
+  "snapshotAt": "2026-10-18T05:39:38.896Z",
+  "mode": "live",
   "refreshAfterMs": 900000,
   "sources": [
     {
@@ -10,41 +10,45 @@
       "name": "arXiv · quant-ph",
       "homepage": "https://arxiv.org/list/quant-ph/recent",
       "state": "live",
-      "checkedAt": "2026-10-18T05:37:43.744Z",
-      "itemCount": 12
+      "checkedAt": "2026-10-18T05:51:19.459Z",
+      "itemCount": 12,
+      "transport": "Publisher feed"
     },
     {
       "id": "ibm",
       "name": "IBM Quantum",
       "homepage": "https://www.ibm.com/quantum/blog",
       "state": "live",
-      "checkedAt": "2026-10-18T05:37:43.744Z",
-      "itemCount": 6
+      "checkedAt": "2026-10-18T05:51:19.459Z",
+      "itemCount": 6,
+      "transport": "Official blog"
     },
     {
       "id": "google",
       "name": "Google Quantum AI",
       "homepage": "https://quantumai.google/",
       "state": "live",
-      "checkedAt": "2026-10-18T05:37:43.744Z",
-      "itemCount": 12
+      "checkedAt": "2026-10-18T05:51:19.459Z",
+      "itemCount": 12,
+      "transport": "Publisher feed"
     },
     {
       "id": "mit",
       "name": "MIT News",
       "homepage": "https://news.mit.edu/topic/quantum-physics",
       "state": "live",
-      "checkedAt": "2026-10-18T05:37:43.744Z",
-      "itemCount": 12
+      "checkedAt": "2026-10-18T05:51:19.459Z",
+      "itemCount": 12,
+      "transport": "Publisher feed"
     },
     {
       "id": "nature",
       "name": "Nature · npj Quantum Information",
       "homepage": "https://www.nature.com/npjqi/",
-      "state": "unavailable",
-      "checkedAt": "2026-10-18T05:37:43.744Z",
-      "lastSuccessAt": "2026-10-18T05:35:38.776Z",
-      "itemCount": 0
+      "state": "live",
+      "checkedAt": "2026-10-18T05:51:19.459Z",
+      "itemCount": 8,
+      "transport": "Crossref publisher metadata"
     }
   ],
   "articles": [
@@ -58,20 +62,17 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
         "computing",
-        "ai",
         "hardware"
       ],
       "companies": [
         "google"
       ],
-      "applications": [
-        11
-      ],
+      "applications": [],
       "lab": "qubit"
     },
     {
@@ -84,7 +85,7 @@
       "sourceName": "arXiv · quant-ph",
       "kind": "Preprint",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -108,7 +109,7 @@
       "sourceName": "arXiv · quant-ph",
       "kind": "Preprint",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -129,7 +130,7 @@
       "sourceName": "arXiv · quant-ph",
       "kind": "Preprint",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -149,7 +150,7 @@
       "sourceName": "arXiv · quant-ph",
       "kind": "Preprint",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -169,7 +170,7 @@
       "sourceName": "arXiv · quant-ph",
       "kind": "Preprint",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research"
@@ -191,7 +192,7 @@
       "sourceName": "arXiv · quant-ph",
       "kind": "Preprint",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -213,7 +214,7 @@
       "sourceName": "arXiv · quant-ph",
       "kind": "Preprint",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -233,7 +234,7 @@
       "sourceName": "arXiv · quant-ph",
       "kind": "Preprint",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -253,7 +254,7 @@
       "sourceName": "arXiv · quant-ph",
       "kind": "Preprint",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -277,7 +278,7 @@
       "sourceName": "arXiv · quant-ph",
       "kind": "Preprint",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -299,7 +300,7 @@
       "sourceName": "arXiv · quant-ph",
       "kind": "Preprint",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -319,7 +320,7 @@
       "sourceName": "arXiv · quant-ph",
       "kind": "Preprint",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -334,6 +335,111 @@
       "lab": "qubit"
     },
     {
+      "id": "49670a26c17c3fa5",
+      "title": "Genuine continuous quantumness",
+      "url": "https://www.nature.com/articles/s41534-026-01389-7",
+      "summary": "Abstract Randomness is a key feature of quantum physics. Heisenberg’s uncertainty principle reveals the existence of an intrinsic noise, usually explored through Gaussian squeezed states. Due to their insufficiency for quantum advantage, the focus…",
+      "publishedAt": "2026-10-14T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Publisher abstract excerpt",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
+      "id": "76c3807ed9960c31",
+      "title": "Structural control of two-level defect density revealed by high-throughput correlative measurements of Josephson junctions",
+      "url": "https://www.nature.com/articles/s41534-026-01395-9",
+      "summary": "Journal research in npj Quantum Information. Read the original paper for the methods, results, and limitations.",
+      "publishedAt": "2026-10-14T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Journal metadata",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
+      "id": "01777bf6f662a967",
+      "title": "Mirror subspace diagonalization: a real-time quantum Krylov algorithm with near-optimal sampling cost",
+      "url": "https://www.nature.com/articles/s41534-026-01384-y",
+      "summary": "Journal research in npj Quantum Information. Read the original paper for the methods, results, and limitations.",
+      "publishedAt": "2026-10-13T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Journal metadata",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
+      "id": "f904c54bcf3a635c",
+      "title": "Exponential advantage in continuous-variable quantum state learning",
+      "url": "https://www.nature.com/articles/s41534-026-01391-z",
+      "summary": "Journal research in npj Quantum Information. Read the original paper for the methods, results, and limitations.",
+      "publishedAt": "2026-10-12T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Journal metadata",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
+      "id": "715e84d051e10bba",
+      "title": "A quantitative model for embedding quantum-secure communications and evaluating communication autonomy in industrial control systems",
+      "url": "https://www.nature.com/articles/s41534-026-01396-8",
+      "summary": "Journal research in npj Quantum Information. Read the original paper for the methods, results, and limitations.",
+      "publishedAt": "2026-10-12T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Journal metadata",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [
+        4
+      ],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
       "id": "21fc07b111056366",
       "title": "What's new at IBM Quantum Q3 2026",
       "url": "https://www.ibm.com/quantum/blog/whats-new-q3-2026",
@@ -343,7 +449,7 @@
       "sourceName": "IBM Quantum",
       "kind": "Company research",
       "summaryType": "Source summary",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -354,6 +460,50 @@
       ],
       "applications": [],
       "lab": "qubit"
+    },
+    {
+      "id": "e65ccbcf71800c9e",
+      "title": "Demonstration of subspace-search variational quantum eigensolver using photonic orbital angular momentum qudits",
+      "url": "https://www.nature.com/articles/s41534-026-01380-2",
+      "summary": "Abstract Accurate excited-state energies are essential for interpreting fluorescence and photochemical processes, yet variational quantum eigensolvers (VQEs) on noisy intermediate-scale quantum (NISQ) hardware have largely been confined to ground…",
+      "publishedAt": "2026-10-07T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Publisher abstract excerpt",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [
+        6
+      ],
+      "lab": "slit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
+      "id": "203837f090debd12",
+      "title": "High-order Magnus expansion for Hamiltonian simulation",
+      "url": "https://www.nature.com/articles/s41534-026-01385-x",
+      "summary": "Journal research in npj Quantum Information. Read the original paper for the methods, results, and limitations.",
+      "publishedAt": "2026-10-07T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Journal metadata",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
     },
     {
       "id": "eb96e415e63b660f",
@@ -365,7 +515,7 @@
       "sourceName": "IBM Quantum",
       "kind": "Company research",
       "summaryType": "Source summary",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -378,6 +528,26 @@
       "lab": "qubit"
     },
     {
+      "id": "cfaeb529e01964e1",
+      "title": "Breaking Rayleigh’s curse: broadband frequency super-resolution via a quantum harmonic oscillator",
+      "url": "https://www.nature.com/articles/s41534-026-01388-8",
+      "summary": "Abstract Non-orthogonal quantum states cannot be distinguished with complete certainty, making their underlying physical parameters difficult to resolve. In frequency spectroscopy of two closely spaced electromagnetic fields, this challenge has…",
+      "publishedAt": "2026-10-06T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Publisher abstract excerpt",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
       "id": "e9b9d85ea42661c2",
       "title": "Directed execution: Scaling a research platform for quantum error correction",
       "url": "https://www.ibm.com/quantum/blog/directed-execution",
@@ -387,7 +557,7 @@
       "sourceName": "IBM Quantum",
       "kind": "Company research",
       "summaryType": "Source summary",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -410,7 +580,7 @@
       "sourceName": "IBM Quantum",
       "kind": "Company research",
       "summaryType": "Source summary",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -433,7 +603,7 @@
       "sourceName": "IBM Quantum",
       "kind": "Company research",
       "summaryType": "Source summary",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research"
@@ -454,7 +624,7 @@
       "sourceName": "IBM Quantum",
       "kind": "Company research",
       "summaryType": "Source summary",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research"
@@ -477,7 +647,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -503,7 +673,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -526,7 +696,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -550,7 +720,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -572,7 +742,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -594,7 +764,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -616,7 +786,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -636,7 +806,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -659,7 +829,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -681,7 +851,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -704,7 +874,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -728,20 +898,17 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
         "computing",
-        "ai",
         "hardware"
       ],
       "companies": [
         "google"
       ],
-      "applications": [
-        11
-      ],
+      "applications": [],
       "lab": "qubit"
     },
     {
@@ -754,7 +921,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -776,7 +943,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -799,7 +966,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -821,7 +988,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -846,7 +1013,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -868,7 +1035,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -891,7 +1058,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -915,7 +1082,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -937,7 +1104,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -959,19 +1126,16 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
-        "computing",
-        "ai"
+        "computing"
       ],
       "companies": [
         "google"
       ],
-      "applications": [
-        11
-      ],
+      "applications": [],
       "lab": "qubit"
     },
     {
@@ -984,7 +1148,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:37:43.744Z",
+      "retrievedAt": "2026-10-18T05:51:19.459Z",
       "freshness": "live",
       "categories": [
         "research",
