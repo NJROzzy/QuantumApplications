@@ -1,0 +1,1124 @@
+{
+  "title": "Quantum",
+  "subtitle": "A comprehensive guide to quantum physics, technology, applications and historical evolution",
+  "edition": "October 2026",
+  "intro": [
+    {
+      "type": "paragraph",
+      "text": "QUANTUM"
+    },
+    {
+      "type": "paragraph",
+      "text": "A comprehensive guide to quantum physics, technology, applications and historical evolution"
+    },
+    {
+      "type": "paragraph",
+      "text": "Research handbook | Historical timeline: 1800–2026 | Outlook: 2027–2040+"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prepared October 2026. Historical events are distinguished from industry forecasts; commercial claims are not treated as proven quantum advantage."
+    },
+    {
+      "type": "paragraph",
+      "text": "Executive overview"
+    },
+    {
+      "type": "paragraph",
+      "text": "Quantum science studies physical systems for which classical descriptions fail, particularly at atomic, molecular and subatomic scales. Its consequences already power semiconductors, lasers, magnetic resonance imaging, atomic clocks, LEDs and many sensing technologies. The emerging “second quantum revolution” engineers coherent superposition, entanglement and measurement to build quantum computers, networks and precision sensors. These three technology families differ greatly in maturity, engineering requirements and market readiness."
+    },
+    {
+      "type": "paragraph",
+      "text": "Central distinction: quantum mechanics is established science; quantum computing at useful, fault-tolerant scale is an active engineering frontier. Quantum computers are not universally faster computers, and many projected industry use cases remain unverified."
+    }
+  ],
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Foundations: what quantum means",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Quantization"
+        },
+        {
+          "type": "paragraph",
+          "text": "Some measurable quantities, notably bound-system energies, occur in discrete allowed levels. Planck introduced energy quanta to explain blackbody radiation; photons carry energy E = h f."
+        },
+        {
+          "type": "paragraph",
+          "text": "Wave–particle behavior"
+        },
+        {
+          "type": "paragraph",
+          "text": "Light and matter display interference and localized detection. A quantum state encodes probability amplitudes; probabilities follow the Born rule, proportional to squared amplitude."
+        },
+        {
+          "type": "paragraph",
+          "text": "Superposition"
+        },
+        {
+          "type": "paragraph",
+          "text": "A state may be a coherent combination of basis states, such as |ψ⟩ = α|0⟩ + β|1⟩, where |α|² + |β|² = 1. It does not mean a classical object is simply in two definite states."
+        },
+        {
+          "type": "paragraph",
+          "text": "Uncertainty and complementarity"
+        },
+        {
+          "type": "paragraph",
+          "text": "Noncommuting observables cannot generally have simultaneously arbitrarily precise outcomes: ΔxΔp ≥ ħ/2. This is not merely a limitation of instruments."
+        },
+        {
+          "type": "paragraph",
+          "text": "Entanglement"
+        },
+        {
+          "type": "paragraph",
+          "text": "A joint state can possess correlations not reducible to independent states of its parts. Bell tests rule out broad classes of local hidden-variable explanations; entanglement does not enable faster-than-light messaging."
+        },
+        {
+          "type": "paragraph",
+          "text": "Measurement and decoherence"
+        },
+        {
+          "type": "paragraph",
+          "text": "Measurement outcomes are probabilistic; interactions with uncontrolled environments destroy accessible phase coherence. Decoherence is a principal challenge for quantum processors and networks."
+        },
+        {
+          "type": "paragraph",
+          "text": "Tunneling"
+        },
+        {
+          "type": "paragraph",
+          "text": "Quantum amplitudes can penetrate classically forbidden barriers, underlying scanning tunneling microscopy, some electronic devices and nuclear processes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Spin and indistinguishability"
+        },
+        {
+          "type": "paragraph",
+          "text": "Spin is intrinsic angular momentum. Fermions obey the Pauli exclusion principle, shaping atomic structure and electronic bands; bosons can occupy the same state."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Essential mathematical toolkit",
+      "blocks": [
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Concept",
+              "Expression / idea",
+              "Why it matters"
+            ],
+            [
+              "State vector",
+              "|ψ⟩ in complex Hilbert space",
+              "Represents a pure state"
+            ],
+            [
+              "Qubit",
+              "α|0⟩ + β|1⟩",
+              "Basic unit of quantum information"
+            ],
+            [
+              "Normalization",
+              "|α|² + |β|² = 1",
+              "Total probability equals one"
+            ],
+            [
+              "Unitary evolution",
+              "|ψ(t)⟩ = U(t)|ψ(0)⟩",
+              "Ideal closed-system operations"
+            ],
+            [
+              "Schrödinger equation",
+              "iħ ∂|ψ⟩/∂t = H|ψ⟩",
+              "Dynamics from Hamiltonian"
+            ],
+            [
+              "Born rule",
+              "P(m) = |⟨m|ψ⟩|²",
+              "Measurement statistics"
+            ],
+            [
+              "Tensor product",
+              "|ψ⟩AB ∈ HA ⊗ HB",
+              "Composite quantum systems"
+            ],
+            [
+              "Density matrix",
+              "ρ = Σ pi |ψi⟩⟨ψi|",
+              "Mixed states and noise"
+            ],
+            [
+              "Commutator",
+              "[A,B] = AB − BA",
+              "Compatibility of observables"
+            ],
+            [
+              "No-cloning theorem",
+              "Unknown arbitrary states cannot be copied perfectly",
+              "Limits networks and error handling"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Prerequisites: linear algebra (complex vectors, matrices, eigenvectors, tensor products), probability, calculus, differential equations, classical electromagnetism, introductory mechanics and Python. Advanced work adds group theory, statistical mechanics, solid-state physics and information theory."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Evolution: major historical timeline",
+      "blocks": [
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Year / era",
+              "Milestone"
+            ],
+            [
+              "1801",
+              "Young demonstrates optical interference; classical wave optics background."
+            ],
+            [
+              "1860s",
+              "Maxwell unifies electricity, magnetism and light."
+            ],
+            [
+              "1897",
+              "J. J. Thomson identifies the electron."
+            ],
+            [
+              "1900",
+              "Max Planck introduces quantized energy exchange."
+            ],
+            [
+              "1905",
+              "Einstein explains the photoelectric effect with light quanta."
+            ],
+            [
+              "1911–1913",
+              "Rutherford nuclear atom; Bohr quantized atomic model."
+            ],
+            [
+              "1923–1924",
+              "Compton scattering; de Broglie proposes matter waves."
+            ],
+            [
+              "1925",
+              "Heisenberg develops matrix mechanics; Pauli exclusion principle."
+            ],
+            [
+              "1926",
+              "Schrödinger wave mechanics; Born probability interpretation."
+            ],
+            [
+              "1927",
+              "Uncertainty principle; Solvay debates; electron diffraction experiments."
+            ],
+            [
+              "1928",
+              "Dirac relativistic electron theory."
+            ],
+            [
+              "1935",
+              "Einstein–Podolsky–Rosen argument; Schrödinger names entanglement."
+            ],
+            [
+              "1940s",
+              "Quantum electrodynamics refined by Feynman, Schwinger and Tomonaga."
+            ],
+            [
+              "1947–1950s",
+              "Transistor and semiconductor electronics; maser theory and demonstrations."
+            ],
+            [
+              "1960",
+              "First working laser."
+            ],
+            [
+              "1964",
+              "Bell derives experimentally testable inequalities."
+            ],
+            [
+              "1970s",
+              "Quantum information foundations and precision atomic/optical technologies develop."
+            ],
+            [
+              "1981–1982",
+              "Feynman advocates quantum simulation; Aspect’s Bell-test experiments."
+            ],
+            [
+              "1984",
+              "Bennett and Brassard propose BB84 quantum key distribution."
+            ],
+            [
+              "1985",
+              "Deutsch formulates universal quantum computation."
+            ],
+            [
+              "1991",
+              "Ekert proposes entanglement-based quantum cryptography."
+            ],
+            [
+              "1994",
+              "Shor’s factoring algorithm changes cryptographic risk assessments."
+            ],
+            [
+              "1995–1996",
+              "Quantum error correction; Grover search; DiVincenzo-era hardware criteria."
+            ],
+            [
+              "1997–1998",
+              "Quantum teleportation experiments; small NMR quantum computations."
+            ],
+            [
+              "2001",
+              "Small experimental demonstrations of Shor’s algorithm."
+            ],
+            [
+              "2010s",
+              "Superconducting, trapped-ion, photonic and neutral-atom platforms scale."
+            ],
+            [
+              "2016",
+              "Cloud access to quantum processors expands."
+            ],
+            [
+              "2019",
+              "Google reports a specialized random-circuit sampling milestone; interpretations and comparisons debated."
+            ],
+            [
+              "2022",
+              "Nobel Physics Prize honors entanglement experiments and Bell inequalities."
+            ],
+            [
+              "2023",
+              "Quantum error-correction experiments show important logical-qubit progress."
+            ],
+            [
+              "2024",
+              "NIST finalizes first three principal post-quantum cryptography standards."
+            ],
+            [
+              "2025",
+              "Nobel Physics Prize recognizes macroscopic tunneling and energy quantization in electrical circuits."
+            ],
+            [
+              "2026",
+              "Research focuses on logical qubits, modular cryogenics, error correction, hybrid workflows and credible application benchmarks."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "First versus second quantum revolution",
+      "blocks": [
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Dimension",
+              "First quantum revolution",
+              "Second quantum revolution"
+            ],
+            [
+              "Core ability",
+              "Understand and exploit quantum behavior of materials",
+              "Prepare, control and measure individual/coherent quantum states"
+            ],
+            [
+              "Examples",
+              "Transistors, LEDs, lasers, MRI, photovoltaics",
+              "Quantum processors, entanglement networks, atomic sensors"
+            ],
+            [
+              "Maturity",
+              "Widely commercialized",
+              "Mixed: mature niche sensing; computing and networking developing"
+            ],
+            [
+              "Engineering challenge",
+              "Materials and fabrication",
+              "Coherence, fidelity, scale, calibration and fault tolerance"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Quantum computing: architecture and workflow",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A quantum computing system combines physical qubits, control pulses, calibration, readout, classical electronics, compiler/transpiler, runtime orchestration, error mitigation or correction, and application software. A typical workflow maps a problem into a quantum circuit or Hamiltonian, chooses an algorithm, transpiles to a native gate set and topology, executes many shots, and statistically analyzes results. Hybrid approaches delegate optimization, preprocessing and validation to classical machines."
+        },
+        {
+          "type": "paragraph",
+          "text": "Physical and logical qubits"
+        },
+        {
+          "type": "paragraph",
+          "text": "Physical qubits are imperfect devices; a logical qubit encodes information across multiple physical qubits with syndrome measurements and decoding. Logical-qubit counts, error rates and logical operation quality matter more than headline physical-qubit counts."
+        },
+        {
+          "type": "paragraph",
+          "text": "Gate model"
+        },
+        {
+          "type": "paragraph",
+          "text": "Single-qubit rotations and entangling gates form circuits; common gates include X, Y, Z, H, S, T, CNOT and controlled phase. Universality does not imply practical speedups."
+        },
+        {
+          "type": "paragraph",
+          "text": "Analog simulation and annealing"
+        },
+        {
+          "type": "paragraph",
+          "text": "Analog simulators engineer Hamiltonians directly. Quantum annealers address energy-minimization formulations; claims of general optimization superiority require careful comparisons."
+        },
+        {
+          "type": "paragraph",
+          "text": "Noise and fault tolerance"
+        },
+        {
+          "type": "paragraph",
+          "text": "Errors include relaxation, dephasing, leakage, crosstalk, calibration drift and measurement faults. Error mitigation reduces bias without full correction; fault tolerance seeks reliable long computations despite imperfect components."
+        },
+        {
+          "type": "paragraph",
+          "text": "Benchmarks"
+        },
+        {
+          "type": "paragraph",
+          "text": "Assess circuit fidelity, logical error per cycle, connectivity, gate depth, runtime, resource overhead, energy cost and end-to-end accuracy against the best classical method."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Quantum hardware platforms",
+      "blocks": [
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Platform",
+              "Advantages",
+              "Key constraints",
+              "Typical focus"
+            ],
+            [
+              "Superconducting circuits",
+              "Fast gates; microfabrication ecosystem",
+              "Dilution refrigeration, wiring, crosstalk",
+              "Gate-model processors"
+            ],
+            [
+              "Trapped ions",
+              "High-fidelity operations; uniform atoms",
+              "Gate speed and optical/control scaling",
+              "Logical qubits, simulation"
+            ],
+            [
+              "Neutral atoms / Rydberg",
+              "Large reconfigurable arrays",
+              "Loss, control and gate fidelity",
+              "Simulation, gate computing"
+            ],
+            [
+              "Photonic",
+              "Room-temperature transmission; networking",
+              "Photon loss, sources, detectors",
+              "Communications and photonic computing"
+            ],
+            [
+              "Semiconductor spins",
+              "Potential CMOS integration; compact qubits",
+              "Variability, cryogenic control",
+              "Dense processors"
+            ],
+            [
+              "Defects / color centers",
+              "Optical interface; sensing strength",
+              "Materials variability and interfaces",
+              "Magnetometry, repeaters"
+            ],
+            [
+              "Topological approaches",
+              "Potential intrinsic error protection",
+              "Establishing and scaling robust modes",
+              "Long-horizon research"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Algorithms and complexity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Shor"
+        },
+        {
+          "type": "paragraph",
+          "text": "Polynomial-time factoring and discrete logarithms on an adequately large fault-tolerant quantum computer; threatens RSA and widely deployed elliptic-curve public-key schemes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Grover / amplitude amplification"
+        },
+        {
+          "type": "paragraph",
+          "text": "Quadratic query improvement for unstructured search under suitable oracle assumptions; does not give an exponential speedup for arbitrary database queries."
+        },
+        {
+          "type": "paragraph",
+          "text": "Quantum phase estimation"
+        },
+        {
+          "type": "paragraph",
+          "text": "A foundational component for eigenvalue estimation and some quantum chemistry and materials algorithms; precise implementations may demand deep circuits."
+        },
+        {
+          "type": "paragraph",
+          "text": "Hamiltonian simulation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Models time evolution of quantum systems; among the most physically motivated routes to advantage."
+        },
+        {
+          "type": "paragraph",
+          "text": "VQE"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hybrid variational eigensolver for approximate ground-state energies; sensitive to noise, optimization difficulties and classical competition."
+        },
+        {
+          "type": "paragraph",
+          "text": "QAOA"
+        },
+        {
+          "type": "paragraph",
+          "text": "Alternating operator ansatz for combinatorial optimization; practical superiority is not established in general."
+        },
+        {
+          "type": "paragraph",
+          "text": "Quantum machine learning"
+        },
+        {
+          "type": "paragraph",
+          "text": "Quantum kernels, variational circuits and quantum data models are active research; data loading, trainability and benchmarking constrain near-term value."
+        },
+        {
+          "type": "paragraph",
+          "text": "Quantum walks and amplitude estimation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Offer provable speedups for selected structured problems and estimation tasks, subject to access-model and implementation costs."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Applications: established, emerging and speculative",
+      "blocks": [
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Sector",
+              "Maturity",
+              "Applications and qualification"
+            ],
+            [
+              "Semiconductors and electronics",
+              "Established",
+              "Band theory, transistors, integrated circuits, tunneling devices."
+            ],
+            [
+              "Photonics and lasers",
+              "Established",
+              "Lasers, optical communications, imaging, LEDs."
+            ],
+            [
+              "Medical imaging",
+              "Established",
+              "MRI and NMR rely on nuclear spin physics; quantum sensing may enable new modalities."
+            ],
+            [
+              "Atomic clocks and navigation",
+              "Established / expanding",
+              "GPS timing, frequency standards; optical clocks and inertial navigation research."
+            ],
+            [
+              "Quantum sensing",
+              "Commercial niches / research",
+              "Magnetometry, gravimetry, geophysics, material inspection, brain-field measurement."
+            ],
+            [
+              "Quantum communications",
+              "Field trials / deployment niches",
+              "QKD, entanglement distribution, trusted-node links; not a replacement for all security."
+            ],
+            [
+              "Chemistry and catalysis",
+              "Research",
+              "Electronic structure, reaction mechanisms, catalyst design; fault-tolerant scale likely needed for hard instances."
+            ],
+            [
+              "Drug discovery",
+              "Research",
+              "Molecular simulation and chemistry workflows; no general clinical breakthrough attributable to quantum computing."
+            ],
+            [
+              "Materials and batteries",
+              "Research",
+              "Strong correlation, superconductors, electrolytes, electrode chemistry."
+            ],
+            [
+              "Optimization and logistics",
+              "Exploratory",
+              "Routing, scheduling, portfolios; benchmark against advanced classical solvers."
+            ],
+            [
+              "Finance",
+              "Exploratory",
+              "Monte Carlo acceleration, derivatives and risk; quantum resource requirements remain significant."
+            ],
+            [
+              "AI / ML",
+              "Exploratory",
+              "Quantum feature maps and learning; no general-purpose advantage demonstrated."
+            ],
+            [
+              "Climate and energy",
+              "Indirect / research",
+              "New materials, sensor networks, energy systems; avoid assuming faster climate simulation."
+            ],
+            [
+              "Space and aerospace",
+              "Research / selected sensing",
+              "Atomic inertial sensors, gravimeters, timing, space QKD, navigation without GNSS."
+            ],
+            [
+              "Defense and cybersecurity",
+              "Operational planning / research",
+              "PQC migration is actionable now; sensing and networks have security implications."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Quantum communications and cybersecurity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Quantum key distribution uses quantum-state preparation and measurement to detect some forms of interception under explicit trust and device assumptions. It still needs authenticated classical communication and practical security engineering. Quantum teleportation transfers a quantum state using shared entanglement and classical messages; it does not transport matter or communicate instantaneously. Quantum repeaters aim to overcome loss over long distances but are technologically demanding."
+        },
+        {
+          "type": "paragraph",
+          "text": "Post-quantum cryptography (PQC) is different from QKD: it uses conventional computers and mathematical algorithms designed to resist known quantum attacks. NIST finalized FIPS 203 (ML-KEM), 204 (ML-DSA) and 205 (SLH-DSA) in August 2024. Migration requires cryptographic inventories, prioritization of long-lived secrets, interoperability testing, protocol upgrades and crypto-agility. “Harvest now, decrypt later” motivates earlier action for data needing decades of confidentiality."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Quantum sensing and metrology",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sensors exploit atomic transitions, spin precession, interference, squeezed light or coherent ensembles to measure magnetic fields, acceleration, rotation, gravity, time and frequency. Examples include optically pumped magnetometers, NV-diamond sensors, atomic interferometers, SQUIDs and optical atomic clocks. Constraints include vibration, temperature, dynamic range, calibration, packaging and field robustness. Quantum-enhanced sensitivity must be assessed at system level, not only in laboratory noise floors."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Industries, economics and commercialization",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Value chains include cryogenic equipment, vacuum and photonics components, microwave electronics, control systems, semiconductor fabrication, quantum hardware, middleware/compilers, cloud access, cybersecurity integration and domain applications. Customers should distinguish research partnerships, proof-of-concept contracts and repeatable production economics. For a purchase decision, demand reproducible benchmarks, full classical baselines, operating cost, maintenance, integration burden and a clearly defined success criterion."
+        },
+        {
+          "type": "paragraph",
+          "text": "Key adoption barriers: expensive infrastructure; scarce cross-disciplinary talent; calibration and reliability; lack of standard application benchmarks; data movement and encoding costs; intellectual-property and export controls; and hype around unverified speedups."
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Research frontiers and unresolved questions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Can fault-tolerant logical qubits scale with acceptable physical overhead and real-time decoding?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Which useful problems have a demonstrable end-to-end quantum advantage over best classical algorithms?"
+        },
+        {
+          "type": "paragraph",
+          "text": "How can distributed modules be connected without prohibitive loss or latency?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Which error-correcting codes and architectures minimize total space-time resources?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Can quantum sensing remain robust and economically compelling outside controlled laboratories?"
+        },
+        {
+          "type": "paragraph",
+          "text": "What applications benefit from quantum-classical co-design rather than pure quantum execution?"
+        },
+        {
+          "type": "paragraph",
+          "text": "How should hardware benchmarks capture fidelity, depth, connectivity and energy use together?"
+        },
+        {
+          "type": "paragraph",
+          "text": "How do quantum thermodynamics, measurement and foundations connect to new experiments?"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Outlook timeline: 2027–2040+ (scenarios, not predictions)",
+      "blocks": [
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Period",
+              "Possible development",
+              "Uncertainty / validation"
+            ],
+            [
+              "2027–2029",
+              "More modular systems, logical operations and hybrid workflows; vendor targets for early fault tolerance",
+              "Roadmap dates are aspirations; verify independently"
+            ],
+            [
+              "2030–2035",
+              "Potential application-specific chemistry or simulation value, larger error-corrected machines",
+              "Depends on logical fidelity, overhead and classical progress"
+            ],
+            [
+              "2035–2040+",
+              "Broader quantum networks and some scalable industry applications",
+              "No assured date for general commercial advantage"
+            ],
+            [
+              "Throughout",
+              "PQC migration, precision clocks and specialized sensing expand",
+              "Deployment pace varies by sector"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "As of October 2026, IBM describes goals for quantum advantage in 2026 and a fault-tolerant system in 2029; these are company roadmaps rather than confirmed outcomes. The most actionable near-term quantum-related IT work is often post-quantum cryptography readiness."
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Quantum versus classical computing",
+      "blocks": [
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Question",
+              "Classical computing",
+              "Quantum computing"
+            ],
+            [
+              "Information unit",
+              "Bit (0 or 1)",
+              "Qubit (coherent amplitude state)"
+            ],
+            [
+              "Operations",
+              "Boolean logic / arithmetic",
+              "Unitary gates and measurement"
+            ],
+            [
+              "Error management",
+              "Digital redundancy, ECC",
+              "Quantum codes, syndrome extraction, decoding"
+            ],
+            [
+              "Strength",
+              "General-purpose, mature, low cost",
+              "Selected structured algorithms and quantum simulation"
+            ],
+            [
+              "Weakness",
+              "Some exponential physical simulations",
+              "Noise, limited scale, expensive control"
+            ],
+            [
+              "Replacement?",
+              "Core of nearly all systems",
+              "Likely accelerator alongside classical HPC"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Learning roadmap: from beginner to research",
+      "blocks": [
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Stage",
+              "Study",
+              "Practical deliverable"
+            ],
+            [
+              "1. Mathematics",
+              "Complex linear algebra, probability, eigenvalues, tensors",
+              "Calculate Bloch-sphere states and measurements"
+            ],
+            [
+              "2. Physics",
+              "Waves, Hamiltonians, Schrödinger equation, spin",
+              "Solve particle-in-box and two-level systems"
+            ],
+            [
+              "3. Information",
+              "Qubits, gates, Bell states, circuits",
+              "Simulate Bell correlations and teleportation"
+            ],
+            [
+              "4. Programming",
+              "Python, numerical linear algebra, quantum SDK",
+              "Build and transpile 2–5 qubit circuits"
+            ],
+            [
+              "5. Algorithms",
+              "Grover, QFT, phase estimation, VQE",
+              "Benchmark against classical baselines"
+            ],
+            [
+              "6. Hardware",
+              "Noise, coherence, calibration, QEC",
+              "Model error channels and logical repetition code"
+            ],
+            [
+              "7. Specialization",
+              "Chemistry, sensing, networks or cryptography",
+              "Reproduce one paper with transparent metrics"
+            ],
+            [
+              "8. Research",
+              "Resource estimates, open datasets, critical review",
+              "Write reproducible experimental report"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Suggested hands-on projects",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Project A — Bell experiment simulator"
+        },
+        {
+          "type": "paragraph",
+          "text": "Implement Bell-state preparation, basis rotations, sampling and CHSH statistics; compare ideal and noisy results."
+        },
+        {
+          "type": "paragraph",
+          "text": "Project B — Quantum chemistry comparison"
+        },
+        {
+          "type": "paragraph",
+          "text": "Compute a small molecular Hamiltonian, compare exact diagonalization, VQE and classical approximations; report total wall-clock and errors."
+        },
+        {
+          "type": "paragraph",
+          "text": "Project C — Error correction laboratory"
+        },
+        {
+          "type": "paragraph",
+          "text": "Implement bit-flip and phase-flip codes, inject noise, decode syndromes and plot logical versus physical error."
+        },
+        {
+          "type": "paragraph",
+          "text": "Project D — Post-quantum migration audit"
+        },
+        {
+          "type": "paragraph",
+          "text": "Inventory cryptographic dependencies in a sample web service, classify risk and propose a migration plan using NIST standards."
+        },
+        {
+          "type": "paragraph",
+          "text": "Project E — Quantum sensor concept"
+        },
+        {
+          "type": "paragraph",
+          "text": "Model atomic magnetometry or interferometric inertial sensing, including noise sources, calibration and field requirements."
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Myths, cautions and responsible interpretation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "“A qubit tries every answer and reads them all out” — false: interference and measurement constrain accessible information."
+        },
+        {
+          "type": "paragraph",
+          "text": "“Quantum computers break all encryption” — false: impact depends on the cryptosystem, algorithm and machine resources."
+        },
+        {
+          "type": "paragraph",
+          "text": "“More physical qubits means a better computer” — false: fidelity, connectivity, logical performance and overhead matter."
+        },
+        {
+          "type": "paragraph",
+          "text": "“Quantum teleportation moves people” — false: it transfers quantum-state information under strict conditions."
+        },
+        {
+          "type": "paragraph",
+          "text": "“Every optimization problem will become easy” — unsupported; complexity and classical baselines remain essential."
+        },
+        {
+          "type": "paragraph",
+          "text": "“Quantum biology explains consciousness” — not an established conclusion; separate experimentally supported effects from speculation."
+        },
+        {
+          "type": "paragraph",
+          "text": "“Commercial roadmap equals scientific achievement” — false: forecasts need independent validation."
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Glossary",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Amplitude"
+        },
+        {
+          "type": "paragraph",
+          "text": "Complex coefficient whose squared magnitude contributes to measurement probability."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bloch sphere"
+        },
+        {
+          "type": "paragraph",
+          "text": "Geometric representation of pure single-qubit states."
+        },
+        {
+          "type": "paragraph",
+          "text": "Coherence"
+        },
+        {
+          "type": "paragraph",
+          "text": "Preservation of phase relationships necessary for interference."
+        },
+        {
+          "type": "paragraph",
+          "text": "Decoherence"
+        },
+        {
+          "type": "paragraph",
+          "text": "Loss of accessible coherence through environment interactions."
+        },
+        {
+          "type": "paragraph",
+          "text": "Entanglement"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nonseparable correlations in a composite quantum state."
+        },
+        {
+          "type": "paragraph",
+          "text": "Fidelity"
+        },
+        {
+          "type": "paragraph",
+          "text": "Measure of agreement between actual and target quantum states or operations."
+        },
+        {
+          "type": "paragraph",
+          "text": "Hamiltonian"
+        },
+        {
+          "type": "paragraph",
+          "text": "Operator governing energy and unitary time evolution."
+        },
+        {
+          "type": "paragraph",
+          "text": "Logical qubit"
+        },
+        {
+          "type": "paragraph",
+          "text": "Error-protected encoded information unit built from physical resources."
+        },
+        {
+          "type": "paragraph",
+          "text": "NISQ"
+        },
+        {
+          "type": "paragraph",
+          "text": "Noisy intermediate-scale quantum, a label for limited noisy processors."
+        },
+        {
+          "type": "paragraph",
+          "text": "QEC"
+        },
+        {
+          "type": "paragraph",
+          "text": "Quantum error correction using redundant encoding and syndrome information."
+        },
+        {
+          "type": "paragraph",
+          "text": "QKD"
+        },
+        {
+          "type": "paragraph",
+          "text": "Quantum key distribution."
+        },
+        {
+          "type": "paragraph",
+          "text": "PQC"
+        },
+        {
+          "type": "paragraph",
+          "text": "Post-quantum cryptography, implemented on classical systems."
+        },
+        {
+          "type": "paragraph",
+          "text": "Shot"
+        },
+        {
+          "type": "paragraph",
+          "text": "One circuit execution and measurement sample."
+        },
+        {
+          "type": "paragraph",
+          "text": "Transpilation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mapping an abstract circuit to a hardware-native implementation."
+        },
+        {
+          "type": "paragraph",
+          "text": "Quantum advantage"
+        },
+        {
+          "type": "paragraph",
+          "text": "Demonstrated benefit over a clearly specified strong classical baseline on a relevant task."
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Selected references and further reading",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Planck, M. (1901) — On the law of distribution of energy in the normal spectrum."
+        },
+        {
+          "type": "paragraph",
+          "text": "Einstein, A. (1905) — On a heuristic viewpoint concerning the production and transformation of light."
+        },
+        {
+          "type": "paragraph",
+          "text": "Schrödinger, E. (1926) — Quantization as an eigenvalue problem."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bell, J. S. (1964) — On the Einstein Podolsky Rosen paradox."
+        },
+        {
+          "type": "paragraph",
+          "text": "Feynman, R. P. (1982) — Simulating physics with computers."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bennett, C. H. & Brassard, G. (1984) — Quantum cryptography: Public key distribution and coin tossing."
+        },
+        {
+          "type": "paragraph",
+          "text": "Shor, P. W. (1994) — Algorithms for quantum computation: Discrete logarithms and factoring."
+        },
+        {
+          "type": "paragraph",
+          "text": "Grover, L. K. (1996) — A fast quantum mechanical algorithm for database search."
+        },
+        {
+          "type": "paragraph",
+          "text": "Nielsen, M. A. & Chuang, I. L. (2010) — Quantum Computation and Quantum Information, Cambridge University Press."
+        },
+        {
+          "type": "paragraph",
+          "text": "Preskill, J. (2018) — Quantum computing in the NISQ era and beyond."
+        },
+        {
+          "type": "paragraph",
+          "text": "NIST (2024) — First three post-quantum cryptography standards: https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards"
+        },
+        {
+          "type": "paragraph",
+          "text": "NIST PQC project — https://csrc.nist.gov/Projects/Post-Quantum-Cryptography"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nobel Prize (2025) — Physics Prize, superconducting electrical circuits: https://www.nobelprize.org/prizes/physics/2025/summary/"
+        },
+        {
+          "type": "paragraph",
+          "text": "IBM Quantum Roadmap (2026) — Vendor goals, not independently verified outcomes: https://www.ibm.com/roadmaps/quantum/"
+        },
+        {
+          "type": "paragraph",
+          "text": "IBM Research (2026) — Quantum error correction overview: https://research.ibm.com/topics/quantum-error-correction"
+        },
+        {
+          "type": "paragraph",
+          "text": "Editorial note: This is a technical educational survey, not an exhaustive catalog of all papers or a claim that experimental quantum advantage has been established in every listed domain. Future milestones are contingent and may shift."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "quantumapplicationsbynjr",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An interactive field guide to quantum science and its applications by NJR.",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
