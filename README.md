@@ -4,9 +4,10 @@ An interactive, responsive website about quantum physics, its historical evoluti
 
 ## Development
 
-Requires Node.js 20 or newer. No runtime packages or installation are needed.
+Requires Node.js 20.19 or newer. The website has no runtime packages. Install the development dependency to run interaction checks.
 
 ```sh
+npm install
 npm run dev
 npm run check
 npm run build
@@ -21,3 +22,7 @@ The guide distinguishes established quantum technologies from research, explorat
 ## Deployment
 
 `vercel.json` configures a static Vercel deployment. The Vercel project slug uses lowercase (`quantumapplicationsbynjr`); the website's project name is **QuantumApplicationsbyNJR**. Vercel authentication and local project identity are excluded from Git.
+
+## Verification
+
+`npm run check` runs 12 checks using jsdom: source preservation, asset and anchor integrity, keyboard tabs, application filters and details, timeline switching, Born-rule probabilities and measurement endpoints, accumulating/resetting shots, chapter rendering, search safety, mobile navigation, and script errors. These checks exercise the actual page script; they do not verify visual rendering.

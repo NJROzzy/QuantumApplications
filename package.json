@@ -10,5 +10,10 @@
     "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20.19"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
 }
