@@ -1,3 +1,5 @@
+import { initSimulations } from './simulations.js';
+
 const $ = (selector, parent = document) => parent.querySelector(selector);
 const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
 const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
@@ -114,7 +116,7 @@ $('#application-grid').addEventListener('click', event => {
   const button = event.target.closest('[data-app]');
   if (!button) return;
   const app = applications[Number(button.dataset.app)];
-  $('#application-dialog-content').innerHTML = `${icon(app.icon)}<div><span class="status ${app.category}">${app.category}</span></div><h2 id="application-dialog-title">${escapeHTML(app.title)}</h2><p>${escapeHTML(app.text)}</p><p>${escapeHTML(app.source)}</p><p class="detail-caution">${escapeHTML(app.caution)}</p><button class="button primary" data-chapter="8">Explore the applications chapter <span aria-hidden="true">↗</span></button>`;
+  $('#application-dialog-content').innerHTML = `${icon(app.icon)}<div><span class="status ${app.category}">${app.category}</span></div><h2 id="application-dialog-title">${escapeHTML(app.title)}</h2><p>${escapeHTML(app.text)}</p><p>${escapeHTML(app.source)}</p><p class="detail-caution">${escapeHTML(app.caution)}</p><div class="application-dialog-actions"><button class="button primary" data-launch-sim="${app.icon === 'chip' ? 'tunnel' : ['network', 'shield'].includes(app.icon) ? 'bell' : ['sensor', 'laser', 'clock', 'space'].includes(app.icon) ? 'slit' : 'qubit'}">Launch a related simulation <span aria-hidden="true">↗</span></button><button class="text-link" data-chapter="8">Read the applications chapter ↗</button></div>`;
   $('#application-dialog').showModal();
 });
 renderApplications();
@@ -134,37 +136,7 @@ $$('[data-era]').forEach(button => button.addEventListener('click', () => select
 $('.era-tabs').addEventListener('keydown', event => handleTabKeys(event, $$('.era-tabs button'), selectEra));
 selectEra(0);
 
-let shots = 0, zeroes = 0, ones = 0;
-function updateQubit() {
-  const theta = Number($('#theta').value);
-  const radians = theta * Math.PI / 180;
-  const alpha = Math.cos(radians / 2), beta = Math.sin(radians / 2);
-  const p0 = Math.round(alpha * alpha * 100);
-  $('#theta-output').textContent = `${theta}°`;
-  $('#state-equation').textContent = `|ψ⟩ = ${alpha.toFixed(3)}|0⟩ + ${beta.toFixed(3)}|1⟩`;
-  $('#p-zero').textContent = `${p0}%`;
-  $('#p-one').textContent = `${100 - p0}%`;
-  $('#probability-fill').style.width = `${p0}%`;
-  const x = 150 + Math.sin(radians) * 89, y = 130 - Math.cos(radians) * 89;
-  $('#state-vector').setAttribute('d', `M150 130L${x} ${y}`);
-  $('#state-point').setAttribute('cx', x);
-  $('#state-point').setAttribute('cy', y);
-  $('#bloch-sphere').setAttribute('aria-label', `Bloch sphere: state angle ${theta} degrees; ${p0}% probability of zero and ${100 - p0}% probability of one`);
-  $$('[data-state]').forEach(button => { const active = Number(button.dataset.state) === theta; button.classList.toggle('active', active); button.setAttribute('aria-pressed', String(active)); });
-  shots = zeroes = ones = 0;
-  $('#measurement-results').innerHTML = '<span class="mono">AWAITING MEASUREMENT</span><p>Each shot samples a freshly prepared state. Results vary; probabilities stay the same.</p>';
-}
-$('#theta').addEventListener('input', updateQubit);
-$$('[data-state]').forEach(button => button.addEventListener('click', () => { $('#theta').value = button.dataset.state; updateQubit(); }));
-$('#measure').addEventListener('click', () => {
-  const p0 = Math.cos(Number($('#theta').value) * Math.PI / 360) ** 2;
-  const values = crypto.getRandomValues(new Uint32Array(100));
-  for (const value of values) { if (value / 4294967296 < p0) zeroes++; else ones++; }
-  shots += 100;
-  $('#measurement-results').innerHTML = `<div class="shot-counts"><span>|0⟩ <strong>${zeroes.toLocaleString()}</strong></span><span>|1⟩ <strong>${ones.toLocaleString()}</strong></span><span>${shots.toLocaleString()} shots</span></div><p>Observed: ${(zeroes / shots * 100).toFixed(1)}% zero · ${(ones / shots * 100).toFixed(1)}% one. Every shot starts with a newly prepared state.</p>`;
-});
-$('#reset-lab').addEventListener('click', () => { $('#theta').value = 90; updateQubit(); });
-updateQubit();
+initSimulations({ document, window });
 
 let guidePromise, guide, selectedChapter = 0;
 async function loadGuide() {
@@ -246,81 +218,99 @@ addEventListener('scroll', () => { const height = document.documentElement.scrol
 const sectionObserver = new IntersectionObserver(entries => { for (const entry of entries) if (entry.isIntersecting) $$('#main-nav a').forEach(link => link.classList.toggle('current', link.hash === `#${entry.target.id}`)); }, { rootMargin: '-15% 0px -60% 0px' });
 $$('main section[id]').forEach(section => sectionObserver.observe(section));
 
-// A decorative probability cloud, rather than a literal atomic-orbit model.
+// Interactive concept art. Scientific calculations live in the simulation deck.
 function initQuantumCloud() {
   const canvas = $('#quantum-canvas'), ctx = canvas.getContext('2d');
-  if (!ctx) return;
-  let width = 0, height = 0, visible = true, lastFrame = 0, frameId = 0;
-  const mobile = () => innerWidth <= 520;
-  const particles = Array.from({ length: 1800 }, (_, i) => {
-    const y = 1 - i / 1799 * 2;
-    const r = Math.sqrt(1 - y * y), phi = Math.PI * (3 - Math.sqrt(5)) * i;
+  let mode = 'cloud', energy = .6, paused = reducedMotion, width = 0, height = 0;
+  let visible = true, frameId = 0, lastTime = 0, elapsed = 0, lastDraw = 0;
+  let pointerX = 0, pointerY = 0, targetX = 0, targetY = 0;
+  const particles = Array.from({ length: 1600 }, (_, i) => {
+    const y = 1 - i / 1599 * 2, r = Math.sqrt(1 - y * y), phi = Math.PI * (3 - Math.sqrt(5)) * i;
     return { x: Math.cos(phi) * r, y, z: Math.sin(phi) * r, offset: (Math.sin(i * 42.13) + 1) / 2 };
   });
-  function resize() {
-    const rect = canvas.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
-    width = rect.width; height = rect.height;
-    canvas.width = width * dpr; canvas.height = height * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    if (reducedMotion) draw(0);
+  const modes = { cloud: ['PROBABILITY CLOUD', '01 / 03'], wave: ['INTERFERENCE FIELD', '02 / 03'], network: ['CORRELATED SYSTEMS', '03 / 03'] };
+  function syncControls() {
+    $$('[data-visual]').forEach(button => { const selected = button.dataset.visual === mode; button.classList.toggle('active', selected); button.setAttribute('aria-pressed', String(selected)); });
+    $('#hero-mode-label').textContent = modes[mode][0]; $('#hero-mode-index').textContent = modes[mode][1];
+    $('#hero-motion').setAttribute('aria-pressed', String(paused)); $('#hero-motion').setAttribute('aria-label', paused ? 'Play the ambient visualization' : 'Pause the ambient visualization'); $('#hero-motion').textContent = paused ? '▶' : 'Ⅱ';
+    $('#visual-energy-output').textContent = `${Math.round(energy * 100)}%`;
+    canvas.setAttribute('aria-label', `Interactive concept art: ${modes[mode][0].toLowerCase()}. Visual energy ${Math.round(energy * 100)} percent. Use the mode and energy controls to change the artwork.`);
   }
-  function draw(time) {
+  function draw() {
+    if (!ctx || !width || !height) return;
     ctx.clearRect(0, 0, width, height);
-    const cx = width * (mobile() ? .5 : .56), cy = height * .49;
-    const radius = Math.min(width * (mobile() ? .35 : .35), height * .355);
-    const t = time * .00012;
-    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.5);
-    glow.addColorStop(0, '#799f2318'); glow.addColorStop(.42, '#56761c0d'); glow.addColorStop(1, '#799f2300');
+    const mobile = innerWidth <= 520, cx = width * (mobile ? .5 : .56), cy = height * .45;
+    const radius = Math.min(width * .35, height * .32), t = elapsed * .00012;
+    pointerX += (targetX - pointerX) * .1; pointerY += (targetY - pointerY) * .1;
+    const spin = t + pointerX * .7, tilt = -.18 + pointerY * .36;
+    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.65);
+    glow.addColorStop(0, mode === 'wave' ? '#3c95951c' : '#799f2320'); glow.addColorStop(.45, '#56761c0d'); glow.addColorStop(1, '#799f2300');
     ctx.fillStyle = glow; ctx.fillRect(0, 0, width, height);
-    for (let i = 0; i < 55; i++) {
-      const x = ((Math.sin(i * 471.9) + 1) / 2) * width;
-      const y = ((Math.cos(i * 798.3) + 1) / 2) * height;
-      ctx.fillStyle = `rgba(168,190,135,${.13 + (Math.sin(i * 17.1) + 1) * .12})`;
-      ctx.fillRect(x, y, i % 11 === 0 ? 2 : 1, i % 11 === 0 ? 2 : 1);
+    for (let i = 0; i < 65; i++) {
+      ctx.fillStyle = `rgba(168,190,155,${.12 + (Math.sin(i * 17.1) + 1) * .1})`;
+      ctx.fillRect(((Math.sin(i * 471.9) + 1) / 2) * width, ((Math.cos(i * 798.3) + 1) / 2) * height, i % 11 === 0 ? 2 : 1, i % 11 === 0 ? 2 : 1);
     }
     const projected = particles.map((p, i) => {
-      const deformation = 1 + .07 * Math.sin(p.y * 13 + t * 2) * Math.cos(p.z * 8 - t);
-      const x = (p.x * Math.cos(t) + p.z * Math.sin(t)) * deformation;
-      const z = -p.x * Math.sin(t) + p.z * Math.cos(t);
-      const tilt = -.2;
-      const y = p.y * Math.cos(tilt) - z * Math.sin(tilt);
-      const rz = p.y * Math.sin(tilt) + z * Math.cos(tilt);
-      const perspective = 3.5 / (3.5 - rz);
-      return { x: cx + x * radius * perspective, y: cy + y * radius * perspective, z: rz, s: .45 + p.offset * .9, i };
+      let px = p.x, py = p.y, pz = p.z;
+      if (mode === 'wave') {
+        px = (i % 80 / 79 * 2 - 1) * 1.25; pz = (Math.floor(i / 80) / 19 * 2 - 1) * .8;
+        py = Math.sin(px * (4 + energy * 3) - t * 3) * (.2 + energy * .35) + Math.cos(pz * 5 + t) * .12;
+      } else if (mode === 'network') {
+        px = p.x * .5 + (i % 2 ? -.67 : .67); py = p.y * .5; pz = p.z * .5;
+      }
+      const deformation = 1 + (.025 + energy * .08) * Math.sin(py * 13 + t * 2) * Math.cos(pz * 8 - t);
+      const x = (px * Math.cos(spin) + pz * Math.sin(spin)) * deformation;
+      const z = -px * Math.sin(spin) + pz * Math.cos(spin);
+      const y = py * Math.cos(tilt) - z * Math.sin(tilt), rz = py * Math.sin(tilt) + z * Math.cos(tilt), perspective = 3.8 / (3.8 - rz);
+      return { x: cx + x * radius * perspective, y: cy + y * radius * perspective, z: rz, s: .4 + p.offset * (.6 + energy * .7), i };
     }).sort((a, b) => a.z - b.z);
     ctx.globalCompositeOperation = 'screen';
     projected.forEach(p => {
-      const opacity = .16 + (p.z + 1) * .32;
-      const size = p.s * (.8 + (p.z + 1) * .35);
-      ctx.beginPath(); ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
-      ctx.fillStyle = p.i % 9 === 0 ? `rgba(231,250,195,${opacity})` : `rgba(168,216,80,${opacity})`;
+      const opacity = Math.max(.12, .15 + (p.z + 1) * .31), size = p.s * (.8 + (p.z + 1) * .3);
+      ctx.beginPath(); ctx.arc(p.x, p.y, Math.max(.2, size), 0, Math.PI * 2);
+      ctx.fillStyle = mode === 'wave' || (mode === 'network' && p.i % 2) ? `rgba(128,228,231,${opacity})` : p.i % 9 === 0 ? `rgba(231,250,195,${opacity})` : `rgba(168,216,80,${opacity})`;
       ctx.fill();
-      if (p.z > .7 && p.i % 19 === 0) { ctx.beginPath(); ctx.arc(p.x, p.y, size * 4, 0, Math.PI * 2); ctx.fillStyle = '#c5f27709'; ctx.fill(); }
+      if (p.z > .5 && p.i % 23 === 0) { ctx.beginPath(); ctx.arc(p.x, p.y, size * 4, 0, Math.PI * 2); ctx.fillStyle = '#c5f27709'; ctx.fill(); }
     });
-    for (let ring = 0; ring < 3; ring++) {
-      const angle = [-.5, .7, -.1][ring];
-      const rx = radius * [1.57, 1.4, 1.2][ring], ry = radius * [.40, .49, .87][ring];
-      ctx.save(); ctx.translate(cx, cy); ctx.rotate(angle); ctx.beginPath(); ctx.ellipse(0, 0, rx, ry, 0, 0, Math.PI * 2); ctx.strokeStyle = ['#a4ce704d', '#a4ce702d', '#a4ce7018'][ring]; ctx.lineWidth = .7; ctx.stroke();
-      const position = t * (ring + 1) * .6 + ring * 2;
-      const px = Math.cos(position) * rx, py = Math.sin(position) * ry;
-      ctx.beginPath(); ctx.arc(px, py, ring === 0 ? 3 : 2, 0, Math.PI * 2); ctx.fillStyle = '#d7fca3'; ctx.shadowColor = '#bdec73'; ctx.shadowBlur = 16; ctx.fill(); ctx.restore();
+    if (mode === 'network') {
+      for (let i = 0; i < 8; i++) {
+        const y = cy + Math.sin(i * .7 + t) * radius * .4;
+        ctx.beginPath(); ctx.moveTo(cx - radius * .45, y); ctx.bezierCurveTo(cx - radius * .1, cy - radius * .3, cx + radius * .1, cy + radius * .3, cx + radius * .45, y);
+        ctx.strokeStyle = '#80e4e719'; ctx.lineWidth = .6; ctx.stroke();
+      }
     }
-    ctx.globalCompositeOperation = 'source-over';
-    // Technical marks add scale without implying measured scientific data.
-    ctx.strokeStyle = '#6d855a40'; ctx.lineWidth = .7;
-    const markers = [[cx - radius * 1.26, cy - radius * .8], [cx + radius * 1.19, cy + radius * .86]];
-    for (const [x, y] of markers) { ctx.beginPath(); ctx.moveTo(x - 5, y); ctx.lineTo(x + 5, y); ctx.moveTo(x, y - 5); ctx.lineTo(x, y + 5); ctx.stroke(); }
+    for (let ring = 0; ring < 3; ring++) {
+      const rotation = [-.5, .7, -.1][ring] + pointerX * .13;
+      const rx = radius * [1.55, 1.4, 1.2][ring], ry = radius * [.4, .49, .87][ring];
+      ctx.save(); ctx.translate(cx, cy); ctx.rotate(rotation); ctx.beginPath(); ctx.ellipse(0, 0, rx, ry, 0, 0, Math.PI * 2); ctx.strokeStyle = ['#a4ce704d', '#80e4e732', '#a4ce7018'][ring]; ctx.lineWidth = .7; ctx.stroke();
+      const position = t * (ring + 1) * .6 + ring * 2, px = Math.cos(position) * rx, py = Math.sin(position) * ry;
+      ctx.beginPath(); ctx.arc(px, py, ring === 0 ? 3 : 2, 0, Math.PI * 2); ctx.fillStyle = ring === 1 ? '#80e4e7' : '#d7fca3'; ctx.shadowColor = '#bdec73'; ctx.shadowBlur = 16; ctx.fill(); ctx.restore();
+    }
+    ctx.globalCompositeOperation = 'source-over'; ctx.strokeStyle = '#6d855a60'; ctx.lineWidth = .7;
+    for (const [x, y] of [[cx - radius * 1.3, cy - radius * .9], [cx + radius * 1.3, cy + radius * .9]]) { ctx.beginPath(); ctx.moveTo(x - 5, y); ctx.lineTo(x + 5, y); ctx.moveTo(x, y - 5); ctx.lineTo(x, y + 5); ctx.stroke(); }
+  }
+  function resize() {
+    const rect = canvas.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
+    width = rect.width; height = rect.height; canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
+    if (ctx) ctx.setTransform(dpr, 0, 0, dpr, 0, 0); draw();
   }
   function loop(time) {
-    if (!visible || document.hidden) { frameId = 0; return; }
-    if (time - lastFrame > 32) { draw(time); lastFrame = time; }
+    frameId = 0;
+    if (!visible || document.hidden || paused || !ctx) { lastTime = 0; return; }
+    const dt = lastTime ? Math.min(time - lastTime, 80) : 0; lastTime = time; elapsed += dt * (.35 + energy * 1.5);
+    if (time - lastDraw > 32) { draw(); lastDraw = time; }
     frameId = requestAnimationFrame(loop);
   }
-  function resume() { if (!reducedMotion && visible && !document.hidden && !frameId) frameId = requestAnimationFrame(loop); }
+  function resume() { if (!paused && visible && !document.hidden && !frameId && ctx) frameId = requestAnimationFrame(loop); }
+  function pauseFrame() { if (frameId) cancelAnimationFrame(frameId); frameId = 0; lastTime = 0; }
+  $$('[data-visual]').forEach(button => button.addEventListener('click', () => { mode = button.dataset.visual; syncControls(); draw(); }));
+  $('#visual-energy').addEventListener('input', () => { energy = Number($('#visual-energy').value) / 100; syncControls(); draw(); });
+  $('#hero-motion').addEventListener('click', () => { paused = !paused; syncControls(); if (paused) pauseFrame(); else resume(); });
+  $('.hero-visual').addEventListener('pointermove', event => { if (event.pointerType === 'touch') return; const rect = canvas.getBoundingClientRect(); if (!rect.width || !rect.height) return; targetX = (event.clientX - rect.left) / rect.width * 2 - 1; targetY = (event.clientY - rect.top) / rect.height * 2 - 1; if (paused) { pointerX = targetX; pointerY = targetY; draw(); } });
+  $('.hero-visual').addEventListener('pointerleave', () => { targetX = targetY = 0; if (paused) { pointerX = pointerY = 0; draw(); } });
   new ResizeObserver(resize).observe(canvas);
-  new IntersectionObserver(entries => { visible = entries[0].isIntersecting; resume(); }).observe(canvas);
-  document.addEventListener('visibilitychange', resume);
-  resize();
-  if (reducedMotion) draw(0); else resume();
+  new IntersectionObserver(entries => { visible = entries[0].isIntersecting; if (!visible) pauseFrame(); resume(); }).observe(canvas);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) pauseFrame(); else resume(); });
+  syncControls(); resize(); resume();
 }
 initQuantumCloud();
