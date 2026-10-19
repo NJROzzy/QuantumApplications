@@ -64,4 +64,4 @@ The project is deployed in the existing `workfornjr-7532s-projects` Vercel works
 
 ## Verification
 
-`npm run check` runs deterministic physics checks plus 52 content, interaction, integration, and news-service checks. It covers the original guide and experiments, RSS/Atom/RDF parsing, publisher failures, source URL restrictions, publication dates, news filters and refresh, industry profiles, contextual navigation, and unsafe publisher markup. The browser interactions use jsdom; these checks do not verify visual rendering.
+`npm run check` runs deterministic physics checks plus 66 content, interaction, integration, and news-service checks. It covers the original guide and experiments, publisher feeds and failures, source safety, news filters and refresh, industry profiles, toolkit search and keyboard tabs, software comparisons, and navigation between sections. Automated DOM interactions use jsdom. The toolkit has also been reviewed in a browser at desktop, tablet, and mobile widths; those visual checks are separate from the automated suite.
