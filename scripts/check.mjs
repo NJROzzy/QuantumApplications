@@ -3,12 +3,14 @@ import { readFile, access } from 'node:fs/promises';
 import { JSDOM, VirtualConsole } from 'jsdom';
 import { initSimulations } from '../public/simulations.js';
 import { initFrontier } from '../public/frontier.js';
+import { initToolkit } from '../public/toolkit.js';
 
 const html = await readFile('public/index.html', 'utf8');
 const source = await readFile('public/app.js', 'utf8');
 const guide = JSON.parse(await readFile('public/content/guide.json', 'utf8'));
 const industry = JSON.parse(await readFile('public/content/industry.json', 'utf8'));
 const news = JSON.parse(await readFile('public/content/news-snapshot.json', 'utf8'));
+const toolkit = JSON.parse(await readFile('public/content/toolkit.json', 'utf8'));
 const errors = [];
 const virtualConsole = new VirtualConsole();
 virtualConsole.on('jsdomError', error => errors.push(error));
@@ -34,9 +36,10 @@ window.HTMLCanvasElement.prototype.getBoundingClientRect = function () { return 
 window.HTMLElement.prototype.scrollIntoView = function () {};
 window.HTMLDialogElement.prototype.showModal = function () { this.open = true; };
 window.HTMLDialogElement.prototype.close = function () { this.open = false; };
-window.fetch = async url => ({ ok: true, json: async () => url === '/content/guide.json' ? guide : url === '/content/industry.json' ? industry : news });
+window.fetch = async url => ({ ok: true, json: async () => url === '/content/guide.json' ? guide : url === '/content/industry.json' ? industry : url === '/content/toolkit.json' ? toolkit : news });
 window.initSimulations = initSimulations;
 window.initFrontier = initFrontier;
+window.initToolkit = initToolkit;
 window.eval(source.replace(/^import .+;\s*/gm, ''));
 const $ = selector => window.document.querySelector(selector);
 const $$ = selector => [...window.document.querySelectorAll(selector)];
@@ -336,6 +339,30 @@ await check('New research connects to the existing simulator and timeline contro
   click('#company-ibm [data-company-profile]');click('#industry-dialog [data-frontier-timeline]');
   assert.equal($('#era-3').getAttribute('aria-selected'),'true');
   assert.equal($('#industry-dialog').open,false);
+});
+await check('Application and company profiles connect to relevant toolkit entries', async () => {
+  click('#application-grid [data-app="2"]'); click('#application-dialog [data-toolkit-app="2"]');
+  assert.equal($('#application-dialog').open, false); assert.match($('#toolkit-context').textContent, /Chemistry/);
+  assert.ok($('#toolkit-tools-grid [data-toolkit-detail="tool:qiskit"]'));
+  click('#company-google [data-company-profile]'); click('#industry-dialog [data-toolkit-company="google"]');
+  assert.equal($('#industry-dialog').open, false);
+  assert.deepEqual($$('#toolkit-tools-grid h3 button').map(button => button.textContent), ['Cirq', 'Stim']);
+  click('#clear-toolkit-context');
+});
+await check('Toolkit routes open one destination dialog for the guide, atlas, and applications', async () => {
+  click('#toolkit-tools-grid [data-toolkit-detail="tool:qiskit"]'); click('#toolkit-dialog [data-chapter="5"]'); await flush();
+  assert.equal($('#toolkit-dialog').open, false); assert.equal($('#guide-dialog').open, true);
+  assert.match($('#guide-article .chapter-label').textContent, /05/); click('#guide-dialog .close-dialog');
+  click('#toolkit-tools-grid [data-toolkit-detail="tool:qiskit"]'); click('#toolkit-dialog [data-company-profile="ibm"]');
+  assert.equal($('#toolkit-dialog').open, false); assert.equal($('#industry-dialog').open, true); click('#industry-dialog .industry-close');
+  click('#toolkit-tools-grid [data-toolkit-detail="tool:qiskit"]'); click('#toolkit-dialog [data-toolkit-application="2"]');
+  assert.equal($('#toolkit-dialog').open, false); assert.equal($('#application-dialog').open, true); click('#application-dialog .close-dialog');
+});
+await check('Technique details launch a related lab with the toolkit profile closed', () => {
+  click('#toolkit-tab-techniques'); click('#toolkit-more');
+  click('#toolkit-techniques-grid [data-toolkit-detail="technique:interferometry"]');
+  click('#toolkit-dialog [data-launch-sim="slit"]');
+  assert.equal($('#toolkit-dialog').open, false); assert.equal($('#simulation-slit').hidden, false);
 });
 await check('No script errors occurred during interaction checks', () => assert.deepEqual(errors, []));
 dom.window.close();

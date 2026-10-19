@@ -48,6 +48,14 @@ This refreshes the bundled fallback at `public/content/news-snapshot.json`; live
 
 **Quantum Industry Atlas** has ten curated, dated profiles: IBM, Google, Microsoft, NVIDIA, IonQ, Quantinuum, Rigetti, D-Wave, PsiQuantum, and QuEra. Filter by technology or search research areas; each profile connects sourced milestones and developments to live mentions, applications, laboratory experiments, and the evolution timeline. Profiles live in `public/content/industry.json` and require editorial review when company technologies or milestones change. Live news enriches their coverage automatically; it does not silently rewrite company claims or forecasts.
 
+## Quantum Toolkit
+
+The toolkit contains **12 software platforms and 12 techniques**, curated from official documentation and primary educational sources. Search across tool names, languages, use cases, and related methods; filter by the task you want to explore. Compare up to three software platforms by language, use, execution environment, access requirements, and practical limits.
+
+Profiles explain software setup and method workflows and connect to the guide, applications, Industry Atlas, and the four educational lab models. Company filters identify tools developed by that company; related techniques are suggested learning connections. SDK execution happens in the software’s own environment. The site does not submit cloud jobs or run these external packages in the browser.
+
+Edit `public/content/toolkit.json` to review or expand the dated catalog. Unlike Quantum Live, this catalog is editorial content and is not automatically rewritten from news. `scripts/toolkit-check.mjs` validates references, filters, profiles, keyboard tabs, comparison behavior, and failure handling; the main interaction suite verifies cross-section navigation.
+
 ## Deployment
 
 `vercel.json` configures the static site and the `/api/news` Vercel Node function, including its bundled fallback file and a 25-second execution limit. The Vercel project slug uses lowercase (`quantumapplicationsbynjr`); the website's project name is **QuantumApplicationsbyNJR**. Vercel authentication and local project identity are excluded from Git.

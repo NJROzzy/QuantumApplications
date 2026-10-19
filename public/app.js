@@ -1,5 +1,6 @@
 import { initSimulations } from './simulations.js';
 import { initFrontier } from './frontier.js';
+import { initToolkit } from './toolkit.js';
 
 const $ = (selector, parent = document) => parent.querySelector(selector);
 const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
@@ -116,7 +117,7 @@ $('#more-applications').addEventListener('click', () => { expandedApplications =
 function openApplication(index) {
   if (!Number.isInteger(index) || !applications[index]) return;
   const app = applications[index];
-  $('#application-dialog-content').innerHTML = `${icon(app.icon)}<div><span class="status ${app.category}">${app.category}</span></div><h2 id="application-dialog-title">${escapeHTML(app.title)}</h2><p>${escapeHTML(app.text)}</p><p>${escapeHTML(app.source)}</p><p class="detail-caution">${escapeHTML(app.caution)}</p><div class="application-dialog-actions"><button class="button primary" data-launch-sim="${app.icon === 'chip' ? 'tunnel' : ['network', 'shield'].includes(app.icon) ? 'bell' : ['sensor', 'laser', 'clock', 'space'].includes(app.icon) ? 'slit' : 'qubit'}">Launch a related simulation <span aria-hidden="true">↗</span></button><button class="text-link" data-chapter="8">Read the applications chapter ↗</button></div><div class="application-frontier-links"><span>FOLLOW THIS APPLICATION</span><button class="text-link" data-news-app="${index}">Related news & research ↗</button><button class="text-link" data-atlas-app="${index}">Companies exploring this ↗</button></div>`;
+  $('#application-dialog-content').innerHTML = `${icon(app.icon)}<div><span class="status ${app.category}">${app.category}</span></div><h2 id="application-dialog-title">${escapeHTML(app.title)}</h2><p>${escapeHTML(app.text)}</p><p>${escapeHTML(app.source)}</p><p class="detail-caution">${escapeHTML(app.caution)}</p><div class="application-dialog-actions"><button class="button primary" data-launch-sim="${app.icon === 'chip' ? 'tunnel' : ['network', 'shield'].includes(app.icon) ? 'bell' : ['sensor', 'laser', 'clock', 'space'].includes(app.icon) ? 'slit' : 'qubit'}">Launch a related simulation <span aria-hidden="true">↗</span></button><button class="text-link" data-chapter="8">Read the applications chapter ↗</button></div><div class="application-frontier-links"><span>FOLLOW THIS APPLICATION</span><button class="text-link" data-news-app="${index}">Related news & research ↗</button><button class="text-link" data-atlas-app="${index}">Companies exploring this ↗</button><button class="text-link" data-toolkit-app="${index}">Related tools & techniques ↗</button></div>`;
   $('#application-dialog').showModal();
 }
 $('#application-grid').addEventListener('click', event => { const button = event.target.closest('[data-app]'); if (button) openApplication(Number(button.dataset.app)); });
@@ -141,6 +142,7 @@ document.addEventListener('quantum:timeline', event => { const index = Number(ev
 
 initSimulations({ document, window });
 initFrontier({ document, window });
+initToolkit({ document, window });
 
 let guidePromise, guide, selectedChapter = 0;
 async function loadGuide() {
