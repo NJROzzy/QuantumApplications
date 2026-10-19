@@ -1,0 +1,236 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-10-19",
+  "tools": [
+    {
+      "id": "qiskit", "name": "Qiskit", "mark": "Qk", "owner": "IBM", "kind": "Circuit SDK", "languages": ["Python"], "level": "Start here",
+      "summary": "Build quantum circuits, work with quantum information, and transpile programs for a target device.",
+      "bestFor": "Learning gate-based computing and developing circuits for the IBM Quantum ecosystem.",
+      "execution": "Local state tools; simulators and IBM hardware through companion packages.",
+      "access": "Open-source SDK. IBM cloud execution requires an account and an eligible access plan.",
+      "limit": "The SDK alone does not provide cloud hardware access. Large state simulations need substantial classical memory.",
+      "tasks": ["learn", "chemistry", "optimize", "reliability", "security"], "applications": [2, 5, 8, 9, 14], "companies": ["ibm"], "techniques": ["circuits", "vqe", "qaoa", "qpe", "grover", "mitigation", "qkd"], "lab": "qubit", "chapter": 5,
+      "url": "https://quantum.cloud.ibm.com/docs/en/api/qiskit", "start": "https://quantum.cloud.ibm.com/docs/en/guides/install-qiskit"
+    },
+    {
+      "id": "cirq", "name": "Cirq", "mark": "Cq", "owner": "Google Quantum AI", "kind": "Circuit SDK", "languages": ["Python"], "level": "Start here",
+      "summary": "Create, transform, and simulate circuits with device constraints and noise in mind.",
+      "bestFor": "Circuit experiments, parameter sweeps, and ideal or noisy simulation.",
+      "execution": "Local state-vector and density-matrix simulation; provider integrations for devices.",
+      "access": "Open-source library. Access to a physical device depends on its provider.",
+      "limit": "Installing Cirq does not grant access to Google quantum hardware. General simulation grows costly with qubit count.",
+      "tasks": ["learn", "optimize", "reliability", "security"], "applications": [4, 9, 11, 14], "companies": ["google"], "techniques": ["circuits", "qaoa", "grover", "qkd"], "lab": "qubit", "chapter": 5,
+      "url": "https://quantumai.google/cirq", "start": "https://quantumai.google/cirq/start/start"
+    },
+    {
+      "id": "pennylane", "name": "PennyLane", "mark": "PL", "owner": "Xanadu", "kind": "Differentiable programming", "languages": ["Python"], "level": "Build on the basics",
+      "summary": "Connect trainable quantum circuits to automatic differentiation and classical machine-learning libraries.",
+      "bestFor": "Variational algorithms, quantum chemistry, and experiments with hybrid quantum machine learning.",
+      "execution": "Local simulators and compatible hardware plugins.",
+      "access": "Open-source framework. Hardware plugins have their own provider requirements.",
+      "limit": "Trainability, encoding cost, and measurement noise matter. A hybrid model does not imply a quantum advantage.",
+      "tasks": ["chemistry", "optimize", "ai"], "applications": [2, 5, 8, 11], "companies": [], "techniques": ["vqe", "qaoa", "qml", "hamiltonian"], "lab": "qubit", "chapter": 7,
+      "url": "https://docs.pennylane.ai/en/stable/", "start": "https://docs.pennylane.ai/en/stable/introduction/interfaces.html"
+    },
+    {
+      "id": "qdk", "name": "Microsoft QDK", "mark": "Q#", "owner": "Microsoft", "kind": "Language & development kit", "languages": ["Q#", "Python"], "level": "Start here",
+      "summary": "Develop quantum programs with Q#, simulation, debugging, and resource-estimation workflows.",
+      "bestFor": "Structured algorithm development and exploring the resources a future quantum program could need.",
+      "execution": "Local development and simulation; Azure Quantum provider jobs through a workspace.",
+      "access": "Free, open-source development kit. Cloud execution needs an Azure Quantum workspace and provider access.",
+      "limit": "Resource estimates depend on assumptions about algorithms, error rates, and hardware; they are not runtime measurements.",
+      "tasks": ["learn", "chemistry", "reliability"], "applications": [2, 5, 8, 14], "companies": ["microsoft"], "techniques": ["circuits", "qpe", "grover", "qec"], "lab": "qubit", "chapter": 5,
+      "url": "https://learn.microsoft.com/en-us/azure/quantum/overview-azure-quantum", "start": "https://learn.microsoft.com/en-us/azure/quantum/install-overview-qdk"
+    },
+    {
+      "id": "braket", "name": "Amazon Braket SDK", "mark": "Bk", "owner": "AWS", "kind": "Cloud SDK", "languages": ["Python"], "level": "Build on the basics",
+      "summary": "Define quantum tasks with a common Python interface for local simulation and Amazon Braket devices.",
+      "bestFor": "Moving a small circuit from local testing to supported cloud simulators or hardware.",
+      "execution": "Local simulator; managed simulators and supported QPUs on AWS.",
+      "access": "Open-source SDK. Local simulation needs no AWS account; cloud tasks require AWS access and may incur charges.",
+      "limit": "Available operations and device capabilities differ. Review device requirements and cloud pricing before submitting tasks.",
+      "tasks": ["learn", "chemistry", "optimize", "dynamics"], "applications": [2, 5, 8, 9], "companies": [], "techniques": ["circuits", "vqe", "qaoa", "hamiltonian"], "lab": "qubit", "chapter": 5,
+      "url": "https://github.com/amazon-braket/amazon-braket-sdk-python", "start": "https://docs.aws.amazon.com/braket/latest/developerguide/braket-send-to-local-simulator.html"
+    },
+    {
+      "id": "cudaq", "name": "CUDA-Q", "mark": "CQ", "owner": "NVIDIA", "kind": "Hybrid programming", "languages": ["Python", "C++"], "level": "Build on the basics",
+      "summary": "Write quantum kernels in a programming model that connects classical computing, simulation, and QPU targets.",
+      "bestFor": "Hybrid quantum-classical workflows and CPU or GPU circuit-simulation experiments.",
+      "execution": "CPU and supported GPU simulators; supported hardware backends.",
+      "access": "Open-source platform. GPU use needs compatible hardware and software; QPU access follows provider terms.",
+      "limit": "GPU acceleration depends on the target and platform. It accelerates classical simulation, rather than turning a GPU into a QPU.",
+      "tasks": ["chemistry", "optimize", "ai", "dynamics"], "applications": [2, 5, 8, 9, 11], "companies": ["nvidia"], "techniques": ["circuits", "vqe", "qaoa", "qml", "hamiltonian"], "lab": "qubit", "chapter": 5,
+      "url": "https://nvidia.github.io/cuda-quantum/latest/using/quick_start.html", "start": "https://nvidia.github.io/cuda-quantum/latest/using/quick_start.html"
+    },
+    {
+      "id": "cuquantum", "name": "cuQuantum", "mark": "cQ", "owner": "NVIDIA", "kind": "Simulation libraries", "languages": ["Python", "C APIs"], "level": "Research workflow",
+      "summary": "GPU libraries for state-vector and tensor-network calculations used in quantum-computing simulation.",
+      "bestFor": "Accelerating compatible classical simulators and tensor-network workloads on NVIDIA GPUs.",
+      "execution": "Classical GPU computation, including supported multi-GPU workflows.",
+      "access": "NVIDIA software with package-specific license terms and CUDA compatibility requirements.",
+      "limit": "This is a simulation library stack, not a cloud quantum computer. Memory, tensor structure, and GPU compatibility constrain workloads.",
+      "tasks": ["dynamics", "reliability"], "applications": [2, 5, 8], "companies": ["nvidia"], "techniques": ["circuits", "hamiltonian"], "lab": "qubit", "chapter": 6,
+      "url": "https://docs.nvidia.com/cuda/cuquantum/latest/", "start": "https://docs.nvidia.com/cuda/cuquantum/latest/"
+    },
+    {
+      "id": "pytket", "name": "TKET / pytket", "mark": "tk", "owner": "Quantinuum", "kind": "Compiler toolkit", "languages": ["Python"], "level": "Build on the basics",
+      "summary": "Build, optimize, place, and route quantum circuits for different target backends.",
+      "bestFor": "Studying circuit compilation and adapting a program to a device’s native gates and connectivity.",
+      "execution": "Circuit compilation; simulator and hardware extensions.",
+      "access": "Open-source toolkit. Backend extensions and providers have separate setup and access requirements.",
+      "limit": "A compiled circuit still inherits device noise and resource limits. Backend compatibility needs checking for each program.",
+      "tasks": ["learn", "reliability", "optimize"], "applications": [2, 5, 8, 9], "companies": ["quantinuum"], "techniques": ["circuits", "qaoa", "mitigation"], "lab": "qubit", "chapter": 5,
+      "url": "https://docs.quantinuum.com/tket/", "start": "https://docs.quantinuum.com/tket/user-guide/"
+    },
+    {
+      "id": "ocean", "name": "D-Wave Ocean", "mark": "Oc", "owner": "D-Wave", "kind": "Annealing & optimization", "languages": ["Python"], "level": "Build on the basics",
+      "summary": "Formulate optimization models and sample them with classical, quantum-annealing, or hybrid solvers.",
+      "bestFor": "Binary quadratic models, Ising formulations, and optimization workflow experiments.",
+      "execution": "Local classical samplers; D-Wave QPUs and Leap hybrid solvers.",
+      "access": "Open-source Ocean tools. Leap services require an account and service-specific access.",
+      "limit": "Classical samplers and hybrid results are not purely quantum computation. Formulation and embedding can dominate performance.",
+      "tasks": ["optimize", "ai"], "applications": [9, 10, 11, 12], "companies": ["dwave"], "techniques": ["annealing"], "lab": "tunnel", "chapter": 7,
+      "url": "https://docs.dwavequantum.com/en/latest/ocean/index.html", "start": "https://docs.dwavequantum.com/en/latest/ocean/stack.html"
+    },
+    {
+      "id": "qutip", "name": "QuTiP", "mark": "Qt", "owner": "QuTiP community", "kind": "Quantum dynamics", "languages": ["Python"], "level": "Build on the basics",
+      "summary": "Calculate quantum dynamics, including open-system evolution with master-equation and trajectory solvers.",
+      "bestFor": "Modeling decoherence, driven systems, and small quantum-optics or sensing models.",
+      "execution": "Classical numerical simulation of quantum systems.",
+      "access": "Open-source scientific software for local computation.",
+      "limit": "Results depend on the physical model, basis truncation, and solver assumptions. This is not a hardware job-submission service.",
+      "tasks": ["dynamics", "reliability"], "applications": [0, 1, 3, 6, 7, 13], "companies": [], "techniques": ["hamiltonian", "interferometry"], "lab": "slit", "chapter": 10,
+      "url": "https://qutip.org/", "start": "https://qutip.readthedocs.io/en/stable/guide/dynamics/dynamics-master.html"
+    },
+    {
+      "id": "stim", "name": "Stim", "mark": "St", "owner": "Google Quantum AI / contributors", "kind": "Error-correction simulation", "languages": ["Python", "C++"], "level": "Research workflow",
+      "summary": "Simulate stabilizer circuits and produce detector samples or error models for error-correction studies.",
+      "bestFor": "Clifford-circuit experiments, noisy syndrome extraction, and decoder benchmarking workflows.",
+      "execution": "Fast classical stabilizer simulation; external decoders interpret error syndromes.",
+      "access": "Open-source library. Local use does not require access to a QPU.",
+      "limit": "Stim is not a general non-Clifford state-vector simulator and is not itself a decoder.",
+      "tasks": ["reliability"], "applications": [4, 14], "companies": ["google"], "techniques": ["qec"], "lab": "bell", "chapter": 6,
+      "url": "https://github.com/quantumlib/Stim", "start": "https://github.com/quantumlib/Stim/blob/main/doc/getting_started.ipynb"
+    },
+    {
+      "id": "bloqade", "name": "Bloqade", "mark": "Bq", "owner": "QuEra", "kind": "Neutral-atom SDK", "languages": ["Python"], "level": "Research workflow",
+      "summary": "An ecosystem for neutral-atom programming, including analog experiments, circuit simulation, and compilation.",
+      "bestFor": "Exploring neutral-atom models and QuEra-oriented experimental workflows.",
+      "execution": "Classical simulation and device-specific experiment submission through supported components.",
+      "access": "Open-source SDK. Aquila and other device services need the corresponding provider access.",
+      "limit": "Analog and digital components target different models and devices. Check the relevant component’s documentation before running an experiment.",
+      "tasks": ["dynamics", "reliability", "optimize"], "applications": [2, 5, 9], "companies": ["quera"], "techniques": ["circuits", "hamiltonian", "qec"], "lab": "qubit", "chapter": 6,
+      "url": "https://bloqade.quera.com/", "start": "https://bloqade.quera.com/"
+    }
+  ],
+  "techniques": [
+    {
+      "id": "circuits", "name": "Gate-based circuits", "mark": "H→", "kind": "Programming model", "status": "Foundational method",
+      "summary": "Prepare qubits, apply a sequence of gates, and measure selected observables or bit strings.",
+      "bestFor": "Expressing digital quantum algorithms and learning how amplitudes become measurement statistics.",
+      "steps": ["Prepare an initial quantum state.", "Apply gates and compile for the target’s constraints.", "Repeat measurements and interpret sampled results."],
+      "limit": "A simulator models an assumed device. Real circuits face connectivity, gate-error, and coherence limits.",
+      "tasks": ["learn", "security"], "applications": [0, 4, 14], "tools": ["qiskit", "cirq", "qdk", "braket", "pytket", "cudaq"], "lab": "qubit", "chapter": 5,
+      "url": "https://quantum.cloud.ibm.com/docs/en/api/qiskit"
+    },
+    {
+      "id": "vqe", "name": "Variational quantum eigensolver", "mark": "VQE", "kind": "Hybrid algorithm", "status": "Active research",
+      "summary": "Tune a parameterized quantum state to minimize an estimated Hamiltonian energy using a classical optimizer.",
+      "bestFor": "Small chemistry and materials experiments that explore approximate ground-state energies.",
+      "steps": ["Map the physical problem to a qubit Hamiltonian.", "Prepare a trial state and estimate its energy.", "Update circuit parameters with a classical optimizer."],
+      "limit": "Ansatz choice, optimization, noise, and measurement cost constrain accuracy. Practical advantage is problem-dependent and unproven in general.",
+      "tasks": ["chemistry"], "applications": [2, 5, 8, 12], "tools": ["qiskit", "pennylane", "cudaq", "braket"], "lab": "qubit", "chapter": 7,
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/quantum-diagonalization-algorithms/vqe"
+    },
+    {
+      "id": "qaoa", "name": "Quantum approximate optimization", "mark": "QAOA", "kind": "Hybrid algorithm", "status": "Active research",
+      "summary": "Alternate cost and mixer operations, then optimize their angles to sample candidate solutions.",
+      "bestFor": "Studying combinatorial problems such as Max-Cut and comparing solutions against classical baselines.",
+      "steps": ["Encode an objective in a cost Hamiltonian.", "Alternate cost and mixer layers at chosen angles.", "Optimize angles, sample candidates, and score them."],
+      "limit": "Performance depends on the problem and circuit depth. QAOA does not guarantee efficient solutions to arbitrary hard problems.",
+      "tasks": ["optimize"], "applications": [9, 10, 12], "tools": ["qiskit", "pennylane", "cirq", "cudaq", "braket"], "lab": "qubit", "chapter": 7,
+      "url": "https://quantum.cloud.ibm.com/docs/en/tutorials/quantum-approximate-optimization-algorithm"
+    },
+    {
+      "id": "qpe", "name": "Quantum phase estimation", "mark": "QPE", "kind": "Quantum algorithm", "status": "Established theory",
+      "summary": "Use controlled unitary evolution and interference to estimate an eigenphase encoded in a quantum state.",
+      "bestFor": "Understanding energy estimation and subroutines behind algorithms such as order finding.",
+      "steps": ["Prepare a state with overlap on a target eigenstate.", "Apply controlled powers of a unitary operator.", "Interfere the phase register and read an estimate."],
+      "limit": "State preparation and precise controlled evolution can be expensive. Large useful instances may require fault-tolerant hardware.",
+      "tasks": ["learn", "chemistry"], "applications": [2, 5, 8, 14], "tools": ["qiskit", "qdk", "cirq"], "lab": "qubit", "chapter": 7,
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/phase-estimation-and-factoring/phase-estimation-procedure"
+    },
+    {
+      "id": "grover", "name": "Grover search & amplification", "mark": "√N", "kind": "Quantum algorithm", "status": "Established query advantage",
+      "summary": "Amplify marked states through repeated oracle and reflection operations before measurement.",
+      "bestFor": "Learning interference-based search and the distinction between query complexity and total runtime.",
+      "steps": ["Prepare a superposition of candidate states.", "Mark solutions with an oracle and reflect amplitudes.", "Repeat an appropriate number of times and measure."],
+      "limit": "The quadratic advantage counts ideal oracle queries. Building the oracle, loading data, and error correction add costs.",
+      "tasks": ["learn", "security"], "applications": [9, 14], "tools": ["qiskit", "qdk", "cirq"], "lab": "qubit", "chapter": 7,
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/grover-algorithm/unstructured-search"
+    },
+    {
+      "id": "hamiltonian", "name": "Hamiltonian simulation", "mark": "e⁻ⁱᴴᵗ", "kind": "Simulation method", "status": "Theory & experiments",
+      "summary": "Model how a quantum system evolves under its Hamiltonian, using digital circuits, analog controls, or classical solvers.",
+      "bestFor": "Exploring interacting spins, materials, molecular dynamics, and controlled quantum models.",
+      "steps": ["Specify a Hamiltonian, initial state, and observables.", "Choose a digital, analog, or classical evolution model.", "Measure observables and check approximation errors."],
+      "limit": "Encoding, approximation, and readout costs matter. A classical solver and a quantum simulator have different scaling and assumptions.",
+      "tasks": ["chemistry", "dynamics"], "applications": [0, 2, 5, 8, 12], "tools": ["qiskit", "qutip", "bloqade", "cudaq", "cuquantum", "pennylane"], "lab": "tunnel", "chapter": 7,
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/quantum-computing-in-practice/simulating-nature"
+    },
+    {
+      "id": "qec", "name": "Quantum error correction", "mark": "[[n,k]]", "kind": "Error control", "status": "Theory & hardware research",
+      "summary": "Encode logical information across physical qubits and infer errors from repeated syndrome measurements.",
+      "bestFor": "Studying logical qubits, code distances, syndrome extraction, and decoding.",
+      "steps": ["Encode a logical state in a quantum code.", "Measure checks to collect error syndromes.", "Decode the syndrome and track or apply corrections."],
+      "limit": "Error correction needs extra qubits, operations, and decoding. Improvement depends on the code and physical error model.",
+      "tasks": ["reliability"], "applications": [4, 14], "tools": ["stim", "qiskit", "qdk", "bloqade"], "lab": "bell", "chapter": 6,
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/foundations-of-quantum-error-correction"
+    },
+    {
+      "id": "mitigation", "name": "Error mitigation & suppression", "mark": "ε↓", "kind": "Error control", "status": "Used in noisy experiments",
+      "summary": "Reduce noise effects with control strategies or statistical estimators such as zero-noise extrapolation.",
+      "bestFor": "Comparing ideal, noisy, and mitigated expectation values in short experimental circuits.",
+      "steps": ["Characterize the circuit, measurements, and noise.", "Run a chosen suppression or mitigation strategy.", "Compare estimates, uncertainty, and sampling overhead."],
+      "limit": "Mitigation can greatly increase sampling cost and retain bias. It does not replace fault-tolerant error correction.",
+      "tasks": ["reliability"], "applications": [2, 5, 8, 11], "tools": ["qiskit", "cirq", "pytket"], "lab": "qubit", "chapter": 6,
+      "url": "https://quantum.cloud.ibm.com/docs/en/guides/error-mitigation-and-suppression-techniques"
+    },
+    {
+      "id": "annealing", "name": "Quantum annealing", "mark": "E↓", "kind": "Optimization method", "status": "Available hardware approach",
+      "summary": "Evolve a system toward a problem Hamiltonian whose low-energy states encode candidate solutions.",
+      "bestFor": "Exploring Ising and binary-quadratic formulations and sampling low-energy configurations.",
+      "steps": ["Express an objective and constraints as an energy model.", "Map it to the solver and choose an annealing schedule.", "Collect samples and assess solution quality."],
+      "limit": "Finite temperature, noise, embedding, and schedule affect results. Finding the global optimum or a speedup is not guaranteed.",
+      "tasks": ["optimize"], "applications": [9, 10, 12], "tools": ["ocean"], "lab": "tunnel", "chapter": 7,
+      "url": "https://docs.dwavequantum.com/en/latest/quantum_research/quantum_annealing_intro.html"
+    },
+    {
+      "id": "qml", "name": "Variational quantum learning", "mark": "∂θ", "kind": "Hybrid learning method", "status": "Active research",
+      "summary": "Train a parameterized quantum circuit inside a classical learning loop using gradients or other optimizers.",
+      "bestFor": "Small hybrid-model experiments and studying quantum feature maps, gradients, and trainability.",
+      "steps": ["Encode data and select a trainable circuit.", "Measure outputs and estimate loss gradients.", "Update parameters and evaluate against classical baselines."],
+      "limit": "Data loading, barren plateaus, noise, and sampling cost can dominate. Better accuracy or speed is not assured.",
+      "tasks": ["ai"], "applications": [8, 10, 11], "tools": ["pennylane", "cudaq", "qiskit"], "lab": "qubit", "chapter": 8,
+      "url": "https://docs.pennylane.ai/en/stable/introduction/interfaces.html"
+    },
+    {
+      "id": "interferometry", "name": "Quantum interferometry", "mark": "Δφ", "kind": "Sensing technique", "status": "Established physics & new sensors",
+      "summary": "Split and recombine coherent paths to turn phase differences into measurable interference patterns.",
+      "bestFor": "Understanding optical and atom-based sensing of motion, fields, and gravity.",
+      "steps": ["Prepare coherent light or matter waves.", "Let paths acquire different phases through an interaction.", "Recombine paths and infer the signal from fringes."],
+      "limit": "Coherence, vibration, calibration, and readout limit precision. The double-slit lab illustrates interference, not a complete atom sensor.",
+      "tasks": ["dynamics"], "applications": [1, 3, 6, 7, 13], "tools": ["qutip"], "lab": "slit", "chapter": 10,
+      "url": "https://www.nist.gov/quantum-information-science/quantum-sensing-explained/turning-atoms-waves-measure-gravity-and"
+    },
+    {
+      "id": "qkd", "name": "Quantum key distribution", "mark": "BB84", "kind": "Communication protocol", "status": "Deployed systems & research",
+      "summary": "Use quantum states and statistical checks to establish shared key material while testing for disturbance.",
+      "bestFor": "Learning basis choice, measurement disturbance, key sifting, and secure-communication assumptions.",
+      "steps": ["Prepare and measure states with chosen bases.", "Compare bases and estimate errors over an authenticated channel.", "Reconcile errors and apply privacy amplification."],
+      "limit": "Security needs authentication, a suitable implementation, and a valid proof. Circuit demonstrations do not constitute a secure QKD system.",
+      "tasks": ["security"], "applications": [4, 14], "tools": ["qiskit", "cirq"], "lab": "bell", "chapter": 9,
+      "url": "https://quantum.cloud.ibm.com/learning/en/modules/computer-science/quantum-key-distribution"
+    }
+  ]
+}
