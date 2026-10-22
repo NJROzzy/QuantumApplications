@@ -8,7 +8,7 @@
     "dev": "node scripts/serve.mjs",
     "start": "node scripts/serve.mjs",
     "build": "node scripts/build.mjs",
-    "check": "node scripts/physics-check.mjs && node scripts/check.mjs && node scripts/news-check.mjs && node scripts/frontier-check.mjs && node scripts/toolkit-check.mjs",
+    "check": "node scripts/physics-check.mjs && node scripts/check.mjs && node scripts/news-check.mjs && node scripts/frontier-check.mjs && node scripts/toolkit-check.mjs && node scripts/innovators-check.mjs",
     "refresh:news": "node scripts/refresh-news.mjs"
   },
   "engines": {

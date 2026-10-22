@@ -4,6 +4,7 @@ import { JSDOM, VirtualConsole } from 'jsdom';
 import { initSimulations } from '../public/simulations.js';
 import { initFrontier } from '../public/frontier.js';
 import { initToolkit } from '../public/toolkit.js';
+import { initInnovators } from '../public/innovators.js';
 
 const html = await readFile('public/index.html', 'utf8');
 const source = await readFile('public/app.js', 'utf8');
@@ -11,6 +12,7 @@ const guide = JSON.parse(await readFile('public/content/guide.json', 'utf8'));
 const industry = JSON.parse(await readFile('public/content/industry.json', 'utf8'));
 const news = JSON.parse(await readFile('public/content/news-snapshot.json', 'utf8'));
 const toolkit = JSON.parse(await readFile('public/content/toolkit.json', 'utf8'));
+const innovators = JSON.parse(await readFile('public/content/innovators.json', 'utf8'));
 const errors = [];
 const virtualConsole = new VirtualConsole();
 virtualConsole.on('jsdomError', error => errors.push(error));
@@ -36,10 +38,11 @@ window.HTMLCanvasElement.prototype.getBoundingClientRect = function () { return 
 window.HTMLElement.prototype.scrollIntoView = function () {};
 window.HTMLDialogElement.prototype.showModal = function () { this.open = true; };
 window.HTMLDialogElement.prototype.close = function () { this.open = false; };
-window.fetch = async url => ({ ok: true, json: async () => url === '/content/guide.json' ? guide : url === '/content/industry.json' ? industry : url === '/content/toolkit.json' ? toolkit : news });
+window.fetch = async url => ({ ok: true, json: async () => url === '/content/guide.json' ? guide : url === '/content/industry.json' ? industry : url === '/content/toolkit.json' ? toolkit : url === '/content/innovators.json' ? innovators : news });
 window.initSimulations = initSimulations;
 window.initFrontier = initFrontier;
 window.initToolkit = initToolkit;
+window.initInnovators = initInnovators;
 window.eval(source.replace(/^import .+;\s*/gm, ''));
 const $ = selector => window.document.querySelector(selector);
 const $$ = selector => [...window.document.querySelectorAll(selector)];
@@ -363,6 +366,29 @@ await check('Technique details launch a related lab with the toolkit profile clo
   click('#toolkit-techniques-grid [data-toolkit-detail="technique:interferometry"]');
   click('#toolkit-dialog [data-launch-sim="slit"]');
   assert.equal($('#toolkit-dialog').open, false); assert.equal($('#simulation-slit').hidden, false);
+});
+await check('Industry and application profiles expose relevant people and project contexts', () => {
+  click('#company-ibm [data-company-profile]'); click('#industry-dialog [data-innovators-company="ibm"]');
+  assert.equal($('#industry-dialog').open, false); assert.match($('#innovator-context').textContent, /IBM/);
+  assert.equal($$('#innovator-projects-grid .research-card').length, 1);
+  click('#application-grid [data-app="2"]'); click('#application-dialog [data-innovators-app="2"]');
+  assert.equal($('#application-dialog').open, false); assert.match($('#innovator-context').textContent, /Chemistry/);
+  click('#innovator-clear-context');
+});
+await check('Project profiles open toolkit, company, and guide destinations without stacked dialogs', async () => {
+  const openProject = () => { click('#innovator-tab-projects'); click('#quantum-innovators [data-research-reset]'); click('#innovator-projects-grid [data-research-detail="project:nighthawk"]'); };
+  openProject(); click('#innovator-dialog [data-toolkit-detail="tool:qiskit"]');
+  assert.equal($('#innovator-dialog').open, false); assert.equal($('#toolkit-dialog').open, true); assert.equal($$('dialog[open]').length, 1); click('#toolkit-dialog .toolkit-close');
+  openProject(); click('#innovator-dialog [data-company-profile="ibm"]');
+  assert.equal($('#innovator-dialog').open, false); assert.equal($('#industry-dialog').open, true); click('.industry-close');
+  openProject(); click('#innovator-dialog [data-chapter="6"]'); await flush();
+  assert.equal($('#innovator-dialog').open, false); assert.equal($('#guide-dialog').open, true); assert.match($('#guide-article .chapter-label').textContent, /06/); click('#guide-dialog .close-dialog');
+});
+await check('Research projects connect to the existing applications and lab', () => {
+  click('#innovator-projects-grid [data-research-detail="project:magic-states"]'); click('#innovator-dialog [data-launch-sim="bell"]');
+  assert.equal($('#innovator-dialog').open, false); assert.equal($('#simulation-bell').hidden, false);
+  click('#innovator-projects-grid [data-research-detail="project:nighthawk"]'); click('#innovator-dialog [data-research-application="2"]');
+  assert.equal($('#innovator-dialog').open, false); assert.equal($('#application-dialog').open, true); assert.match($('#application-dialog-title').textContent, /Chemistry/); click('#application-dialog .close-dialog');
 });
 await check('No script errors occurred during interaction checks', () => assert.deepEqual(errors, []));
 dom.window.close();

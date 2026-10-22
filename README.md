@@ -56,6 +56,14 @@ Profiles explain software setup and method workflows and connect to the guide, a
 
 Edit `public/content/toolkit.json` to review or expand the dated catalog. Unlike Quantum Live, this catalog is editorial content and is not automatically rewritten from news. `scripts/toolkit-check.mjs` validates references, filters, profiles, keyboard tabs, comparison behavior, and failure handling; the main interaction suite verifies cross-section navigation.
 
+## Quantum Innovators and Current Projects
+
+The People & Projects directory adds ten named researchers, two research teams or networks, and eleven connected projects or programs. It includes university groups, industrial research, QuTech’s Quantum Internet Alliance, and India’s National Quantum Mission hubs. Search by researcher, institution, or project; filter both views by region and research area. Profile and project dialogs link in both directions and connect to the Industry Atlas, toolkit, applications, lab, and guide.
+
+`public/content/innovators.json` records the editorial review date, official profiles, source publication dates, source types, and project stage. Undated program pages remain explicitly undated. Company reports, theory, preprints, experimental results, available platforms, and future development goals retain their evidence labels. Names are representative contributors or research leaders, not claims of sole project authorship. Related toolkit/lab links are educational connections and do not imply a team uses that software or that the browser reproduces its results.
+
+This catalog is curated, not automatically refreshed. Review profiles and project evidence when updating it; Quantum Live continues to supply automatic research news. `scripts/innovators-check.mjs` validates the catalog, all profiles, search, filters, keyboard tabs, navigation history, source safety, and failure behavior.
+
 ## Deployment
 
 `vercel.json` configures the static site and the `/api/news` Vercel Node function, including its bundled fallback file and a 25-second execution limit. The Vercel project slug uses lowercase (`quantumapplicationsbynjr`); the website's project name is **QuantumApplicationsbyNJR**. Vercel authentication and local project identity are excluded from Git.
@@ -64,4 +72,4 @@ The project is deployed in the existing `workfornjr-7532s-projects` Vercel works
 
 ## Verification
 
-`npm run check` runs deterministic physics checks plus 66 content, interaction, integration, and news-service checks. It covers the original guide and experiments, publisher feeds and failures, source safety, news filters and refresh, industry profiles, toolkit search and keyboard tabs, software comparisons, and navigation between sections. Automated DOM interactions use jsdom. The toolkit has also been reviewed in a browser at desktop, tablet, and mobile widths; those visual checks are separate from the automated suite.
+`npm run check` runs deterministic physics checks plus 81 content, interaction, integration, and news-service checks. It covers the guide and experiments, publisher feeds and failures, source safety, news filters and refresh, industry profiles, toolkit search and comparisons, researcher and project profiles, and navigation between sections. Automated DOM interactions use jsdom. The toolkit was previously reviewed in a browser at desktop, tablet, and mobile widths. Browser preview access was unavailable during the People & Projects update, so that addition has automated DOM verification without a new visual review.
