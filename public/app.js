@@ -2,6 +2,8 @@ import { initSimulations } from './simulations.js';
 import { initFrontier } from './frontier.js';
 import { initToolkit } from './toolkit.js';
 import { initInnovators } from './innovators.js';
+import { initEvolution } from './evolution.js';
+import { initUniverse } from './universe.js';
 
 const $ = (selector, parent = document) => parent.querySelector(selector);
 const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
@@ -118,28 +120,16 @@ $('#more-applications').addEventListener('click', () => { expandedApplications =
 function openApplication(index) {
   if (!Number.isInteger(index) || !applications[index]) return;
   const app = applications[index];
-  $('#application-dialog-content').innerHTML = `${icon(app.icon)}<div><span class="status ${app.category}">${app.category}</span></div><h2 id="application-dialog-title">${escapeHTML(app.title)}</h2><p>${escapeHTML(app.text)}</p><p>${escapeHTML(app.source)}</p><p class="detail-caution">${escapeHTML(app.caution)}</p><div class="application-dialog-actions"><button class="button primary" data-launch-sim="${app.icon === 'chip' ? 'tunnel' : ['network', 'shield'].includes(app.icon) ? 'bell' : ['sensor', 'laser', 'clock', 'space'].includes(app.icon) ? 'slit' : 'qubit'}">Launch a related simulation <span aria-hidden="true">↗</span></button><button class="text-link" data-chapter="8">Read the applications chapter ↗</button></div><div class="application-frontier-links"><span>FOLLOW THIS APPLICATION</span><button class="text-link" data-news-app="${index}">Related news & research ↗</button><button class="text-link" data-atlas-app="${index}">Companies exploring this ↗</button><button class="text-link" data-toolkit-app="${index}">Related tools & techniques ↗</button><button class="text-link" data-innovators-app="${index}">People & projects in this field ↗</button></div>`;
+  $('#application-dialog-content').innerHTML = `${icon(app.icon)}<div><span class="status ${app.category}">${app.category}</span></div><h2 id="application-dialog-title">${escapeHTML(app.title)}</h2><p>${escapeHTML(app.text)}</p><p>${escapeHTML(app.source)}</p><p class="detail-caution">${escapeHTML(app.caution)}</p><div class="application-dialog-actions"><button class="button primary" data-launch-sim="${app.icon === 'chip' ? 'tunnel' : ['network', 'shield'].includes(app.icon) ? 'bell' : ['sensor', 'laser', 'clock', 'space'].includes(app.icon) ? 'slit' : 'qubit'}">Launch a related simulation <span aria-hidden="true">↗</span></button><button class="text-link" data-chapter="8">Read the applications chapter ↗</button></div><div class="application-frontier-links"><span>FOLLOW THIS APPLICATION</span><button class="text-link" data-news-app="${index}">Related news & research ↗</button><button class="text-link" data-atlas-app="${index}">Companies exploring this ↗</button><button class="text-link" data-toolkit-app="${index}">Related tools & techniques ↗</button><button class="text-link" data-innovators-app="${index}">People & projects in this field ↗</button><button class="text-link" data-universe-select="application:${index}">See it in the quantum universe ↗</button></div>`;
   $('#application-dialog').showModal();
 }
 $('#application-grid').addEventListener('click', event => { const button = event.target.closest('[data-app]'); if (button) openApplication(Number(button.dataset.app)); });
 document.addEventListener('quantum:application', event => openApplication(event.detail.index));
 renderApplications();
 
-const eras = [
-  [ ['1801', 'The wave that started it', 'Young demonstrates optical interference, setting the stage for a deeper understanding of light.'], ['1900', 'Energy comes in quanta', 'Planck introduces quantized energy exchange to explain blackbody radiation.'], ['1905', 'Light has a particle side', 'Einstein explains the photoelectric effect using light quanta.'], ['1923–1924', 'Matter makes waves', 'Compton scattering and de Broglie’s matter waves reshape the picture.'] ],
-  [ ['1925–1926', 'A mathematical revolution', 'Heisenberg and Schrödinger develop quantum mechanics; Born gives amplitudes a probability interpretation.'], ['1935', 'Entanglement gets its name', 'The EPR argument and Schrödinger’s work expose profound questions about quantum correlations.'], ['1947–1960', 'Quantum goes to work', 'Transistors, semiconductor electronics, masers, and the first laser begin transforming everyday life.'], ['1964', 'An idea becomes testable', 'Bell derives inequalities that can distinguish quantum predictions from broad local hidden-variable models.'] ],
-  [ ['1981–1982', 'Simulating nature', 'Feynman advocates quantum simulation while Aspect’s experiments probe Bell inequalities.'], ['1984–1985', 'Information turns quantum', 'BB84 introduces quantum key distribution; Deutsch formulates universal quantum computation.'], ['1994–1996', 'Algorithms change the stakes', 'Shor’s factoring, quantum error correction, and Grover’s search expand the field.'], ['1997–2001', 'From theory to experiments', 'Teleportation experiments and small quantum computations test ideas in the laboratory.'] ],
-  [ ['2010s–2019', 'A growing hardware landscape', 'Multiple qubit platforms expand. Cloud access and specialized sampling milestones bring new attention.'], ['2022–2023', 'Correlations and correction', 'The Nobel Prize honors entanglement experiments; logical-qubit experiments advance error correction.'], ['2024–2025', 'Standards and recognition', 'NIST finalizes three principal PQC standards. The 2025 Nobel Prize recognizes quantum effects in electrical circuits.'], ['2026', 'The engineering frontier', 'The guide focuses on logical qubits, modular systems, hybrid workflows, and credible benchmarks.'] ],
-];
-function selectEra(index) {
-  $$('.era-tabs button').forEach((button, i) => { button.classList.toggle('active', i === index); button.setAttribute('aria-selected', String(i === index)); button.tabIndex = i === index ? 0 : -1; });
-  $('#timeline-panel').setAttribute('aria-labelledby', `era-${index}`);
-  $('#timeline-panel').innerHTML = eras[index].map(([year, title, text]) => `<div class="timeline-item"><span class="year">${year}</span><h3>${escapeHTML(title)}</h3><p>${escapeHTML(text)}</p></div>`).join('');
-}
-$$('[data-era]').forEach(button => button.addEventListener('click', () => selectEra(Number(button.dataset.era))));
-$('.era-tabs').addEventListener('keydown', event => handleTabKeys(event, $$('.era-tabs button'), selectEra));
-selectEra(0);
-document.addEventListener('quantum:timeline', event => { const index = Number(event.detail.era); if (Number.isInteger(index) && index >= 0 && index < eras.length) { selectEra(index); $(`#era-${index}`).focus({ preventScroll: true }); } });
+const evolution = initEvolution({ document, window });
+initUniverse({ document, window, evolutionReady: evolution.ready });
+document.addEventListener('quantum:concept', event => { const index = Number(event.detail?.index); if (Number.isInteger(index) && concepts[index]) { selectConcept(index, true); $('#foundations').scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth' }); } });
 
 initSimulations({ document, window });
 initInnovators({ document, window });

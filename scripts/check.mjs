@@ -5,6 +5,8 @@ import { initSimulations } from '../public/simulations.js';
 import { initFrontier } from '../public/frontier.js';
 import { initToolkit } from '../public/toolkit.js';
 import { initInnovators } from '../public/innovators.js';
+import { initEvolution } from '../public/evolution.js';
+import { initUniverse } from '../public/universe.js';
 
 const html = await readFile('public/index.html', 'utf8');
 const source = await readFile('public/app.js', 'utf8');
@@ -13,6 +15,7 @@ const industry = JSON.parse(await readFile('public/content/industry.json', 'utf8
 const news = JSON.parse(await readFile('public/content/news-snapshot.json', 'utf8'));
 const toolkit = JSON.parse(await readFile('public/content/toolkit.json', 'utf8'));
 const innovators = JSON.parse(await readFile('public/content/innovators.json', 'utf8'));
+const evolution = JSON.parse(await readFile('public/content/evolution.json', 'utf8'));
 const errors = [];
 const virtualConsole = new VirtualConsole();
 virtualConsole.on('jsdomError', error => errors.push(error));
@@ -38,11 +41,13 @@ window.HTMLCanvasElement.prototype.getBoundingClientRect = function () { return 
 window.HTMLElement.prototype.scrollIntoView = function () {};
 window.HTMLDialogElement.prototype.showModal = function () { this.open = true; };
 window.HTMLDialogElement.prototype.close = function () { this.open = false; };
-window.fetch = async url => ({ ok: true, json: async () => url === '/content/guide.json' ? guide : url === '/content/industry.json' ? industry : url === '/content/toolkit.json' ? toolkit : url === '/content/innovators.json' ? innovators : news });
+window.fetch = async url => ({ ok: true, json: async () => url === '/content/guide.json' ? guide : url === '/content/industry.json' ? industry : url === '/content/toolkit.json' ? toolkit : url === '/content/innovators.json' ? innovators : url === '/content/evolution.json' ? evolution : news });
 window.initSimulations = initSimulations;
 window.initFrontier = initFrontier;
 window.initToolkit = initToolkit;
 window.initInnovators = initInnovators;
+window.initEvolution = initEvolution;
+window.initUniverse = initUniverse;
 window.eval(source.replace(/^import .+;\s*/gm, ''));
 const $ = selector => window.document.querySelector(selector);
 const $$ = selector => [...window.document.querySelectorAll(selector)];
@@ -93,10 +98,13 @@ await check('Application filters, all 15 cards, and details work', () => {
   click('[data-filter="all"]');
   assert.equal($$('.application-card').length, 15);
 });
-await check('All four timeline eras expose four historical milestones', () => {
+await check('All four timeline eras expose sourced milestones and named contributors', async () => {
+  await flush();
   for (let i = 0; i < 4; i++) {
     click(`[data-era="${i}"]`);
-    assert.equal($$('.timeline-item').length, 4);
+    assert.equal($$('.timeline-item').length, evolution.eras[i].events.length);
+    assert.equal($$('.timeline-item a[target="_blank"]').length, evolution.eras[i].events.length);
+    for (const event of evolution.eras[i].events) assert.ok($(`#milestone-${event.id}`).textContent.includes(event.people[0] || event.contributors));
     assert.equal($(`#era-${i}`).getAttribute('aria-selected'), 'true');
   }
 });
@@ -389,6 +397,32 @@ await check('Research projects connect to the existing applications and lab', ()
   assert.equal($('#innovator-dialog').open, false); assert.equal($('#simulation-bell').hidden, false);
   click('#innovator-projects-grid [data-research-detail="project:nighthawk"]'); click('#innovator-dialog [data-research-application="2"]');
   assert.equal($('#innovator-dialog').open, false); assert.equal($('#application-dialog').open, true); assert.match($('#application-dialog-title').textContent, /Chemistry/); click('#application-dialog .close-dialog');
+});
+const selectUniverse = id => window.document.dispatchEvent(new window.CustomEvent('quantum:universe-select', { detail: { id } }));
+await check('The universe opens existing concepts, applications, labs, and the guide', async () => {
+  selectUniverse('concept:spin'); click('#universe-detail [data-universe-concept]'); assert.equal($('#concept-7').getAttribute('aria-selected'), 'true');
+  selectUniverse('application:1'); click('#universe-detail [data-universe-app]'); assert.equal($('#application-dialog').open, true); assert.match($('#application-dialog').textContent, /MRI/);
+  click('#application-dialog [data-universe-select]'); assert.equal($('#application-dialog').open, false); assert.equal($('#universe-selected-title').textContent, 'Medical imaging');
+  selectUniverse('concept:entanglement'); click('#universe-detail [data-launch-sim]'); assert.equal($('#simulation-bell').hidden, false);
+  selectUniverse('pioneer:max-planck'); click('#universe-detail [data-chapter="3"]'); await flush(); assert.equal($('#guide-dialog').open, true); assert.match($('#guide-article .chapter-label').textContent, /03/); click('#guide-dialog .close-dialog');
+});
+await check('The universe opens the existing company, software, technique, person, and project profiles', () => {
+  for (const [id, selector, dialog, expected] of [
+    ['company:ibm', '[data-company-profile]', '#industry-dialog', /IBM/],
+    ['software:qiskit', '[data-toolkit-detail]', '#toolkit-dialog', /Qiskit/],
+    ['technique:qec', '[data-toolkit-detail]', '#toolkit-dialog', /error correction/i],
+    ['person:jay-gambetta', '[data-research-detail]', '#innovator-dialog', /Jay Gambetta/],
+    ['project:magic-states', '[data-research-detail]', '#innovator-dialog', /magic-state/i],
+  ]) {
+    selectUniverse(id); click('#universe-detail ' + selector); assert.equal($(dialog).open, true); assert.match($(dialog).textContent, expected); assert.equal($$('dialog[open]').length, 1); $(dialog).close();
+  }
+});
+await check('Story and universe routes connect history to current projects and the interactive laboratory', () => {
+  click('#story-chapter-3'); click('#story-panel [data-story-universe]'); assert.equal($('#universe-route').hidden, false);
+  click('#universe-route-steps [data-route-step="3"]'); assert.match($('#universe-selected-title').textContent, /Quantum Internet Alliance/);
+  click('#universe-detail [data-research-detail]'); assert.equal($('#innovator-dialog').open, true); click('#innovator-dialog .innovator-close');
+  click('#story-panel [data-launch-sim]'); assert.equal($('#simulation-bell').hidden, false);
+  selectUniverse('pioneer:max-planck'); click('#universe-detail [data-universe-event]'); assert.equal(window.document.activeElement, $('#milestone-planck')); assert.equal($('#era-0').getAttribute('aria-selected'), 'true');
 });
 await check('No script errors occurred during interaction checks', () => assert.deepEqual(errors, []));
 dom.window.close();

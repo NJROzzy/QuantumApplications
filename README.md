@@ -25,6 +25,18 @@ The local server also serves `/api/news`. A host that serves only `dist/` can sh
 
 The guide distinguishes established quantum technologies from research, exploratory applications, and future scenarios. Vendor roadmaps are attributed forecasts. All simulations run locally in the browser and state their assumptions.
 
+## Quantum Universe and the evolution story
+
+The interactive universe connects **119 topics through 334 labeled relationships**: principles, applications, techniques, software, companies, people and teams, current projects, and historical contributors. Select a node to recenter its constellation; the map displays up to twelve direct neighbors while the connection list exposes every neighbor. Search the topic index, filter its eight categories, follow four guided journeys, or trace a shortest connection between any two topics. Each step explains the relationship and links to a source where available. Keyboard controls, a selection history, and reset support exploration.
+
+The universe opens the existing concepts, application dialogs, toolkit entries, company profiles, researcher/project profiles, guide, and laboratory experiments. Application details link back to the universe. The graph is an educational map: conceptual links, organizational relationships, and historical contributions retain their labels. Related methods do not assert software usage, causation, or demonstrated quantum advantage. Category filters affect the topic index, preserving the map’s surrounding context.
+
+Evolution now includes **27 sourced milestones across four eras**, from Young’s classical optics through the October 2026 research frontier. It names representative contributors including Planck, Einstein, Bohr, Bose, de Broglie, Heisenberg, Born, Jordan, Pauli, Schrödinger, Bell, Feynman, Bennett, Brassard, Deutsch, Shor, Steane, Calderbank, and Grover. The introduction states that quantum theory has no single founder. Award years are distinguished from experimental dates; current program goals and reported results retain their scope.
+
+A six-chapter story follows the puzzles, new mathematical language, everyday technologies, entanglement debate, quantum computation, and unfinished engineering frontier. Each chapter links to its milestones and sources, a connected universe journey, a related lab, and the complete guide. Navigation is manual; the browser remembers the last chapter when local storage is available.
+
+`public/content/evolution.json` owns the dated historical and narrative content. `public/universe-model.js` builds the graph from this history and the existing industry, toolkit, and innovators catalogs. Editing those catalogs updates the graph on reload; editorial history is not automatically rewritten from the news feed. `public/evolution.js` and `public/universe.js` render the two experiences without external graph libraries. Failed catalog loads display explicit fallback messages while the remaining guide stays available.
+
 ## Interactive experiments
 
 - **Qubit studio:** Bloch sphere, polar angle and phase, H/X/Y/Z/S/T gates with undo, X/Y/Z measurement bases, a depolarizing mixture, sampled outcomes, and gate history.
@@ -72,4 +84,4 @@ The project is deployed in the existing `workfornjr-7532s-projects` Vercel works
 
 ## Verification
 
-`npm run check` runs deterministic physics checks plus 81 content, interaction, integration, and news-service checks. It covers the guide and experiments, publisher feeds and failures, source safety, news filters and refresh, industry profiles, toolkit search and comparisons, researcher and project profiles, and navigation between sections. Automated DOM interactions use jsdom. The toolkit was previously reviewed in a browser at desktop, tablet, and mobile widths. Browser preview access was unavailable during the People & Projects update, so that addition has automated DOM verification without a new visual review.
+`npm run check` runs deterministic physics checks plus 105 content, interaction, integration, and news-service checks. It covers the guide and experiments, publisher feeds and failures, source safety, news filters and refresh, industry profiles, toolkit search and comparisons, researcher/project profiles, universe reachability and path validation, keyboard exploration, story progress and persistence, historical credits, and cross-section navigation. Automated DOM interactions use jsdom. `scripts/universe-check.mjs` includes loading queues, escaped catalog content, invalid routes, source links, and catalog outages. The toolkit was previously reviewed in a browser at desktop, tablet, and mobile widths. Browser access was unavailable for the People & Projects addition and the universe/story update (the Mac was locked for the latter), so these additions have automated DOM verification without a new visual review.
