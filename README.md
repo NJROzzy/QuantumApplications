@@ -81,7 +81,7 @@ This catalog is curated, not automatically refreshed. Review profiles and projec
 `vercel.json` configures the static site and the `/api/news` Vercel Node function, including its bundled fallback file and a 25-second execution limit. The Vercel project slug uses lowercase (`quantumapplicationsbynjr`); the website's project name is **QuantumApplicationsbyNJR**. Vercel authentication and local project identity are excluded from Git.
 
 The project is deployed in the existing `workfornjr-7532s-projects` Vercel workspace and connected to the GitHub repository. Pushes to `main` trigger production deployments.
-
+## New dev OTW" 
 ## Verification
 
 `npm run check` runs deterministic physics checks plus 105 content, interaction, integration, and news-service checks. It covers the guide and experiments, publisher feeds and failures, source safety, news filters and refresh, industry profiles, toolkit search and comparisons, researcher/project profiles, universe reachability and path validation, keyboard exploration, story progress and persistence, historical credits, and cross-section navigation. Automated DOM interactions use jsdom. `scripts/universe-check.mjs` includes loading queues, escaped catalog content, invalid routes, source links, and catalog outages. The toolkit was previously reviewed in a browser at desktop, tablet, and mobile widths. Browser access was unavailable for the People & Projects addition and the universe/story update (the Mac was locked for the latter), so these additions have automated DOM verification without a new visual review.
