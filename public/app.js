@@ -4,6 +4,7 @@ import { initToolkit } from './toolkit.js';
 import { initInnovators } from './innovators.js';
 import { initEvolution } from './evolution.js';
 import { initUniverse } from './universe.js';
+import { initQuantumAI } from './quantum-ai.js';
 
 const $ = (selector, parent = document) => parent.querySelector(selector);
 const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
@@ -133,7 +134,8 @@ document.addEventListener('quantum:concept', event => { const index = Number(eve
 
 initSimulations({ document, window });
 initInnovators({ document, window });
-initFrontier({ document, window });
+const frontier = initFrontier({ document, window });
+initQuantumAI({ document, window, frontier });
 initToolkit({ document, window });
 
 let guidePromise, guide, selectedChapter = 0;

@@ -71,6 +71,14 @@ await check('All source adapters combine into one normalized, date-sorted feed',
   assert.ok(data.articles.every(article => article.freshness === 'live' && article.retrievedAt === at));
   assert.equal(data.articles.find(article => article.sourceId === 'ibm').summaryType, 'Source summary');
 });
+await check('arXiv provides a bounded thirty-paper window for the four Quantum AI research pillars', async () => {
+  const entries=Array.from({length:35},(_,index)=>`<item><title>Quantum kernel learning ${index}</title><link>https://arxiv.org/abs/test-${index}</link><pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate></item>`).join('');
+  const requested=[];
+  const data=await collectNews({now,fetchImpl:async url=>{requested.push(url);return url.includes('export.arxiv.org')?new Response(`<rss><channel>${entries}</channel></rss>`):healthyFetch(url);}});
+  assert.equal(data.articles.filter(article=>article.sourceId==='arxiv').length,30);
+  assert.equal(new URL(requested.find(url=>url.includes('export.arxiv.org'))).searchParams.get('max_results'),'30');
+  assert.ok(data.articles.length<=80);
+});
 await check('A publisher outage preserves saved dates without claiming live retrieval', async () => {
   const saved = parseXmlFeed(rss('https://www.nature.com/articles/s41534-026-old'), source('nature'), '2026-10-10T10:00:00Z')[0];
   const data = await collectNews({ now, snapshot: {checkedAt:'2026-10-10T10:00:00Z',articles:[saved]}, fetchImpl: url => /nature.com|api.crossref.org/.test(url) ? Promise.resolve(new Response('',{status:503})) : healthyFetch(url) });

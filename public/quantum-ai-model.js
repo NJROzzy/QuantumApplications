@@ -14,7 +14,7 @@ export function aiPillarsFor(article) {
   if (!/\b(quantum|qubits?|qiskit|cirq|qsharp|pennylane|cuda.q|superconducting|trapped.ions?|neutral.atoms?|surface.codes?|alphaqubit)\b|\bQ#/i.test(text)) return [];
   if (/\b(qubits?|processors?|hardware|superconducting|trapped.ions?|neutral.atoms?|photonic|cryogen\w*|calibrat\w*|decoherence|quantum.control|quantum.error.correct\w*|quantum.sensor\w*)\b/i.test(text)) result.add('tech');
   if (/\b(qiskit|cirq|qsharp|qdk|cuda.q|pennylane|tket|bloqade)\b|\bQ#|\bquantum[ -](circuits?|program\w*|software|compil\w*|algorithms?|simulat\w*)\b|\bcircuit[ -](compil\w*|transpil\w*|synth\w*)\b|\bhybrid[ -]quantum\b/i.test(text)) result.add('programming');
-  const learning = /\b(quantum[ -](machine[ -]learning|learning|neural\w*|kernels?|classifi\w*|generative|feature\w*)|variational[ -](classifi\w*|learning)|barren[ -]plateaus?|quantum.natural.gradient|data.encod\w*)\b/i.test(text);
+  const learning = /\b(quantum[ -](machine[ -]learning|learning|neural\w*|kernels?|classifi\w*|generative|feature\w*)|variational[ -](classifi\w*|learning)|barren[ -]plateaus?|quantum.natural.gradient|data.encod\w*|generative[ -]models?|transformers?)\b/i.test(text);
   const machineLearning = /\b(machine[ -]learning|neural[ -]networks?)\b/i.test(text);
   const hardwareAI = /\b(decod\w*|calibrat\w*|quantum.control|error.correct\w*)\b/i.test(text);
   if (learning || (machineLearning && !hardwareAI)) result.add('ml');

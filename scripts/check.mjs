@@ -7,6 +7,7 @@ import { initToolkit } from '../public/toolkit.js';
 import { initInnovators } from '../public/innovators.js';
 import { initEvolution } from '../public/evolution.js';
 import { initUniverse } from '../public/universe.js';
+import { initQuantumAI } from '../public/quantum-ai.js';
 
 const html = await readFile('public/index.html', 'utf8');
 const source = await readFile('public/app.js', 'utf8');
@@ -16,6 +17,7 @@ const news = JSON.parse(await readFile('public/content/news-snapshot.json', 'utf
 const toolkit = JSON.parse(await readFile('public/content/toolkit.json', 'utf8'));
 const innovators = JSON.parse(await readFile('public/content/innovators.json', 'utf8'));
 const evolution = JSON.parse(await readFile('public/content/evolution.json', 'utf8'));
+const quantumAI = JSON.parse(await readFile('public/content/quantum-ai.json', 'utf8'));
 const errors = [];
 const virtualConsole = new VirtualConsole();
 virtualConsole.on('jsdomError', error => errors.push(error));
@@ -41,13 +43,14 @@ window.HTMLCanvasElement.prototype.getBoundingClientRect = function () { return 
 window.HTMLElement.prototype.scrollIntoView = function () {};
 window.HTMLDialogElement.prototype.showModal = function () { this.open = true; };
 window.HTMLDialogElement.prototype.close = function () { this.open = false; };
-window.fetch = async url => ({ ok: true, json: async () => url === '/content/guide.json' ? guide : url === '/content/industry.json' ? industry : url === '/content/toolkit.json' ? toolkit : url === '/content/innovators.json' ? innovators : url === '/content/evolution.json' ? evolution : news });
+window.fetch = async url => ({ ok: true, json: async () => url === '/content/guide.json' ? guide : url === '/content/industry.json' ? industry : url === '/content/toolkit.json' ? toolkit : url === '/content/innovators.json' ? innovators : url === '/content/evolution.json' ? evolution : url === '/content/quantum-ai.json' ? quantumAI : news });
 window.initSimulations = initSimulations;
 window.initFrontier = initFrontier;
 window.initToolkit = initToolkit;
 window.initInnovators = initInnovators;
 window.initEvolution = initEvolution;
 window.initUniverse = initUniverse;
+window.initQuantumAI = initQuantumAI;
 window.eval(source.replace(/^import .+;\s*/gm, ''));
 const $ = selector => window.document.querySelector(selector);
 const $$ = selector => [...window.document.querySelectorAll(selector)];
@@ -423,6 +426,20 @@ await check('Story and universe routes connect history to current projects and t
   click('#universe-detail [data-research-detail]'); assert.equal($('#innovator-dialog').open, true); click('#innovator-dialog .innovator-close');
   click('#story-panel [data-launch-sim]'); assert.equal($('#simulation-bell').hidden, false);
   selectUniverse('pioneer:max-planck'); click('#universe-detail [data-universe-event]'); assert.equal(window.document.activeElement, $('#milestone-planck')); assert.equal($('#era-0').getAttribute('aria-selected'), 'true');
+});
+await check('Every Quantum AI pillar opens its connected software, technique, and guide chapter', async () => {
+  for (const pillar of quantumAI.pillars) {
+    click(`[data-ai-pillar="${pillar.id}"]`);
+    for (const id of pillar.tools) { click(`#ai-pillar-panel [data-toolkit-detail="tool:${id}"]`); assert.equal($('#toolkit-dialog').open, true); click('#toolkit-dialog .toolkit-close'); }
+    click(`#ai-pillar-panel [data-toolkit-detail="technique:${pillar.technique}"]`); assert.equal($('#toolkit-dialog').open, true); click('#toolkit-dialog .toolkit-close');
+    click(`#ai-pillar-panel [data-chapter="${pillar.chapter}"]`); await flush(); assert.equal($('#guide-dialog').open, true); assert.match($('#guide-article .chapter-label').textContent, new RegExp(String(pillar.chapter).padStart(2,'0'))); click('#guide-dialog .close-dialog');
+  }
+});
+await check('Quantum AI routes launch the lab and universe, and the navigation closes after choosing the new section', () => {
+  click('[data-ai-pillar="advanced"]'); click('#ai-pillar-panel [data-launch-sim="bell"]'); assert.equal($('#simulation-bell').hidden, false);
+  click('#ai-pillar-panel [data-universe-select]'); assert.equal($('#universe-selected-title').textContent, 'Quantum error correction');
+  click('.menu-button'); click('#main-nav a[href="#quantum-ai"]'); assert.equal($('.menu-button').getAttribute('aria-expanded'),'false');
+  assert.equal($('#ai-news-updated').title,news.checkedAt); assert.ok($$('.ai-news-card').length > 0);
 });
 await check('No script errors occurred during interaction checks', () => assert.deepEqual(errors, []));
 dom.window.close();
