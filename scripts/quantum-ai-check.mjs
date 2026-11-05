@@ -53,7 +53,11 @@ await check('The four pillars have primary sources and valid toolkit, guide, lab
   assert.deepEqual(content.pillars.map(item => item.id), AI_PILLARS.map(item => item.id));
   const universe = buildUniverse(catalogs);
   for (const pillar of content.pillars) {
-    assert.equal(pillar.workflow.length,4); assert.equal(pillar.topics.length,3); assert.ok(pillar.resources.length >= 3);
+    assert.equal(pillar.workflow.length,4); assert.equal(pillar.topics.length,3); assert.ok(pillar.resources.length >= 4);
+    assert.ok(pillar.question && pillar.prerequisites.length >= 4 && pillar.model.expression && pillar.model.assumptions);
+    assert.equal(pillar.evaluation.length,4); assert.equal(pillar.project.steps.length,4); assert.equal(pillar.project.deliverables.length,3);
+    for(const topic of pillar.topics) { assert.ok(topic.detail); assert.ok(topic.sources.every(index => pillar.resources[index])); }
+    assert.ok(pillar.resources[pillar.model.source]);
     assert.ok(pillar.chapter >= 1 && pillar.chapter <= 19 && LAB_NAMES[pillar.starter.lab]); assert.ok(universe.byId.has(pillar.universe));
     assert.ok(catalogs.toolkit.techniques.some(item => item.id === pillar.technique));
     for (const id of pillar.tools) assert.ok(catalogs.toolkit.tools.some(item => item.id === id));
@@ -91,7 +95,7 @@ await check('Quantum AI appears in navigation and all four pillar panels expose 
     assert.equal($('#ai-pillar-panel [data-launch-sim]').dataset.launchSim,pillar.starter.lab);
     assert.equal($('#ai-news-pillars [aria-pressed="true"]').dataset.aiNewsPillar,pillar.id);
   }
-  assert.match($('#ai-content-reviewed').textContent,/Nov 4, 2026/); assert.equal($('#ai-pillar-panel').getAttribute('aria-busy'),'false');
+  assert.match($('#ai-content-reviewed').textContent,/Nov 5, 2026/); assert.equal($('#ai-pillar-panel').getAttribute('aria-busy'),'false');
 });
 await check('Pillar tabs and their four-step workflows support arrows, Home/End, and correct focus', () => {
   keys('#ai-pillar-advanced','ArrowRight'); assert.equal(app.document.activeElement,$('#ai-pillar-tech'));
@@ -114,7 +118,7 @@ await check('Research filters combine, empty states reset, and pillar selection 
   click('[data-ai-news-pillar="programming"]'); change('#ai-news-source','ibm','change'); change('#ai-news-search','compilation'); assert.equal($$('.ai-news-card').length,1);
   change('#ai-news-search','no-such-quantum-signal'); assert.match($('#quantum-ai-news-grid').textContent,/No matching developments/);
   click('#quantum-ai-news-grid [data-ai-news-reset]'); assert.equal($('#ai-news-search').value,''); assert.equal($('#ai-news-source').value,'all'); assert.equal(app.document.activeElement,$('#ai-news-search'));
-  click('[data-ai-pillar="ml"]'); assert.ok($$('.ai-news-topics').every(element=>element.textContent.includes('Q ML')));
+  click('[data-ai-pillar="ml"]'); assert.ok($$('.ai-news-topics').every(element=>element.textContent.includes('Quantum Machine Learning')));
   click('[data-ai-news-pillar="all"]'); assert.equal($('#ai-pillar-ml').getAttribute('aria-selected'),'true'); assert.match($('#ai-news-count').textContent,/all four pillars/);
 });
 await check('Both news panels share one request, one timer, and manual refresh updates both together', async () => {

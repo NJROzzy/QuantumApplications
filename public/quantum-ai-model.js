@@ -1,9 +1,9 @@
 import { safeExternalUrl } from './frontier-model.js';
 
 export const AI_PILLARS = [
-  { id: 'tech', title: 'Quantum Tech', color: '#c5f277' },
-  { id: 'programming', title: 'Q Programming', color: '#80e4e7' },
-  { id: 'ml', title: 'Q ML', color: '#d8b7ff' },
+  { id: 'tech', title: 'Quantum Technology', color: '#c5f277' },
+  { id: 'programming', title: 'Quantum Programming', color: '#80e4e7' },
+  { id: 'ml', title: 'Quantum Machine Learning', color: '#d8b7ff' },
   { id: 'advanced', title: 'Advanced Quantum AI', color: '#e3cb8b' },
 ];
 

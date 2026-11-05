@@ -1,128 +1,577 @@
 {
-  "version": 1,
-  "reviewedAt": "2026-11-04",
+  "version": 2,
+  "reviewedAt": "2026-11-05",
   "pillars": [
     {
       "id": "tech",
-      "title": "Quantum Tech",
-      "tagline": "The physical foundations",
-      "headline": "Meet the machine behind the model.",
-      "level": "Start with the foundations",
-      "summary": "Qubits, control, connectivity, and noise determine which quantum operations a device can perform reliably. Learn how an abstract idea becomes a physical experiment.",
+      "title": "Quantum Technology",
+      "tagline": "Hardware, channels & error budgets",
+      "headline": "Engineer the physical execution layer.",
+      "level": "Advanced systems brief",
+      "summary": "Connect quantum-state models to the constraints of a processor: native instructions, connectivity, coherence, measurement, and error control. Treat the noise model and calibration context as part of the experiment rather than properties of an abstract circuit.",
       "topics": [
-        { "title": "Qubits & platforms", "text": "Superconducting circuits, trapped ions, neutral atoms, and photonics offer different ways to prepare, control, and measure quantum states. Platform comparisons require context about fidelity, connectivity, and the task." },
-        { "title": "Control & compilation", "text": "A hardware-aware compiler maps a circuit to native instructions and device connectivity. Routing can add operations, changing both execution cost and exposure to errors." },
-        { "title": "Noise & measurement", "text": "Environmental interactions and imperfect operations affect results. A simulator can model noise channels, but the model does not capture every detail of a physical processor." }
+        {
+          "title": "Density operators & channel models",
+          "text": "Represent a possibly mixed state by a positive semidefinite density operator with unit trace. An unconditional physical operation can be modeled as a completely positive, trace-preserving map. Kraus operators provide one representation; different Kraus sets can describe the same channel.",
+          "detail": "A composition of independent, fixed local channels is a modeling choice. Correlated errors, leakage, calibration drift, and memory effects can invalidate that approximation. Conditioned measurement updates instead require an outcome probability and normalization.",
+          "sources": [
+            0
+          ]
+        },
+        {
+          "title": "Coherence meets device connectivity",
+          "text": "Energy relaxation and transverse coherence are characterized by T₁ and T₂, with values that vary by qubit and calibration time. Readout errors are a separate part of the measurement process. Compare these properties with the operations and timing of the executed circuit.",
+          "detail": "Transpilation maps a program onto a target instruction set and connectivity graph. Layout, routing, and decomposition can add two-qubit operations and depth. Report compiled resources and the target snapshot alongside logical circuit size.",
+          "sources": [
+            1,
+            2
+          ]
+        },
+        {
+          "title": "Correction, mitigation & sampling cost",
+          "text": "Quantum error correction encodes logical information and uses syndrome measurements to diagnose errors. Error mitigation uses additional experiments and classical processing to improve estimates or sampled distributions; it does not protect the evolving state in the same way.",
+          "detail": "Zero-noise extrapolation relies on a credible noise-scaling procedure and fit. Probabilistic error cancellation relies on characterized noise and can demand large sampling overheads. Assess uncertainty and model mismatch alongside changes in an estimated answer.",
+          "sources": [
+            3,
+            4
+          ]
+        }
       ],
       "workflow": [
-        { "title": "Prepare", "text": "Initialize a quantum state. Preparation quality becomes part of the experiment’s error budget." },
-        { "title": "Control", "text": "Apply device-supported operations. Gate choices, qubit connectivity, and timing constrain the circuit." },
-        { "title": "Model noise", "text": "Explore how a noise channel changes the predicted state. Compare the model with measurements before trusting a hardware prediction." },
-        { "title": "Measure", "text": "Repeat state preparation and measurement to estimate a distribution. Finite shot counts introduce sampling uncertainty." }
+        {
+          "title": "Specify the state",
+          "text": "Choose preparations, measured observables, idle durations, and channel assumptions. Separate state-preparation and readout effects from the evolution you want to characterize."
+        },
+        {
+          "title": "Map the device",
+          "text": "Record native operations, connectivity, scheduling constraints, and calibration context. Inspect the compiled depth and two-qubit operations before comparing targets."
+        },
+        {
+          "title": "Estimate noise",
+          "text": "Fit the chosen model to a declared set of measurements. Retain residuals and uncertainty; test a held-out circuit family rather than reporting only a training fit."
+        },
+        {
+          "title": "Validate transfer",
+          "text": "Compare predictions with held-out conditions, including a deliberately mismatched or correlated-noise case. Document where the model stops predicting the observed statistics."
+        }
       ],
-      "starter": { "title": "Make noise visible", "text": "Prepare |+⟩ in the qubit studio, measure in X, and increase the depolarizing mixture. Observe how the distribution moves toward 50/50. This is a teaching model, not a device benchmark.", "lab": "qubit" },
-      "tools": ["cirq", "qiskit"],
+      "starter": {
+        "title": "Connect the physics",
+        "text": "Use the qubit studio to inspect how a depolarizing mixture changes Bloch components and measurement probabilities. Use the external channel study for relaxation and dephasing fits; the on-site slider is a different noise model.",
+        "lab": "qubit"
+      },
+      "tools": [
+        "cirq",
+        "qiskit"
+      ],
       "technique": "mitigation",
       "universe": "concept:decoherence",
       "chapter": 6,
-      "perspective": "A larger qubit count alone does not determine which useful problem a machine can solve.",
+      "perspective": "A useful hardware claim identifies the workload, target, calibration context, uncertainty, and full sampling cost. Qubit count alone is insufficient.",
       "resources": [
-        { "title": "IBM · Hardware-aware transpilation", "url": "https://quantum.cloud.ibm.com/docs/en/guides/transpile", "kind": "Official documentation" },
-        { "title": "Google · Cirq, circuits & noise", "url": "https://quantumai.google/cirq/start/intro", "kind": "Official tutorial" },
-        { "title": "IBM · Noise and errors", "url": "https://quantum.cloud.ibm.com/learning/en/courses/tools-for-quantum-advantage/noise-and-errors", "kind": "Learning resource" }
-      ]
+        {
+          "title": "Google · Density-matrix and noise simulation",
+          "url": "https://quantumai.google/cirq/start/intro#noise",
+          "kind": "Official documentation"
+        },
+        {
+          "title": "IBM · Noise and errors",
+          "url": "https://quantum.cloud.ibm.com/learning/en/courses/tools-for-quantum-advantage/noise-and-errors",
+          "kind": "Learning resource"
+        },
+        {
+          "title": "IBM · Hardware-aware transpilation",
+          "url": "https://quantum.cloud.ibm.com/docs/en/guides/transpile",
+          "kind": "Official documentation"
+        },
+        {
+          "title": "IBM · Error mitigation",
+          "url": "https://quantum.cloud.ibm.com/learning/en/courses/tools-for-quantum-advantage/error-mitigation",
+          "kind": "Learning resource"
+        },
+        {
+          "title": "IBM · Foundations of quantum error correction",
+          "url": "https://quantum.cloud.ibm.com/learning/en/courses/foundations-of-quantum-error-correction",
+          "kind": "Learning resource"
+        }
+      ],
+      "question": "Which physical assumptions survive contact with a compiled experiment?",
+      "prerequisites": [
+        "Density operators",
+        "Quantum channels",
+        "Gate decompositions",
+        "Statistical estimation"
+      ],
+      "model": {
+        "title": "A channel acting on a density operator",
+        "expression": "ρ′ = Σₖ Kₖ ρ Kₖ†     Σₖ Kₖ†Kₖ = I",
+        "assumptions": "Finite-dimensional, unconditional CPTP evolution with ρ ≥ 0 and Tr(ρ) = 1. A conditioned outcome uses a trace-decreasing map followed by normalization. Fixed local channels add further noise-model assumptions.",
+        "source": 0
+      },
+      "evaluation": [
+        {
+          "metric": "Compiled resources",
+          "method": "Native two-qubit operations, depth, layout, and scheduled duration.",
+          "limit": "Counts and depth depend on the instruction set and compiler choices."
+        },
+        {
+          "metric": "State & readout error",
+          "method": "Declare preparation, measurement, and channel conventions separately.",
+          "limit": "A single fidelity number does not identify the dominant error mechanism."
+        },
+        {
+          "metric": "Model fit",
+          "method": "Residuals, uncertainty intervals, and held-out circuit predictions.",
+          "limit": "A good fit on selected circuits need not transfer to other workloads."
+        },
+        {
+          "metric": "Mitigation overhead",
+          "method": "Additional circuits, shots, processing, and uncertainty after mitigation.",
+          "limit": "A lower observed bias may come with greater variance or model dependence."
+        }
+      ],
+      "project": {
+        "title": "Validate a relaxation and dephasing model",
+        "objective": "Build an external density-matrix study that distinguishes a fitted local channel from the behavior of a more complicated noise process.",
+        "steps": [
+          "Prepare |1⟩ and |+⟩ and sweep a fixed grid of idle durations under declared relaxation and dephasing channels.",
+          "Fit population and coherence decays with uncertainty intervals; verify trace and positivity of every modeled state.",
+          "Evaluate held-out circuits and compare with a deliberately correlated-noise model.",
+          "Publish parameters, time points, seeds, shot budgets, residuals, and the scope of the fitted model."
+        ],
+        "deliverables": [
+          "Channel definitions and parameter conventions",
+          "Fit intervals and held-out prediction errors",
+          "A reproducible notebook with raw samples"
+        ],
+        "baseline": "Compare with the analytic decay predicted by the selected channel. Simulated agreement validates that model, rather than a physical processor."
+      }
     },
     {
       "id": "programming",
-      "title": "Q Programming",
-      "tagline": "From states to software",
-      "headline": "Write a circuit. Ask a better question.",
-      "level": "Build on the basics",
-      "summary": "Use quantum software to express states, gates, measurements, and classical control. Start with local simulation, then understand the requirements of a hardware execution target.",
+      "title": "Quantum Programming",
+      "tagline": "Circuits, observables & reproducible execution",
+      "headline": "Design the experiment, not only the circuit.",
+      "level": "Advanced programming brief",
+      "summary": "Treat a quantum program as an execution contract: state preparation, parameterized operations, observables or classical outputs, target-aware compilation, and uncertainty. Separate the mathematical circuit from the procedure used to obtain and validate results.",
       "topics": [
-        { "title": "Circuits & measurement", "text": "Qiskit and Cirq provide Python tools for constructing and simulating quantum circuits. Repeated measurements estimate observables or output probabilities; one shot does not reveal the full quantum state." },
-        { "title": "Languages & hybrid workflows", "text": "Microsoft’s Q# expresses quantum algorithms with classical control. NVIDIA’s CUDA-Q supports Python and C++ workflows connecting classical computing, simulation, and quantum targets." },
-        { "title": "Targets & reproducibility", "text": "Record the circuit, parameters, target, noise assumptions, shot count, and software version. GPU-accelerated quantum simulation is classical computation; hardware access has its own service requirements." }
+        {
+          "title": "Sampling and observable estimation",
+          "text": "A Sampler produces sampled classical-register outcomes; an Estimator estimates observable expectation values. Specify the register mapping, basis conventions, parameter bindings, shots or precision, and returned uncertainty before comparing outputs.",
+          "detail": "For a Hermitian observable expressed as a real weighted sum of Pauli strings, estimate the appropriate components in suitable measurement bases. Finite-shot uncertainty and covariance from measurement grouping affect the combined estimate.",
+          "sources": [
+            0
+          ]
+        },
+        {
+          "title": "Compilation is part of the algorithm",
+          "text": "An abstract circuit must be transformed into instructions accepted by the execution target. Layout selection, routing, and gate synthesis change the physical workload. When qubits are remapped, an observable must follow the transpiled circuit’s layout.",
+          "detail": "Archive source and compiled circuits, the target snapshot, compilation options, and relevant software versions. A transpilation seed fixes stochastic compiler choices under the same relevant environment; it does not freeze hardware drift or shot outcomes.",
+          "sources": [
+            1,
+            3
+          ]
+        },
+        {
+          "title": "Dynamic circuits and classical control",
+          "text": "Mid-circuit measurements can feed classical decisions that determine later quantum operations. This enables protocols such as conditional corrections, but measurement latency, classical memory, and supported controls become execution constraints.",
+          "detail": "A software language may express branches and loops that a selected processor does not support. Check the target’s actual control-flow capabilities and execution options. Compare dynamic and coherent implementations under declared resource and noise assumptions.",
+          "sources": [
+            2
+          ]
+        }
       ],
       "workflow": [
-        { "title": "Define", "text": "Choose an initial state, a circuit, and a quantity to estimate. Make the experiment’s assumptions explicit." },
-        { "title": "Transform", "text": "Apply gates and compile for the chosen target. An ideal simulator and a real processor can produce different distributions." },
-        { "title": "Sample", "text": "Execute repeated shots or estimate an observable. Keep track of the statistical uncertainty and execution cost." },
-        { "title": "Compare", "text": "Check against a known small example or a classical calculation. Export parameters and results so the experiment can be reproduced." }
+        {
+          "title": "Define the contract",
+          "text": "Declare input states, parameter bindings, registers, observables, target, and an acceptable statistical precision. Choose sampling or expectation estimation accordingly."
+        },
+        {
+          "title": "Compile and inspect",
+          "text": "Transpile for a pinned target context, propagate the layout to observables, and inspect native operations, depth, and any measurement-dependent branches."
+        },
+        {
+          "title": "Execute in layers",
+          "text": "Start with an exact small reference, add a declared noise model, and use compatible hardware if available. Save options and raw outputs for each execution layer."
+        },
+        {
+          "title": "Reproduce the result",
+          "text": "Check conventions and confidence intervals against the reference. Publish software versions, seeds, layouts, target information, and scripts sufficient to reconstruct the experiment."
+        }
       ],
-      "starter": { "title": "Build your first gate sequence", "text": "Start in |0⟩, apply H, compare Z and X measurements, then try Z and undo. Export the run. Continue in an official SDK tutorial to implement a real program.", "lab": "qubit" },
-      "tools": ["qiskit", "cirq", "qdk", "cudaq"],
+      "starter": {
+        "title": "Connect the physics",
+        "text": "Explore basis changes and gate sequences in the qubit studio, and correlations in the entanglement lab. Implement and execute the full feedforward protocol in an external SDK.",
+        "lab": "qubit"
+      },
+      "tools": [
+        "qiskit",
+        "cirq",
+        "qdk",
+        "cudaq"
+      ],
       "technique": "circuits",
       "universe": "technique:circuits",
       "chapter": 5,
-      "perspective": "The browser lab builds intuition. External SDKs and cloud jobs run in their own environments.",
+      "perspective": "GPU-accelerated quantum simulation is classical computation. Identify whether a result came from an exact simulator, a noise model, or a processor.",
       "resources": [
-        { "title": "IBM · Qiskit API & examples", "url": "https://quantum.cloud.ibm.com/docs/en/api/qiskit", "kind": "Official documentation" },
-        { "title": "Microsoft · Q# language overview", "url": "https://learn.microsoft.com/en-us/azure/quantum/qsharp-overview", "kind": "Official documentation" },
-        { "title": "NVIDIA · CUDA-Q quick start", "url": "https://nvidia.github.io/cuda-quantum/latest/using/quick_start.html", "kind": "Official tutorial" }
-      ]
+        {
+          "title": "IBM · Sampler and Estimator primitives",
+          "url": "https://quantum.cloud.ibm.com/docs/en/guides/primitives",
+          "kind": "Official documentation"
+        },
+        {
+          "title": "IBM · Target-aware transpilation",
+          "url": "https://quantum.cloud.ibm.com/docs/en/guides/transpile",
+          "kind": "Official documentation"
+        },
+        {
+          "title": "IBM · Classical feedforward and control flow",
+          "url": "https://quantum.cloud.ibm.com/docs/en/guides/classical-feedforward-and-control-flow",
+          "kind": "Official documentation"
+        },
+        {
+          "title": "IBM · Transpilation parameters and seeds",
+          "url": "https://quantum.cloud.ibm.com/docs/en/guides/common-parameters",
+          "kind": "Official documentation"
+        }
+      ],
+      "question": "What exactly does the program estimate, on which target, and at what cost?",
+      "prerequisites": [
+        "Linear algebra",
+        "Quantum circuits",
+        "Python or another SDK language",
+        "Measurement statistics"
+      ],
+      "model": {
+        "title": "Estimate an observable from measurable components",
+        "expression": "⟨O⟩̂ = Σⱼ aⱼ ⟨Pⱼ⟩̂     O = Σⱼ aⱼ Pⱼ",
+        "assumptions": "O is Hermitian, coefficients aⱼ are real, and Pⱼ are Pauli strings. Component estimates need compatible measurement bases; include finite-shot uncertainty and any grouping covariance. Apply the circuit’s final qubit layout to O.",
+        "source": 0
+      },
+      "evaluation": [
+        {
+          "metric": "Semantic correctness",
+          "method": "Compare small circuits and observables against an exact reference.",
+          "limit": "Agreement on one input state does not validate the full program."
+        },
+        {
+          "metric": "Physical circuit cost",
+          "method": "Record native operations, depth, layout, and control-flow requirements.",
+          "limit": "Abstract gate counts can hide routing and scheduling overhead."
+        },
+        {
+          "metric": "Statistical precision",
+          "method": "Report shot budgets, uncertainty, and observable conventions.",
+          "limit": "Finite samples are estimates; grouped measurements can be correlated."
+        },
+        {
+          "metric": "Reproducibility",
+          "method": "Archive versions, target snapshots, seeds, options, and raw results.",
+          "limit": "Seeded software does not make physical noise or shot results deterministic."
+        }
+      ],
+      "project": {
+        "title": "Study a reproducible feedforward protocol",
+        "objective": "Implement a three-qubit teleportation circuit with measurement and conditional correction, then compare it with a coherent reference in an external SDK.",
+        "steps": [
+          "Test six specified input states and declare the observables used to assess the recovered state.",
+          "Compile both versions for a recorded target context and inspect native resources and supported control flow.",
+          "Run ideal and noisy simulations; optionally use hardware that supports the required operations.",
+          "Compare observable errors, uncertainty, and execution resources while archiving the complete execution contract."
+        ],
+        "deliverables": [
+          "Source and transpiled circuits with layouts",
+          "State-dependent estimates and uncertainty",
+          "Versions, seeds, target snapshot, and raw outputs"
+        ],
+        "baseline": "Use exact small-system simulation and a coherent reference. Hardware comparisons must account for differences in compilation, timing, and support."
+      }
     },
     {
       "id": "ml",
-      "title": "Q ML",
-      "tagline": "Quantum for machine learning",
-      "headline": "Explore the learning loop.",
-      "level": "Intermediate · active research",
-      "summary": "Quantum machine learning studies how quantum states, circuits, and measurements can contribute to learning tasks. Many approaches combine a parameterized circuit with a classical optimizer.",
+      "title": "Quantum Machine Learning",
+      "tagline": "Data access, trainability & fair comparisons",
+      "headline": "Account for the entire learning pipeline.",
+      "level": "Advanced machine-learning brief",
+      "summary": "Study how quantum encodings, kernels, and trainable circuits interact with data access, optimization, measurement, and generalization. Separate the capacity of a state representation from the computational cost and predictive value of a complete learning workflow.",
       "topics": [
-        { "title": "Encode the data", "text": "Basis, angle, and amplitude encodings have different qubit, normalization, and state-preparation costs. A large mathematical state space does not make classical data free to load." },
-        { "title": "Kernels & trainable circuits", "text": "Quantum kernels estimate similarities between encoded examples for a classical learning model. Variational classifiers instead adjust circuit parameters using measured outputs and a classical optimizer." },
-        { "title": "Train & benchmark", "text": "Compare against strong classical baselines using the same data splits. Include encoding, training, shots, noise, and inference cost. Some circuit families develop very small gradients called barren plateaus." }
+        {
+          "title": "Encoding and data-access assumptions",
+          "text": "Angle, basis, and amplitude encodings trade state-preparation cost against qubit and circuit requirements. Encoding an N-component vector into amplitudes uses approximately log₂N qubits, while generic state preparation still requires O(N) work.",
+          "detail": "Efficient preparation requires additional structure or access assumptions. Count preprocessing, normalization, repeated loading, and inference-time preparation. A compact quantum representation by itself establishes neither an efficient input procedure nor a useful learning advantage.",
+          "sources": [
+            0
+          ]
+        },
+        {
+          "title": "Kernels and finite-shot Gram matrices",
+          "text": "An ideal fidelity kernel defines similarities through encoded quantum states. A valid ideal Gram matrix is symmetric positive semidefinite. Noise and independently sampled entries can produce an estimate that lacks either property.",
+          "detail": "Symmetrization and positive-semidefinite projection change the estimator. Report these corrections, kernel conditioning, and the sampling budget. Select preprocessing and hyperparameters using training or validation data, without leaking test labels into the procedure.",
+          "sources": [
+            1,
+            4
+          ]
+        },
+        {
+          "title": "Differentiation and trainability",
+          "text": "Variational models use measured outputs inside a classical optimization loop. Analytic parameter-shift recipes depend on the differentiated gate’s generator spectrum; the familiar two-shift formula is not universal. Repeated gate occurrences also require the chain rule.",
+          "detail": "Certain expressive or randomly initialized circuit families can have gradients that are exponentially difficult to resolve. Examine initialization, locality, depth, observable choice, and measurement budget; a barren-plateau result does not imply every quantum model is untrainable.",
+          "sources": [
+            2,
+            3
+          ]
+        }
       ],
       "workflow": [
-        { "title": "Encode", "text": "Map a training example to circuit operations or a quantum state. Count the cost of preparing each example." },
-        { "title": "Transform", "text": "Apply a parameterized circuit. Its architecture and initialization affect expressivity and trainability." },
-        { "title": "Read out", "text": "Estimate measured outputs and form a loss. Repeated sampling and noise affect the quality of that estimate." },
-        { "title": "Optimize ↺", "text": "A classical optimizer updates parameters and repeats the loop. Evaluate held-out data against classical models; a teaching demonstration is not evidence of a speedup." }
+        {
+          "title": "Fix data and splits",
+          "text": "Publish a dataset identifier or hash, preprocessing, and split indices. Declare classical-data or quantum-data access and account for state preparation."
+        },
+        {
+          "title": "Choose a model",
+          "text": "Define the feature map, fidelity kernel or variational ansatz, observable, loss, and parameter initialization. Identify the costs of each circuit evaluation."
+        },
+        {
+          "title": "Train with a budget",
+          "text": "Use identical data splits and comparable tuning budgets for classical and quantum models. Repeat seeds and shot budgets; retain uncertainty and failed runs."
+        },
+        {
+          "title": "Evaluate and ablate",
+          "text": "Report held-out metrics, confidence intervals, loading and training costs. Vary depth, entangling structure, noise, and sampling to identify which choices drive the result."
+        }
       ],
-      "starter": { "title": "Understand the measurement layer", "text": "Use the qubit studio to vary rotations and measurement bases, then study correlations in the entanglement lab. Follow the official lessons to train a small classifier outside this site; these labs do not perform ML training.", "lab": "qubit" },
-      "tools": ["pennylane", "qiskit"],
+      "starter": {
+        "title": "Connect the physics",
+        "text": "Use the qubit studio for rotation and readout intuition, then the entanglement lab for noisy correlations. Training, kernel construction, and benchmarking run in the linked external software.",
+        "lab": "qubit"
+      },
+      "tools": [
+        "pennylane",
+        "qiskit"
+      ],
       "technique": "qml",
       "universe": "application:11",
       "chapter": 8,
-      "perspective": "Broad practical quantum advantage for machine learning is not established. Results depend on the task, data access, resources, and comparison.",
+      "perspective": "Broad practical quantum advantage for machine learning is not established. Report the task, data-access model, resources, uncertainty, and comparison that support a narrower result.",
       "resources": [
-        { "title": "IBM · Data encoding", "url": "https://quantum.cloud.ibm.com/learning/en/courses/quantum-machine-learning/data-encoding", "kind": "Learning resource" },
-        { "title": "IBM · Quantum kernel methods", "url": "https://quantum.cloud.ibm.com/learning/en/courses/quantum-machine-learning/quantum-kernel-methods", "kind": "Learning resource" },
-        { "title": "IBM · Variational circuits & QNNs", "url": "https://quantum.cloud.ibm.com/learning/en/courses/quantum-machine-learning/qvc-qnn", "kind": "Learning resource" },
-        { "title": "Google Research · Barren plateaus", "url": "https://research.google/pubs/barren-plateaus-in-quantum-neural-network-training-landscapes/", "kind": "Research paper" }
-      ]
+        {
+          "title": "IBM · Encoding classical data",
+          "url": "https://quantum.cloud.ibm.com/learning/en/courses/quantum-machine-learning/data-encoding",
+          "kind": "Learning resource"
+        },
+        {
+          "title": "PennyLane · Quantum kernels and matrix corrections",
+          "url": "https://docs.pennylane.ai/en/stable/code/qp_kernels.html",
+          "kind": "Official documentation"
+        },
+        {
+          "title": "PennyLane · Parameter-shift differentiation",
+          "url": "https://docs.pennylane.ai/en/stable/code/api/pennylane.gradients.param_shift.html",
+          "kind": "Official documentation"
+        },
+        {
+          "title": "Google Research · Barren plateaus",
+          "url": "https://research.google/pubs/barren-plateaus-in-quantum-neural-network-training-landscapes/",
+          "kind": "Research paper"
+        },
+        {
+          "title": "Bowles, Ahmed & Schuld · Benchmark design",
+          "url": "https://arxiv.org/abs/2403.07059",
+          "kind": "Research preprint · 2024"
+        }
+      ],
+      "question": "Does the learning result survive data loading, finite sampling, and a strong classical baseline?",
+      "prerequisites": [
+        "Supervised learning",
+        "Optimization and gradients",
+        "Quantum measurements",
+        "Probability and validation"
+      ],
+      "model": {
+        "title": "A restricted two-term parameter-shift identity",
+        "expression": "∂θ f(θ) = ½ [ f(θ + π/2) − f(θ − π/2) ]",
+        "assumptions": "The differentiated gate is exp(−iθP/2) with P² = I and the remaining circuit fixed. Differentiate repeated occurrences and apply the chain rule. Finite shots add gradient noise; arbitrary parameter-dependent noise need not obey this identity.",
+        "source": 2
+      },
+      "evaluation": [
+        {
+          "metric": "Generalization",
+          "method": "Use held-out test data and repeated, documented data splits.",
+          "limit": "A training score does not establish predictive utility."
+        },
+        {
+          "metric": "Classical comparison",
+          "method": "Include tuned classical models with the same data and tuning budget.",
+          "limit": "A weak or mismatched baseline can manufacture an apparent gain."
+        },
+        {
+          "metric": "Training and sampling cost",
+          "method": "Count circuit evaluations, shots, gradients, loading, and wall time.",
+          "limit": "An optimizer step is not a hardware-independent unit of cost."
+        },
+        {
+          "metric": "Trainability and conditioning",
+          "method": "Measure gradient variability and inspect estimated kernel eigenvalues.",
+          "limit": "Results depend on architecture, initialization, data, and estimator corrections."
+        }
+      ],
+      "project": {
+        "title": "Benchmark a kernel and a variational classifier",
+        "objective": "Create a small, reproducible two-feature classification study with an explicit cost and validation record.",
+        "steps": [
+          "Publish a fixed dataset hash, split indices, preprocessing, and a shared hyperparameter-tuning budget.",
+          "Compare a classical RBF support-vector classifier and logistic model with a fidelity kernel and shallow variational classifier.",
+          "Repeat seeds and shot budgets; inspect kernel eigenvalues and gradient variability.",
+          "Add depth and entanglement ablations and report held-out metrics, confidence intervals, circuit counts, and full preparation/training costs."
+        ],
+        "deliverables": [
+          "Split files, model definitions, and tuning records",
+          "Predictive metrics with sampling and runtime costs",
+          "Ablations, kernel diagnostics, and reproducible code"
+        ],
+        "baseline": "Use tuned classical models on identical splits. Small-scale results characterize this experiment, rather than establishing asymptotic quantum advantage."
+      }
     },
     {
       "id": "advanced",
       "title": "Advanced Quantum AI",
-      "tagline": "Algorithms, intelligence & reliable systems",
-      "headline": "Connect ambition to the full resource cost.",
-      "level": "Advanced · research frontier",
-      "summary": "Investigate fault-tolerant learning algorithms and the classical AI that helps operate quantum machines. These are two distinct directions: quantum for AI, and AI for quantum.",
+      "tagline": "Quantum data, classical AI & fault tolerance",
+      "headline": "Connect learning claims to reliable systems.",
+      "level": "Advanced research brief",
+      "summary": "Follow two distinct directions: quantum for AI, including learning from quantum data, and classical AI for quantum hardware. Connect both to fault-tolerant architecture, error budgets, decoder constraints, and an explicit account of what has actually been demonstrated.",
       "topics": [
-        { "title": "Quantum for AI", "text": "Learning separations and proposed algorithmic gains depend on the task and data-access assumptions. Engineered examples, theory, and useful application advantage represent different kinds of evidence." },
-        { "title": "AI for quantum", "text": "Classical neural networks can interpret error-detection measurements or help analyze calibration data. AlphaQubit and NVIDIA Ising illustrate this direction; they are not general-purpose quantum neural networks." },
-        { "title": "Fault-tolerant resources", "text": "Plan for logical operations, physical qubits, error correction, runtime, and error budgets. Resource estimators compare explicit assumptions; an estimate does not demonstrate that the required machine exists." }
+        {
+          "title": "Learning from quantum data",
+          "text": "Some specified learning tasks admit separations in the number of experiments when quantum information can be retained and processed. The comparison depends on how the learner accesses data and which measurements or processing are permitted.",
+          "detail": "An experimental-sample advantage for quantum-data tasks does not imply a generic speedup for classical datasets or language models. Identify the task, input model, comparison class, and whether the evidence is theory, simulation, or an experiment.",
+          "sources": [
+            3
+          ]
+        },
+        {
+          "title": "Classical AI inside a quantum system",
+          "text": "Calibration models can interpret experimental measurements, while neural decoders infer errors from syndrome records. These are classical machine-learning components supporting quantum hardware. Evaluate accuracy, training cost, latency, and distribution shift together.",
+          "detail": "AlphaQubit’s original report identified a decoding-accuracy result and explicitly noted that its implementation was too slow for real-time superconducting correction. A fast offline inference result is also distinct from feedback integrated into a processor’s timing budget.",
+          "sources": [
+            0,
+            1
+          ]
+        },
+        {
+          "title": "Fault-tolerant resource and error budgets",
+          "text": "Resource estimates depend on the application, physical hardware model, error-correcting code, distillation assumptions, and allocated error budget. Compare physical qubits and runtime together, including the resources assigned to factories and other supporting operations.",
+          "detail": "An estimate describes a modeled architecture rather than an available machine. Retain the parameter set and sensitivity analysis, and separate logical-memory demonstrations, logical operations, and complete application-level performance.",
+          "sources": [
+            2
+          ]
+        }
       ],
       "workflow": [
-        { "title": "Specify", "text": "Choose a precise learning or hardware-support task. State what is quantum, what is classical, and how data is accessed." },
-        { "title": "Estimate", "text": "Budget logical operations, error rates, physical qubits, and runtime under an explicit hardware and error-correction model." },
-        { "title": "Support", "text": "Study how classical AI can assist calibration or decoding. This supports quantum hardware rather than replacing an algorithm’s full resource analysis." },
-        { "title": "Validate", "text": "Separate theory, simulation, experiments, and program goals. Compare full costs and preserve the conditions of any claimed advantage." }
+        {
+          "title": "Classify the claim",
+          "text": "State whether the work uses quantum processing for learning or classical AI to support a quantum system. Identify the data-access and comparison models."
+        },
+        {
+          "title": "Specify the budget",
+          "text": "Declare logical and physical error assumptions, timing constraints, qubit resources, and runtime. For neural components, include training and inference costs."
+        },
+        {
+          "title": "Stress the model",
+          "text": "Compare with a named baseline on identical records or tasks. Hold out a shifted noise distribution or changed hardware context to test robustness."
+        },
+        {
+          "title": "Match evidence to scope",
+          "text": "Separate theoretical separations, simulated studies, experimental observations, and available capabilities. Check whether timing and resource assumptions are met by the measured system."
+        }
       ],
-      "starter": { "title": "Start with noisy correlations", "text": "Explore noise in the entanglement lab, then follow the decoder and resource-estimation sources. The lab models Bell-pair statistics; it does not reproduce a surface-code decoder or a fault-tolerant processor.", "lab": "bell" },
-      "tools": ["qdk", "stim", "cudaq"],
+      "starter": {
+        "title": "Connect the physics",
+        "text": "Use the entanglement lab to inspect how noise changes correlation statistics. Implement syndrome generation, decoding, and resource estimation in external tools; the lab supplies related physical intuition.",
+        "lab": "bell"
+      },
+      "tools": [
+        "qdk",
+        "stim",
+        "cudaq"
+      ],
       "technique": "qec",
       "universe": "technique:qec",
       "chapter": 12,
-      "perspective": "AI-assisted control, a logical-memory result, and useful fault-tolerant quantum AI are different milestones. Follow the evidence for each.",
+      "perspective": "AI-assisted calibration, decoding accuracy, logical-memory performance, and a useful fault-tolerant application are distinct milestones. State which one the evidence supports.",
       "resources": [
-        { "title": "Microsoft · Resource estimation", "url": "https://learn.microsoft.com/en-us/azure/quantum/intro-to-resource-estimation", "kind": "Official documentation" },
-        { "title": "Google Research · Power of data in QML", "url": "https://research.google/pubs/power-of-data-in-quantum-machine-learning/", "kind": "Research paper" },
-        { "title": "Google · AlphaQubit decoding research", "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphaqubit-quantum-error-correction/", "kind": "Company research" },
-        { "title": "NVIDIA · Ising calibration & decoding", "url": "https://developer.nvidia.com/blog/nvidia-ising-introduces-ai-powered-workflows-to-build-fault-tolerant-quantum-systems/", "kind": "Company research" }
-      ]
+        {
+          "title": "NVIDIA · Ising models for quantum systems",
+          "url": "https://developer.nvidia.com/ising",
+          "kind": "Official product documentation"
+        },
+        {
+          "title": "Google · AlphaQubit decoding research",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphaqubit-quantum-error-correction/",
+          "kind": "Company research · 2024"
+        },
+        {
+          "title": "Microsoft · Fault-tolerant resource estimation",
+          "url": "https://learn.microsoft.com/en-us/azure/quantum/intro-to-resource-estimation",
+          "kind": "Official documentation"
+        },
+        {
+          "title": "Huang et al. · Learning from experiments",
+          "url": "https://arxiv.org/abs/2112.00778",
+          "kind": "Research paper · Science 2022; preprint 2021"
+        }
+      ],
+      "question": "What is quantum, what is classical, and which resource or evidence supports the claimed benefit?",
+      "prerequisites": [
+        "Quantum error correction",
+        "Statistical learning",
+        "Complexity and data access",
+        "Resource estimation"
+      ],
+      "model": {
+        "title": "An illustrative logical-fault budget",
+        "expression": "Pfail ≤ Σⱼ pⱼ ≤ Nloc pmax",
+        "assumptions": "An elementary union bound for identified stochastic logical-fault events with valid probability bounds. Independence is unnecessary. Coherent logical errors, omitted events, and correlated faults can require richer analysis; this is not a complete resource estimator.",
+        "source": 2
+      },
+      "evaluation": [
+        {
+          "metric": "Evidence and data access",
+          "method": "Specify task, inputs, comparison model, and type of evidence.",
+          "limit": "A quantum-data separation does not generalize automatically to classical data."
+        },
+        {
+          "metric": "Decoder quality",
+          "method": "Measure logical error with intervals on held-out syndrome records.",
+          "limit": "Training and test leakage or noise mismatch can distort apparent accuracy."
+        },
+        {
+          "metric": "Latency and integration",
+          "method": "Report inference hardware and the actual feedback deadline.",
+          "limit": "Offline latency is not proof of real-time correction in a processor."
+        },
+        {
+          "metric": "Fault-tolerant cost",
+          "method": "Compare physical qubits, runtime, factories, and error budgets.",
+          "limit": "Outputs are conditional on architecture and error-model assumptions."
+        }
+      ],
+      "project": {
+        "title": "Evaluate a neural decoder under distribution shift",
+        "objective": "Build an external benchmark of classical AI for quantum error correction with separate accuracy and latency measurements.",
+        "steps": [
+          "Generate fixed training, validation, and test syndrome records under documented noise models.",
+          "Compare a small neural decoder with a matching baseline on exactly the same held-out records.",
+          "Hold out a shifted noise distribution and report logical error, intervals, inference hardware, training cost, and failure cases.",
+          "Compare measured latency with a stated feedback budget, without describing desktop inference alone as integrated real-time correction."
+        ],
+        "deliverables": [
+          "Noise definitions, split records, and seeds",
+          "Logical-error and robustness comparisons",
+          "Named inference hardware, latency, and training costs"
+        ],
+        "baseline": "Compare on identical syndrome records with a documented matching decoder. Preserve the distinction between offline decoding and feedback within a running processor."
+      }
     }
   ]
 }
