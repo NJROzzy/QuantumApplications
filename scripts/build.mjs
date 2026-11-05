@@ -1,5 +1,11 @@
-import { cp, mkdir, rm } from 'node:fs/promises';
+import { cp, mkdir, rm, readFile, writeFile } from 'node:fs/promises';
+import { ALL_PAGES, SITE_URL } from '../public/page-model.js';
+import { renderPageHtml } from '../lib/page-html.js';
 await rm('dist', { recursive: true, force: true });
 await mkdir('dist', { recursive: true });
 await cp('public', 'dist', { recursive: true });
-console.log('Built QuantumApplicationsbyNJR → dist/');
+const template = await readFile('public/index.html','utf8');
+for (const page of ALL_PAGES) await writeFile(page.path === '/' ? 'dist/index.html' : `dist${page.path}.html`,renderPageHtml(template,page));
+await writeFile('dist/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${ALL_PAGES.map(page=>`<url><loc>${SITE_URL}${page.path}</loc></url>`).join('')}</urlset>`);
+await writeFile('dist/robots.txt',`User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+console.log(`Built QuantumApplicationsbyNJR → dist/ (${ALL_PAGES.length} pages)`);

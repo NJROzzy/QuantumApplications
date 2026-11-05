@@ -5,11 +5,13 @@ import { initInnovators } from './innovators.js';
 import { initEvolution } from './evolution.js';
 import { initUniverse } from './universe.js';
 import { initQuantumAI } from './quantum-ai.js';
+import { initPages } from './pages.js';
 
 const $ = (selector, parent = document) => parent.querySelector(selector);
 const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
 const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+initPages({ document, window });
 
 const concepts = [
   { title: 'Superposition', tag: 'ONE STATE. MULTIPLE AMPLITUDES.', text: 'A quantum state can be a coherent combination of basis states. The amplitudes determine the probabilities of measurement outcomes; their relative phase makes interference possible.', equation: '|ψ⟩ = α|0⟩ + β|1⟩', type: 'wave' },
@@ -215,8 +217,6 @@ $('.menu-button').addEventListener('click', () => {
 $$('#main-nav a').forEach(link => link.addEventListener('click', () => { $('.menu-button').setAttribute('aria-expanded', 'false'); $('.menu-button').setAttribute('aria-label', 'Open navigation'); $('#main-nav').classList.remove('open'); }));
 document.addEventListener('keydown', event => { if (event.key === 'Escape' && $('#main-nav').classList.contains('open')) { $('.menu-button').click(); $('.menu-button').focus(); } });
 addEventListener('scroll', () => { const height = document.documentElement.scrollHeight - innerHeight; $('.reading-progress').style.width = `${height > 0 ? scrollY / height * 100 : 0}%`; }, { passive: true });
-const sectionObserver = new IntersectionObserver(entries => { for (const entry of entries) if (entry.isIntersecting) $$('#main-nav a').forEach(link => link.classList.toggle('current', link.hash === `#${entry.target.id}`)); }, { rootMargin: '-15% 0px -60% 0px' });
-$$('main section[id]').forEach(section => sectionObserver.observe(section));
 
 // Interactive concept art. Scientific calculations live in the simulation deck.
 function initQuantumCloud() {
@@ -311,6 +311,7 @@ function initQuantumCloud() {
   new ResizeObserver(resize).observe(canvas);
   new IntersectionObserver(entries => { visible = entries[0].isIntersecting; if (!visible) pauseFrame(); resume(); }).observe(canvas);
   document.addEventListener('visibilitychange', () => { if (document.hidden) pauseFrame(); else resume(); });
+  document.addEventListener('quantum:page-change', event => { visible = event.detail.page === 'home'; if (!visible) pauseFrame(); else { resize(); resume(); } });
   syncControls(); resize(); resume();
 }
 initQuantumCloud();

@@ -341,5 +341,14 @@ export function initSimulations({ document, window }) {
   new window.IntersectionObserver(entries => { labVisible = entries[0].isIntersecting; document.body.classList.toggle('lab-in-view', labVisible); $('.lab-dock').tabIndex = labVisible ? -1 : 0; if (!labVisible && frame) { window.cancelAnimationFrame(frame); frame = 0; lastTime = 0; } resume(); }).observe($('#simulation-workbench'));
   new window.ResizeObserver(draw).observe($('#simulation-workbench'));
   document.addEventListener('visibilitychange', () => { if (document.hidden && frame) { window.cancelAnimationFrame(frame); frame = 0; lastTime = 0; } resume(); });
+  document.addEventListener('quantum:page-change', event => {
+    labVisible = event.detail.page === 'lab';
+    if (!labVisible) {
+      setSlitRunning(false); setTunnelRunning(false);
+      if (frame) { window.cancelAnimationFrame(frame); frame = 0; lastTime = 0; }
+      if ($('#simulation-workbench').classList.contains('lab-focus')) setFocus(false);
+      document.body.classList.remove('lab-in-view'); $('.lab-dock').tabIndex = 0;
+    } else { draw(); resume(); }
+  });
   renderQubit(); updateSlit(); renderBell(); updateTunnel(); selectSimulation('qubit'); resume();
 }

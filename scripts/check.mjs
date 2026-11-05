@@ -8,6 +8,7 @@ import { initInnovators } from '../public/innovators.js';
 import { initEvolution } from '../public/evolution.js';
 import { initUniverse } from '../public/universe.js';
 import { initQuantumAI } from '../public/quantum-ai.js';
+import { initPages } from '../public/pages.js';
 
 const html = await readFile('public/index.html', 'utf8');
 const source = await readFile('public/app.js', 'utf8');
@@ -41,6 +42,7 @@ const context = new Proxy({
 window.HTMLCanvasElement.prototype.getContext = () => context;
 window.HTMLCanvasElement.prototype.getBoundingClientRect = function () { return { width: 600, height: this.id === 'quantum-canvas' ? 700 : 270, left: 0, top: 0 }; };
 window.HTMLElement.prototype.scrollIntoView = function () {};
+window.scrollTo = function () {};
 window.HTMLDialogElement.prototype.showModal = function () { this.open = true; };
 window.HTMLDialogElement.prototype.close = function () { this.open = false; };
 window.fetch = async url => ({ ok: true, json: async () => url === '/content/guide.json' ? guide : url === '/content/industry.json' ? industry : url === '/content/toolkit.json' ? toolkit : url === '/content/innovators.json' ? innovators : url === '/content/evolution.json' ? evolution : url === '/content/quantum-ai.json' ? quantumAI : news });
@@ -51,6 +53,7 @@ window.initInnovators = initInnovators;
 window.initEvolution = initEvolution;
 window.initUniverse = initUniverse;
 window.initQuantumAI = initQuantumAI;
+window.initPages = initPages;
 window.eval(source.replace(/^import .+;\s*/gm, ''));
 const $ = selector => window.document.querySelector(selector);
 const $$ = selector => [...window.document.querySelectorAll(selector)];
@@ -438,8 +441,20 @@ await check('Every Quantum AI pillar opens its connected software, technique, an
 await check('Quantum AI routes launch the lab and universe, and the navigation closes after choosing the new section', () => {
   click('[data-ai-pillar="advanced"]'); click('#ai-pillar-panel [data-launch-sim="bell"]'); assert.equal($('#simulation-bell').hidden, false);
   click('#ai-pillar-panel [data-universe-select]'); assert.equal($('#universe-selected-title').textContent, 'Quantum error correction');
-  click('.menu-button'); click('#main-nav a[href="#quantum-ai"]'); assert.equal($('.menu-button').getAttribute('aria-expanded'),'false');
+  click('.menu-button'); click('#main-nav a[href="/quantum-ai"]'); assert.equal($('.menu-button').getAttribute('aria-expanded'),'false');
   assert.equal($('#ai-news-updated').title,news.checkedAt); assert.ok($$('.ai-news-card').length > 0);
+});
+await check('Section navigation opens independent page URLs and preserves the selected Quantum AI pillar', () => {
+  click('#main-nav a[href="/quantum-ai"]'); click('[data-ai-pillar="ml"]'); assert.equal(window.location.pathname,'/quantum-ai');
+  click('#ai-pillar-panel [data-toolkit-detail="tool:pennylane"]'); assert.equal(window.location.pathname,'/toolkit'); assert.equal($('#toolkit-dialog').open,true); click('#toolkit-dialog .toolkit-close');
+  click('#main-nav a[href="/quantum-ai"]'); assert.equal($('#ai-pillar-ml').getAttribute('aria-selected'),'true'); assert.equal($$('main > [data-page-section]:not([hidden])').length,1);
+  click('#main-nav a[href="/"]'); assert.equal(window.location.pathname,'/'); assert.equal($$('main > [data-page-section]:not([hidden])').length,0); assert.equal($('#page-directory-grid').children.length,11);
+});
+await check('Leaving the lab stops its continuous sources and returning preserves completed results', () => {
+  click('[data-launch-sim="slit"]'); click('#slit-reset'); click('#slit-fire'); click('#slit-toggle');
+  assert.equal($('#slit-toggle').getAttribute('aria-pressed'),'true'); assert.equal($('#slit-count').textContent,'200');
+  click('#main-nav a[href="/quantum-ai"]'); assert.equal($('#slit-toggle').getAttribute('aria-pressed'),'false');
+  click('#main-nav a[href="/lab"]'); assert.equal($('#slit-count').textContent,'200'); assert.equal($('#simulation-slit').hidden,false); assert.equal($('#quantum-lab').hidden,false);
 });
 await check('No script errors occurred during interaction checks', () => assert.deepEqual(errors, []));
 dom.window.close();
