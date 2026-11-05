@@ -84,6 +84,36 @@ The related research panel shares Quantum Live’s request, saved edition, cache
 
 `public/content/quantum-ai.json` contains the curated learning content and review date. `public/quantum-ai-model.js` owns the topic matching; `public/quantum-ai.js` renders the learning and news interactions. arXiv’s bounded window now includes thirty recent quant-ph papers through the existing allowlisted adapter, improving the range of subjects without additional publisher requests. Other publisher limits, timeouts, source checks, and the total eighty-item feed cap remain in place. New publication availability follows publisher schedules; curated explanations are not automatically rewritten from news.
 
+## Pages and navigation
+
+The site has a homepage and eleven section pages, each with its own clean URL, page title, description, canonical URL, visible H1, breadcrumb, and previous/next navigation.
+
+| Page | URL path |
+| --- | --- |
+| Home and page directory | `/` |
+| Quantum Universe | `/universe` |
+| Fundamentals | `/fundamentals` |
+| Applications | `/applications` |
+| Quantum Evolution | `/evolution` |
+| Interactive Lab | `/lab` |
+| Quantum AI | `/quantum-ai` |
+| Quantum Live | `/quantum-live` |
+| Industry Atlas | `/industry-atlas` |
+| People & Projects | `/people-projects` |
+| Quantum Toolkit | `/toolkit` |
+| Learning Paths | `/learning` |
+
+`public/index.html` is the shared content template. `public/page-model.js` defines the pages and generates their visible views and metadata; `lib/page-html.js` prerenders every page during the build. Vercel’s existing clean-URL support serves these generated HTML documents directly. The development server uses the same renderer. The build also produces a sitemap and robots file. Unknown URLs return 404.
+
+`public/pages.js` handles navigation, browser Back/Forward, heading focus, and section links. Earlier URLs such as `/#quantum-ai` continue to open the corresponding page. Cross-section controls open their destination page before its lab, profile, research filter, or universe selection. Client navigation retains experiment results and interface selections in memory; continuous lab sources stop when leaving the lab. A full browser reload starts a new session. The complete guide remains available from every page.
+
+To verify direct requests while the local server is running, or against a deployment:
+
+```sh
+node scripts/pages-http-check.mjs http://localhost:3000
+node scripts/pages-http-check.mjs https://quantumapplicationsbynjr.vercel.app
+```
+
 ## Deployment
 
 `vercel.json` configures the static site and the `/api/news` Vercel Node function, including its bundled fallback file and a 25-second execution limit. The Vercel project slug uses lowercase (`quantumapplicationsbynjr`); the website's project name is **QuantumApplicationsbyNJR**. Vercel authentication and local project identity are excluded from Git.
@@ -92,6 +122,8 @@ The project is deployed in the existing `workfornjr-7532s-projects` Vercel works
 ## New dev OTW" 
 ## Verification
 
-`npm run check` runs deterministic physics checks plus 123 content, interaction, integration, and news-service checks. It covers the guide and experiments, publisher feeds and failures, source safety, news filters and refresh, industry profiles, toolkit search and comparisons, researcher/project profiles, universe reachability and path validation, keyboard exploration, story progress and persistence, historical credits, and cross-section navigation. Automated DOM interactions use jsdom. `scripts/universe-check.mjs` includes loading queues, escaped catalog content, invalid routes, source links, and catalog outages. The toolkit was previously reviewed in a browser at desktop, tablet, and mobile widths. Browser access was unavailable for the People & Projects addition and the universe/story update (the Mac was locked for the latter), so these additions have automated DOM verification without a new visual review.
+`npm run check` runs deterministic physics checks plus 137 content, interaction, integration, routing, and news-service checks. It covers the guide and experiments, publisher feeds and failures, source safety, news filters and refresh, industry profiles, toolkit search and comparisons, researcher/project profiles, universe reachability and path validation, keyboard exploration, story progress and persistence, historical credits, and cross-section navigation. Automated DOM interactions use jsdom. `scripts/universe-check.mjs` includes loading queues, escaped catalog content, invalid routes, source links, and catalog outages. The toolkit was previously reviewed in a browser at desktop, tablet, and mobile widths. Browser access was unavailable for the People & Projects addition and the universe/story update (the Mac was locked for the latter), so these additions have automated DOM verification without a new visual review.
 
 The Quantum AI update was reviewed in the browser at 415px, 768px, and 1600px widths, including navigation, pillar selection, research search, source filtering, and page overflow. `scripts/quantum-ai-check.mjs` covers shared refreshes, relevance, saved/partial/unavailable editions, safe sources, workflow keys, and failure handling; the main suite covers all pillar links into the existing site.
+
+The page conversion was checked at mobile, tablet, and desktop widths. Browser checks covered the standalone Quantum AI view, homepage directory, navigation, direct reloads, cross-page toolkit profiles, and Back restoring a completed qubit experiment. `scripts/pages-check.mjs` covers all twelve generated pages, metadata, old links, page visibility, history, focus, and routing events. `scripts/pages-http-check.mjs` checks each direct URL and its prerendered metadata, plus unknown-route 404 behavior.
