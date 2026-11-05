@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-11-04",
+  "pillars": [
+    {
+      "id": "tech",
+      "title": "Quantum Tech",
+      "tagline": "The physical foundations",
+      "headline": "Meet the machine behind the model.",
+      "level": "Start with the foundations",
+      "summary": "Qubits, control, connectivity, and noise determine which quantum operations a device can perform reliably. Learn how an abstract idea becomes a physical experiment.",
+      "topics": [
+        { "title": "Qubits & platforms", "text": "Superconducting circuits, trapped ions, neutral atoms, and photonics offer different ways to prepare, control, and measure quantum states. Platform comparisons require context about fidelity, connectivity, and the task." },
+        { "title": "Control & compilation", "text": "A hardware-aware compiler maps a circuit to native instructions and device connectivity. Routing can add operations, changing both execution cost and exposure to errors." },
+        { "title": "Noise & measurement", "text": "Environmental interactions and imperfect operations affect results. A simulator can model noise channels, but the model does not capture every detail of a physical processor." }
+      ],
+      "workflow": [
+        { "title": "Prepare", "text": "Initialize a quantum state. Preparation quality becomes part of the experiment’s error budget." },
+        { "title": "Control", "text": "Apply device-supported operations. Gate choices, qubit connectivity, and timing constrain the circuit." },
+        { "title": "Model noise", "text": "Explore how a noise channel changes the predicted state. Compare the model with measurements before trusting a hardware prediction." },
+        { "title": "Measure", "text": "Repeat state preparation and measurement to estimate a distribution. Finite shot counts introduce sampling uncertainty." }
+      ],
+      "starter": { "title": "Make noise visible", "text": "Prepare |+⟩ in the qubit studio, measure in X, and increase the depolarizing mixture. Observe how the distribution moves toward 50/50. This is a teaching model, not a device benchmark.", "lab": "qubit" },
+      "tools": ["cirq", "qiskit"],
+      "technique": "mitigation",
+      "universe": "concept:decoherence",
+      "chapter": 6,
+      "perspective": "A larger qubit count alone does not determine which useful problem a machine can solve.",
+      "resources": [
+        { "title": "IBM · Hardware-aware transpilation", "url": "https://quantum.cloud.ibm.com/docs/en/guides/transpile", "kind": "Official documentation" },
+        { "title": "Google · Cirq, circuits & noise", "url": "https://quantumai.google/cirq/start/intro", "kind": "Official tutorial" },
+        { "title": "IBM · Noise and errors", "url": "https://quantum.cloud.ibm.com/learning/en/courses/tools-for-quantum-advantage/noise-and-errors", "kind": "Learning resource" }
+      ]
+    },
+    {
+      "id": "programming",
+      "title": "Q Programming",
+      "tagline": "From states to software",
+      "headline": "Write a circuit. Ask a better question.",
+      "level": "Build on the basics",
+      "summary": "Use quantum software to express states, gates, measurements, and classical control. Start with local simulation, then understand the requirements of a hardware execution target.",
+      "topics": [
+        { "title": "Circuits & measurement", "text": "Qiskit and Cirq provide Python tools for constructing and simulating quantum circuits. Repeated measurements estimate observables or output probabilities; one shot does not reveal the full quantum state." },
+        { "title": "Languages & hybrid workflows", "text": "Microsoft’s Q# expresses quantum algorithms with classical control. NVIDIA’s CUDA-Q supports Python and C++ workflows connecting classical computing, simulation, and quantum targets." },
+        { "title": "Targets & reproducibility", "text": "Record the circuit, parameters, target, noise assumptions, shot count, and software version. GPU-accelerated quantum simulation is classical computation; hardware access has its own service requirements." }
+      ],
+      "workflow": [
+        { "title": "Define", "text": "Choose an initial state, a circuit, and a quantity to estimate. Make the experiment’s assumptions explicit." },
+        { "title": "Transform", "text": "Apply gates and compile for the chosen target. An ideal simulator and a real processor can produce different distributions." },
+        { "title": "Sample", "text": "Execute repeated shots or estimate an observable. Keep track of the statistical uncertainty and execution cost." },
+        { "title": "Compare", "text": "Check against a known small example or a classical calculation. Export parameters and results so the experiment can be reproduced." }
+      ],
+      "starter": { "title": "Build your first gate sequence", "text": "Start in |0⟩, apply H, compare Z and X measurements, then try Z and undo. Export the run. Continue in an official SDK tutorial to implement a real program.", "lab": "qubit" },
+      "tools": ["qiskit", "cirq", "qdk", "cudaq"],
+      "technique": "circuits",
+      "universe": "technique:circuits",
+      "chapter": 5,
+      "perspective": "The browser lab builds intuition. External SDKs and cloud jobs run in their own environments.",
+      "resources": [
+        { "title": "IBM · Qiskit API & examples", "url": "https://quantum.cloud.ibm.com/docs/en/api/qiskit", "kind": "Official documentation" },
+        { "title": "Microsoft · Q# language overview", "url": "https://learn.microsoft.com/en-us/azure/quantum/qsharp-overview", "kind": "Official documentation" },
+        { "title": "NVIDIA · CUDA-Q quick start", "url": "https://nvidia.github.io/cuda-quantum/latest/using/quick_start.html", "kind": "Official tutorial" }
+      ]
+    },
+    {
+      "id": "ml",
+      "title": "Q ML",
+      "tagline": "Quantum for machine learning",
+      "headline": "Explore the learning loop.",
+      "level": "Intermediate · active research",
+      "summary": "Quantum machine learning studies how quantum states, circuits, and measurements can contribute to learning tasks. Many approaches combine a parameterized circuit with a classical optimizer.",
+      "topics": [
+        { "title": "Encode the data", "text": "Basis, angle, and amplitude encodings have different qubit, normalization, and state-preparation costs. A large mathematical state space does not make classical data free to load." },
+        { "title": "Kernels & trainable circuits", "text": "Quantum kernels estimate similarities between encoded examples for a classical learning model. Variational classifiers instead adjust circuit parameters using measured outputs and a classical optimizer." },
+        { "title": "Train & benchmark", "text": "Compare against strong classical baselines using the same data splits. Include encoding, training, shots, noise, and inference cost. Some circuit families develop very small gradients called barren plateaus." }
+      ],
+      "workflow": [
+        { "title": "Encode", "text": "Map a training example to circuit operations or a quantum state. Count the cost of preparing each example." },
+        { "title": "Transform", "text": "Apply a parameterized circuit. Its architecture and initialization affect expressivity and trainability." },
+        { "title": "Read out", "text": "Estimate measured outputs and form a loss. Repeated sampling and noise affect the quality of that estimate." },
+        { "title": "Optimize ↺", "text": "A classical optimizer updates parameters and repeats the loop. Evaluate held-out data against classical models; a teaching demonstration is not evidence of a speedup." }
+      ],
+      "starter": { "title": "Understand the measurement layer", "text": "Use the qubit studio to vary rotations and measurement bases, then study correlations in the entanglement lab. Follow the official lessons to train a small classifier outside this site; these labs do not perform ML training.", "lab": "qubit" },
+      "tools": ["pennylane", "qiskit"],
+      "technique": "qml",
+      "universe": "application:11",
+      "chapter": 8,
+      "perspective": "Broad practical quantum advantage for machine learning is not established. Results depend on the task, data access, resources, and comparison.",
+      "resources": [
+        { "title": "IBM · Data encoding", "url": "https://quantum.cloud.ibm.com/learning/en/courses/quantum-machine-learning/data-encoding", "kind": "Learning resource" },
+        { "title": "IBM · Quantum kernel methods", "url": "https://quantum.cloud.ibm.com/learning/en/courses/quantum-machine-learning/quantum-kernel-methods", "kind": "Learning resource" },
+        { "title": "IBM · Variational circuits & QNNs", "url": "https://quantum.cloud.ibm.com/learning/en/courses/quantum-machine-learning/qvc-qnn", "kind": "Learning resource" },
+        { "title": "Google Research · Barren plateaus", "url": "https://research.google/pubs/barren-plateaus-in-quantum-neural-network-training-landscapes/", "kind": "Research paper" }
+      ]
+    },
+    {
+      "id": "advanced",
+      "title": "Advanced Quantum AI",
+      "tagline": "Algorithms, intelligence & reliable systems",
+      "headline": "Connect ambition to the full resource cost.",
+      "level": "Advanced · research frontier",
+      "summary": "Investigate fault-tolerant learning algorithms and the classical AI that helps operate quantum machines. These are two distinct directions: quantum for AI, and AI for quantum.",
+      "topics": [
+        { "title": "Quantum for AI", "text": "Learning separations and proposed algorithmic gains depend on the task and data-access assumptions. Engineered examples, theory, and useful application advantage represent different kinds of evidence." },
+        { "title": "AI for quantum", "text": "Classical neural networks can interpret error-detection measurements or help analyze calibration data. AlphaQubit and NVIDIA Ising illustrate this direction; they are not general-purpose quantum neural networks." },
+        { "title": "Fault-tolerant resources", "text": "Plan for logical operations, physical qubits, error correction, runtime, and error budgets. Resource estimators compare explicit assumptions; an estimate does not demonstrate that the required machine exists." }
+      ],
+      "workflow": [
+        { "title": "Specify", "text": "Choose a precise learning or hardware-support task. State what is quantum, what is classical, and how data is accessed." },
+        { "title": "Estimate", "text": "Budget logical operations, error rates, physical qubits, and runtime under an explicit hardware and error-correction model." },
+        { "title": "Support", "text": "Study how classical AI can assist calibration or decoding. This supports quantum hardware rather than replacing an algorithm’s full resource analysis." },
+        { "title": "Validate", "text": "Separate theory, simulation, experiments, and program goals. Compare full costs and preserve the conditions of any claimed advantage." }
+      ],
+      "starter": { "title": "Start with noisy correlations", "text": "Explore noise in the entanglement lab, then follow the decoder and resource-estimation sources. The lab models Bell-pair statistics; it does not reproduce a surface-code decoder or a fault-tolerant processor.", "lab": "bell" },
+      "tools": ["qdk", "stim", "cudaq"],
+      "technique": "qec",
+      "universe": "technique:qec",
+      "chapter": 12,
+      "perspective": "AI-assisted control, a logical-memory result, and useful fault-tolerant quantum AI are different milestones. Follow the evidence for each.",
+      "resources": [
+        { "title": "Microsoft · Resource estimation", "url": "https://learn.microsoft.com/en-us/azure/quantum/intro-to-resource-estimation", "kind": "Official documentation" },
+        { "title": "Google Research · Power of data in QML", "url": "https://research.google/pubs/power-of-data-in-quantum-machine-learning/", "kind": "Research paper" },
+        { "title": "Google · AlphaQubit decoding research", "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphaqubit-quantum-error-correction/", "kind": "Company research" },
+        { "title": "NVIDIA · Ising calibration & decoding", "url": "https://developer.nvidia.com/blog/nvidia-ising-introduces-ai-powered-workflows-to-build-fault-tolerant-quantum-systems/", "kind": "Company research" }
+      ]
+    }
+  ]
+}

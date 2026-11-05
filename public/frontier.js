@@ -7,6 +7,8 @@ export function initFrontier({ document, window }) {
   const external = (url, label, className = '') => { const safe = safeExternalUrl(url); return safe ? `<a href="${escape(safe)}" target="_blank" rel="noopener noreferrer" class="${className}">${escape(label)}</a>` : `<span>${escape(label)}</span>`; };
   const state = { news: null, industry: null, busy: false, lastAttempt: 0, category: 'all', source: 'all', sort: 'newest', query: '', visible: 6, company: null, newsApp: null, technology: 'all', atlasQuery: '', atlasApp: null, openCompany: null };
   let timer, disposed = false, pendingController;
+  const newsSubscribers = new Set();
+  const publishNews = () => { const update = { feed: state.news, busy: state.busy, attempted: state.lastAttempt > 0 }; newsSubscribers.forEach(listener => listener(update)); };
   const sourceIds = ['arxiv', 'ibm', 'google', 'mit', 'nature'];
   const scrollTo = id => { $(id).scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' }); };
 
@@ -72,7 +74,7 @@ export function initFrontier({ document, window }) {
   }
   async function refreshNews() {
     if (state.busy || disposed) return;
-    state.busy = true; state.lastAttempt = Date.now(); $('#refresh-news').disabled = true; $('#refresh-news').textContent = 'Checking sources…'; $('#news-grid').setAttribute('aria-busy', 'true');
+    state.busy = true; state.lastAttempt = Date.now(); $('#refresh-news').disabled = true; $('#refresh-news').textContent = 'Checking sources…'; $('#news-grid').setAttribute('aria-busy', 'true'); publishNews();
     pendingController = new window.AbortController(); const timeout = window.setTimeout(() => pendingController.abort(), 29000);
     try {
       state.news = sanitizeFeed(await getJSON('/api/news', pendingController.signal));
@@ -80,7 +82,7 @@ export function initFrontier({ document, window }) {
     } catch {
       if (state.news) state.news = savedEdition(state.news);
       else { $('#news-grid').innerHTML = '<div class="frontier-empty"><h3>The signal is temporarily quiet.</h3><p>Research sources are unavailable. Use Refresh feed above to retry.</p></div>'; $('#news-health').innerHTML = '<span class="tiny-dot"></span> SOURCES UNAVAILABLE'; }
-    } finally { window.clearTimeout(timeout); state.busy = false; if (!disposed) { $('#refresh-news').disabled = false; $('#refresh-news').textContent = 'Refresh feed ↻'; $('#news-grid').setAttribute('aria-busy', 'false'); renderNews(); } }
+    } finally { window.clearTimeout(timeout); state.busy = false; if (!disposed) { $('#refresh-news').disabled = false; $('#refresh-news').textContent = 'Refresh feed ↻'; $('#news-grid').setAttribute('aria-busy', 'false'); renderNews(); publishNews(); } }
   }
   function clearNews() { Object.assign(state, { category: 'all', source: 'all', query: '', company: null, newsApp: null, visible: 6 }); $('#news-search').value = ''; $('#news-source').value = 'all'; renderCategoryControls(); renderNews(); }
   function relatedNews({ company = null, application = null } = {}) { $('#industry-dialog').close(); $('#application-dialog').close(); clearNews(); state.company = company; state.newsApp = application; renderNews(); scrollTo('#quantum-live'); $('#news-search').focus({ preventScroll: true }); }
@@ -128,7 +130,7 @@ export function initFrontier({ document, window }) {
   $('#clear-atlas-context').addEventListener('click', () => { state.atlasApp = null; renderAtlas(); });
   $('.industry-close').addEventListener('click', () => $('#industry-dialog').close());
   $('#industry-dialog').addEventListener('close', () => { state.openCompany = null; });
-  const canAutoRefresh = () => !document.hidden && !document.querySelector('dialog[open]') && !$('#news-grid').contains(document.activeElement) && !$('#atlas-grid').contains(document.activeElement);
+  const canAutoRefresh = () => !document.hidden && !document.querySelector('dialog[open]') && !$('#news-grid').contains(document.activeElement) && !$('#atlas-grid').contains(document.activeElement) && !$('#quantum-ai-news-grid')?.contains(document.activeElement);
   function onVisibility() { if (canAutoRefresh() && Date.now() - state.lastAttempt >= 15 * 60 * 1000) refreshNews(); }
   document.addEventListener('visibilitychange', onVisibility);
   window.addEventListener('online', onVisibility);
@@ -140,8 +142,8 @@ export function initFrontier({ document, window }) {
     else { $('#atlas-grid').innerHTML = '<div class="frontier-empty"><h3>The atlas could not load.</h3><p>Reload this page to try again.</p></div>'; $('#atlas-count').textContent = 'Atlas temporarily unavailable'; }
     if (results[1].status === 'fulfilled') { try { state.news = savedEdition(sanitizeFeed(results[1].value)); } catch { /* Try the last usable browser edition below. */ } }
     try { const cached = savedEdition(sanitizeFeed(JSON.parse(window.localStorage.getItem('quantum-live-v1')))); if (!state.news || (cached.checkedAt || '') > (state.news.checkedAt || '')) state.news = cached; } catch { /* The live request can initialize the panel. */ }
-    renderNews(); await refreshNews();
+    renderNews(); publishNews(); await refreshNews();
     if (!disposed) timer = window.setInterval(() => { if (canAutoRefresh()) refreshNews(); }, 15 * 60 * 1000);
   })();
-  return { ready, refreshNews, destroy() { disposed = true; window.clearInterval(timer); pendingController?.abort(); document.removeEventListener('visibilitychange', onVisibility); window.removeEventListener('online', onVisibility); } };
+  return { ready, refreshNews, subscribeNews(listener) { newsSubscribers.add(listener); listener({ feed: state.news, busy: state.busy, attempted: state.lastAttempt > 0 }); return () => newsSubscribers.delete(listener); }, destroy() { disposed = true; newsSubscribers.clear(); window.clearInterval(timer); pendingController?.abort(); document.removeEventListener('visibilitychange', onVisibility); window.removeEventListener('online', onVisibility); } };
 }
