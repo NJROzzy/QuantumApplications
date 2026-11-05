@@ -77,7 +77,7 @@ await check('An individual outage stays visible alongside responding sources',as
   const other=setup({feed:partial});await other.controller.ready;assert.match(other.$('#news-health').textContent,/4 \/ 5/);other.click('[data-news-source="nature"]');assert.ok(other.$$('.saved-tag').length>0);other.close();
 });
 await check('The newest browser edition is retained if the network fails',async()=>{
-  const cache=clone(snapshot);cache.checkedAt='2026-10-19T12:00:00Z';const other=setup({fail:true,initialCache:cache});await other.controller.ready;assert.match(other.$('#news-updated').textContent,/Oct 19, 2026/);assert.match(other.$('#news-health').textContent,/SAVED/);other.close();
+  const cache=clone(snapshot);cache.checkedAt=new Date(Date.parse(snapshot.checkedAt)+86400000).toISOString();const other=setup({fail:true,initialCache:cache});await other.controller.ready;assert.equal(other.$('#news-updated').title,`Source check: ${cache.checkedAt}`);assert.match(other.$('#news-health').textContent,/SAVED/);other.close();
 });
 await check('Publisher markup is displayed as text and unsafe source links are dropped',async()=>{
   const malicious=clone(snapshot);malicious.articles=[{...malicious.articles[0],title:'<img src=x onerror=alert(1)>',summary:'<script>alert(1)</script>',url:'https://arxiv.org/abs/2610.11111'},{...malicious.articles[0],url:'javascript:alert(1)'}];

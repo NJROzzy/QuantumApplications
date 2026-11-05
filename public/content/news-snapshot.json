@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "checkedAt": "2026-10-18T05:51:19.459Z",
-  "snapshotAt": "2026-10-18T05:39:38.896Z",
+  "checkedAt": "2026-11-05T00:42:19.204Z",
+  "snapshotAt": "2026-10-18T05:51:19.459Z",
   "mode": "live",
   "refreshAfterMs": 900000,
   "sources": [
@@ -10,8 +10,8 @@
       "name": "arXiv · quant-ph",
       "homepage": "https://arxiv.org/list/quant-ph/recent",
       "state": "live",
-      "checkedAt": "2026-10-18T05:51:19.459Z",
-      "itemCount": 12,
+      "checkedAt": "2026-11-05T00:42:19.204Z",
+      "itemCount": 30,
       "transport": "Publisher feed"
     },
     {
@@ -19,7 +19,7 @@
       "name": "IBM Quantum",
       "homepage": "https://www.ibm.com/quantum/blog",
       "state": "live",
-      "checkedAt": "2026-10-18T05:51:19.459Z",
+      "checkedAt": "2026-11-05T00:42:19.204Z",
       "itemCount": 6,
       "transport": "Official blog"
     },
@@ -28,7 +28,7 @@
       "name": "Google Quantum AI",
       "homepage": "https://quantumai.google/",
       "state": "live",
-      "checkedAt": "2026-10-18T05:51:19.459Z",
+      "checkedAt": "2026-11-05T00:42:19.204Z",
       "itemCount": 12,
       "transport": "Publisher feed"
     },
@@ -37,7 +37,7 @@
       "name": "MIT News",
       "homepage": "https://news.mit.edu/topic/quantum-physics",
       "state": "live",
-      "checkedAt": "2026-10-18T05:51:19.459Z",
+      "checkedAt": "2026-11-05T00:42:19.204Z",
       "itemCount": 12,
       "transport": "Publisher feed"
     },
@@ -46,12 +46,902 @@
       "name": "Nature · npj Quantum Information",
       "homepage": "https://www.nature.com/npjqi/",
       "state": "live",
-      "checkedAt": "2026-10-18T05:51:19.459Z",
+      "checkedAt": "2026-11-05T00:42:19.204Z",
       "itemCount": 8,
       "transport": "Crossref publisher metadata"
     }
   ],
   "articles": [
+    {
+      "id": "a4328b81e593256c",
+      "title": "Quantum Error Correction in Nearly Critical Toric Codes",
+      "url": "https://arxiv.org/abs/2611.05375v1",
+      "summary": "We investigate quantum error correction protocols for topological codes deformed away from their stabilizer limits, particularly as they are pushed towards quantum phase transitions into trivial phases. Our focus is primarily on quantum information…",
+      "publishedAt": "2026-11-03T18:59:47.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "5d2387b067d6d971",
+      "title": "Quantum Pointwise Dimension (QUPID): An algorithm for identifying classical chaos in quantum dynamics",
+      "url": "https://arxiv.org/abs/2611.05369v1",
+      "summary": "The Pointwise Dimension is a diagnostic that reveals the effective dimensionality of classical trajectories in a $2N$-dimensional phase space. The essence of this diagnostic is to find a scaling according to which density changes with radius $r$…",
+      "publishedAt": "2026-11-03T18:57:43.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "d3849330ea6db463",
+      "title": "Breaking the quantum barriers for Graph Collision",
+      "url": "https://arxiv.org/abs/2611.05356v1",
+      "summary": "In the graph collision problem, the task is to decide whether a known graph on $n$ vertices contains an edge with both endpoints marked, given query access to the input bits specifying the marked vertices. We first refute the conjectured…",
+      "publishedAt": "2026-11-03T18:53:06.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "tunnel"
+    },
+    {
+      "id": "24ad945b79fde1b0",
+      "title": "Reading Why: Born-Measured Attention with Exact Word Evidence on Light and Qubits",
+      "url": "https://arxiv.org/abs/2611.05355v1",
+      "summary": "When a language model answers, we can usually only estimate why. We build a transformer in which every step is a Born measurement - attention $|\\langle q|k\\rangle|^4$ normalised over each row, a measured product in place of the feed-forward…",
+      "publishedAt": "2026-11-03T18:52:44.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "physics",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "f976a29963bc3135",
+      "title": "Interpretable Quantum Photonic Generative Models",
+      "url": "https://arxiv.org/abs/2611.05354v1",
+      "summary": "We propose a physical generative model for learning correlated multivariate data based on homodyne detection of photonic continuous-variable (CV) circuits. We use an $N$-mode photonic circuit in which two-mode squeezing provides correlations, local…",
+      "publishedAt": "2026-11-03T18:52:34.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "physics",
+        "ai",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [
+        6,
+        11
+      ],
+      "lab": "slit"
+    },
+    {
+      "id": "752a1897c4cedbfb",
+      "title": "Simple proof of conditions requiring maximal entanglement for local state verification and discrimination",
+      "url": "https://arxiv.org/abs/2611.05317v1",
+      "summary": "For deterministic state verification by separable measurements, the Schmidt rank of an entangled resource must be at least that of the state being verified [N. Yu, R. Duan, and M. Ying, IEEE Trans. Inf. Theory 60, 2069 (2014)], and if the two are…",
+      "publishedAt": "2026-11-03T18:23:48.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "bell"
+    },
+    {
+      "id": "637639281ffce06c",
+      "title": "Quantum Advantage has Few Complexity Implications",
+      "url": "https://arxiv.org/abs/2611.05303v1",
+      "summary": "We consider the complexity implications of proofs of quantumness and (quantum verifier) oblivious state preparation. We show that both of these objects can coexist with the easiness of nondeterministic computation. That is, we give evidence that…",
+      "publishedAt": "2026-11-03T18:14:46.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "21f5949f54959764",
+      "title": "Universal dynamics of quantum phase transitions with fractional long-range interactions",
+      "url": "https://arxiv.org/abs/2611.05273v1",
+      "summary": "The complete statistical characterization of defects generated in a quantum phase transition has mostly been studied in exactly solvable models, and remains little explored in nonintegrable systems such as long-range interacting spin chains. We…",
+      "publishedAt": "2026-11-03T17:56:02.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "643876f0c6638fbc",
+      "title": "Effective Hamiltonians and non-Hermitian physics",
+      "url": "https://arxiv.org/abs/2611.05268v1",
+      "summary": "Every realistic quantum system is coupled to an environment. Including the environment restores a closed, Hermitian description, but at the cost of an intractably large Hilbert space. The Feshbach--Löwdin projection eliminates the unwanted degrees…",
+      "publishedAt": "2026-11-03T17:55:06.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "ff7b5e543dfba2c4",
+      "title": "DynaMite: Dynamic Measurement Scheduling To Accelerate Fault-Tolerant Quantum Programs",
+      "url": "https://arxiv.org/abs/2611.05233v1",
+      "summary": "Fault-tolerant quantum computers run millions of logical cycles to perform quantum error correction (QEC). As logical operations span entire logical cycles, the logical cycle time (LCT) dictates program runtime. Qubit measurements, critical to…",
+      "publishedAt": "2026-11-03T17:18:12.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [
+        9
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "157eff30bd189943",
+      "title": "Efficient simulations of spectra and transport for multiorbital quantum impurities",
+      "url": "https://arxiv.org/abs/2611.05185v1",
+      "summary": "Quantum impurity calculations become challenging when multiple correlated orbitals are treated explicitly, particularly in nonequilibrium steady states. We introduce Coupled-Cluster Coupled Lindblad (C$^3$L), a deterministic approach that combines…",
+      "publishedAt": "2026-11-03T16:43:36.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "b6a8a9a862f597d6",
+      "title": "Quantum Query Lower Bounds from Classical Moment Matching",
+      "url": "https://arxiv.org/abs/2611.05117v1",
+      "summary": "We prove a quantum analogue of the classical moment matching method, a popular framework used to prove lower bounds in property testing. For two random variables $X_0$ and $X_1$ whose moments match up to the first $r-1$ moments, the classical moment…",
+      "publishedAt": "2026-11-03T16:07:27.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "ce94cf7e119ad9b0",
+      "title": "Comment on \"Supervised Learning with Quantum Hamiltonian Embeddings\" (arXiv:2610.26833)",
+      "url": "https://arxiv.org/abs/2611.05105v1",
+      "summary": "We discuss the relationship between quantum Hamiltonian embeddings (arXiv:2610.26833) and prior developments in Quantum Cognition Machine Learning (QCML), including QCML's earlier implementation on IBM quantum hardware. We consider the novelty…",
+      "publishedAt": "2026-11-03T16:00:44.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "ai",
+        "hardware"
+      ],
+      "companies": [
+        "ibm"
+      ],
+      "applications": [
+        11
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "d70fabe1fc5aa301",
+      "title": "Data informed Ansatz Selection for Variational Quantum Circuits",
+      "url": "https://arxiv.org/abs/2611.05079v1",
+      "summary": "Choosing a variational quantum circuit (VQC) usually means searching over ansatze and depths, and training each candidate. We give three rules that fix these choices from the data and the gate set alone, before any training. First, a circuit without…",
+      "publishedAt": "2026-11-03T15:41:03.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "e11e0b5e3baf0202",
+      "title": "Operational Thresholds for Long-Range Entanglement in Quantum Networks",
+      "url": "https://arxiv.org/abs/2611.05069v1",
+      "summary": "Quantum networks distribute entanglement between distant nodes by combining many short entangled links using local quantum operations. These operations only succeed probabilistically, yet existing percolation-based theories of entanglement…",
+      "publishedAt": "2026-11-03T15:31:54.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        4
+      ],
+      "lab": "bell"
+    },
+    {
+      "id": "ef046dad853c4e8c",
+      "title": "QECert: Formal Foundations for Quantum Error-Correction Theory in Lean",
+      "url": "https://arxiv.org/abs/2611.05047v1",
+      "summary": "Quantum error correction provides the mathematical basis for protecting quantum information against noise. Existing formalizations have established foundations for stabilizer codes and code verification. However, a systematic formal treatment of the…",
+      "publishedAt": "2026-11-03T15:15:04.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "d067402a029c1a25",
+      "title": "Reopening the one clean qubit case of a semi-grand challenge",
+      "url": "https://arxiv.org/abs/2611.05046v1",
+      "summary": "In his 2005 list of semi-grand challenges for quantum computing theory, Scott Aaronson asked whether a quantum computer that is always in a separable mixed state can be simulated by a classical computer in polynomial time. An affirmative answer was…",
+      "publishedAt": "2026-11-03T15:15:02.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "d0b30bf4a4fb5ca6",
+      "title": "Recoverability of Gravitational Entanglement under Decoherence",
+      "url": "https://arxiv.org/abs/2611.05044v1",
+      "summary": "Decoherence can make gravitationally generated entanglement arbitrarily small, or even vanishing, without necessarily rendering the effective matter dynamics separable. We ask whether this hidden non-separability can be revealed using strictly local…",
+      "publishedAt": "2026-11-03T15:14:14.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "bell"
+    },
+    {
+      "id": "937416f2f5dc8c1b",
+      "title": "Ultracold polar molecules for quantum science and technology",
+      "url": "https://arxiv.org/abs/2611.05040v1",
+      "summary": "Ultracold polar molecules present a rich platform for experimental quantum science leveraging their unique properties. Of particular relevance is the intrinsic electric dipole moment of the molecule, which results in strong coupling to microwave…",
+      "publishedAt": "2026-11-03T15:11:51.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        2
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "8af7211bd0a6ae49",
+      "title": "On Revolutionizing Power Systems: Suitability of Quantum Computing-Ready Pipelines for Stochastic Unit Commitment Optimization",
+      "url": "https://arxiv.org/abs/2611.05030v1",
+      "summary": "Modern unit commitment (UC) scenarios, particularly those involving uncertainties from demand fluctuations and renewable energy sources, pose significant challenges to traditional optimization methods due to the large search spaces they encompass.…",
+      "publishedAt": "2026-11-03T15:05:19.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [
+        9,
+        12
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "167c438e0d6dc78d",
+      "title": "Ergotropy Activation and Coherence in Dissipatively Charged Quantum Batteries",
+      "url": "https://arxiv.org/abs/2611.05010v1",
+      "summary": "Quantum batteries can exploit quantum resources to enhance energy storage and work extraction, and recent experimental progress has brought their implementation closer to reality. In realistic settings, however, environmental dissipation is…",
+      "publishedAt": "2026-11-03T14:55:25.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [
+        5,
+        12
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "fc8c84c01477d246",
+      "title": "Synchronization Mpemba Effect",
+      "url": "https://arxiv.org/abs/2611.04994v1",
+      "summary": "We introduce the synchronization Mpemba effect, in which a less synchronized initial state overtakes a more synchronized one, and demonstrate it in dissipatively coupled quantum van der Pol oscillators. Within a graph-Laplacian framework, we show…",
+      "publishedAt": "2026-11-03T14:44:50.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "4856c3270be52d68",
+      "title": "Band structure of two-dimensional graphene and of one-dimensional nanoribbons via variational quantum algorithms: from energies to wavefunction quality",
+      "url": "https://arxiv.org/abs/2611.04975v1",
+      "summary": "Simulating quantum many-body systems classically encounters exponential bottlenecks, which quantum devices circumvent by natively encoding wavefunctions. In the Noisy Intermediate-Scale Quantum (NISQ) era, however, hardware noise constrains…",
+      "publishedAt": "2026-11-03T14:30:02.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "physics",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "66e9fe3621510d28",
+      "title": "Substantially Improved Rate and Distance for Addressable Transversal Phase Gates",
+      "url": "https://arxiv.org/abs/2611.04964v1",
+      "summary": "An important ingredient in fault-tolerant quantum computation is asymptotically good codes with fully addressable transversal non-Clifford gates. Existing constructions, however, provide only small explicit guarantees for rate and relative distance.…",
+      "publishedAt": "2026-11-03T14:23:07.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "bbfca3bce3a846cb",
+      "title": "Generalized Lorentz Framework for Active Semiconductor Quantum Surface Plasmonics",
+      "url": "https://arxiv.org/abs/2611.04933v1",
+      "summary": "Nanostructured semiconductors provide an actively tunable platform for light-matter interactions across a broad spectral range. As feature sizes shrink to the deep nanoscale (~10 nm scale), nonclassical carrier dynamics and surface plasmonic…",
+      "publishedAt": "2026-11-03T14:04:29.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "physics"
+      ],
+      "companies": [],
+      "applications": [
+        0
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "35b6399ca4bcc848",
+      "title": "Transferable Lindblad Variational Ansatz for Accelerated Steady-State Preparation",
+      "url": "https://arxiv.org/abs/2611.04919v1",
+      "summary": "Open quantum systems naturally relax toward steady states that underpin diverse nonequilibrium phenomena and quantum technologies. We independently control the coherent and dissipative constituents of a Lindblad generator to construct a variational…",
+      "publishedAt": "2026-11-03T13:57:33.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "7ff700cf5779d61f",
+      "title": "Fast verification of fault tolerant magic state preparation circuits with the CNOT + T gate set",
+      "url": "https://arxiv.org/abs/2611.04909v1",
+      "summary": "Magic state preparation is often among the most expensive operations in a fault tolerant quantum computation. One obstacle to coming up with better magic state preparation circuits lies in verifying their fault tolerance properties, as it is…",
+      "publishedAt": "2026-11-03T13:50:36.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "cef88fc538b2458f",
+      "title": "Quantum sensing of a weak drive signal in cascaded quantum van der Pol oscillators",
+      "url": "https://arxiv.org/abs/2611.04895v1",
+      "summary": "We have constructed a quantum sensing system composed of two quantum van der Pol (vdP) oscillators. Coherent and dissipative couplings are combined to establish a generic nonreciprocal coupling between the two vdP subsystems. A weak driving signal…",
+      "publishedAt": "2026-11-03T13:40:46.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [
+        3
+      ],
+      "lab": "slit"
+    },
+    {
+      "id": "558c0f76d3d514aa",
+      "title": "Conditional Quantum Priors for Chaotic Fluid Dynamics",
+      "url": "https://arxiv.org/abs/2611.04872v1",
+      "summary": "Neural networks that predict chaotic dynamics can reproduce short trajectories while misrepresenting statistics over long times. Quantum priors represent selected dynamical statistics through quantum generative models and provide statistical…",
+      "publishedAt": "2026-11-03T13:26:53.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "ai"
+      ],
+      "companies": [],
+      "applications": [
+        4,
+        11
+      ],
+      "lab": "qubit"
+    },
+    {
+      "id": "d247b95404c140d6",
+      "title": "Autonomous cooling of Kerr-cat qubits to minutes-long bit-flip times",
+      "url": "https://arxiv.org/abs/2611.04868v1",
+      "summary": "Quantum error correction becomes more hardware efficient when physical noise is strongly biased towards one error channel. Cat qubits realize such a bias by encoding information in two opposite coherent states of a superconducting oscillator, so…",
+      "publishedAt": "2026-11-03T13:24:36.000Z",
+      "sourceId": "arxiv",
+      "sourceName": "arXiv · quant-ph",
+      "kind": "Preprint",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "c45a0b6d7de18ac5",
+      "title": "The latest AI news we announced in October 2026",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
+      "summary": "Here are Google’s latest AI updates from October 2026",
+      "publishedAt": "2026-11-02T17:45:00.000Z",
+      "sourceId": "google",
+      "sourceName": "Google Quantum AI",
+      "kind": "Company research",
+      "summaryType": "Source excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "google"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "337d6d4fa384dadd",
+      "title": "Fault-tolerant quantum error correction for constant-excitation stabilizer codes under coherent noise",
+      "url": "https://www.nature.com/articles/s41534-026-01401-0",
+      "summary": "Abstract Collective coherent (CC) noise poses challenges for fault-tolerant error correction (FTEC), as it is not captured by conventional stochastic noise models. Constant-excitation (CE) codes are inherently immune to CC errors, but a…",
+      "publishedAt": "2026-11-02T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Publisher abstract excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
+      "id": "1c76603927e8b857",
+      "title": "Unifying quantum smoothing theories with extended retrodiction",
+      "url": "https://www.nature.com/articles/s41534-026-01379-9",
+      "summary": "Journal research in npj Quantum Information. Read the original paper for the methods, results, and limitations.",
+      "publishedAt": "2026-11-01T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Journal metadata",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
+      "id": "a4baeafa87a032f8",
+      "title": "Efficient multi-basis quantum position verification secure against generalized adversaries",
+      "url": "https://www.nature.com/articles/s41534-026-01325-9",
+      "summary": "Abstract Quantum position verification (QPV) enables multiple verifiers to certify a prover’s location using quantum communication and physical assumptions. With experimental demonstrations of QPV becoming increasingly feasible, enhancing the…",
+      "publishedAt": "2026-10-31T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Publisher abstract excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [
+        4
+      ],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
+      "id": "0a778287926e085b",
+      "title": "Ultra-large-scale compilation and manipulation of quantum circuits with Pandora",
+      "url": "https://www.nature.com/articles/s41534-026-01402-z",
+      "summary": "Abstract We present Pandora, an efficient, open-source, multithreaded, high-performance-computing-enabled quantum circuit rewrite engine built on principles of declarative programming. Pandora is motivated by the enormous gap between what quantum…",
+      "publishedAt": "2026-10-30T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Publisher abstract excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
+      "id": "aeef7450474b4b1b",
+      "title": "Experimental characterization of the qubit-mediated coupling between two waveguides",
+      "url": "https://www.nature.com/articles/s41534-026-01399-5",
+      "summary": "Abstract We report the first experimental realization and comprehensive characterization of a system consisting of two spatially separated superconducting waveguides coupled via a single transmon qubit. Since this system enables coherent control and…",
+      "publishedAt": "2026-10-29T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Publisher abstract excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
+      "id": "3dd5f2d5ce3e56e6",
+      "title": "Scalable neural decoders for practical real-time quantum error correction",
+      "url": "https://www.nature.com/articles/s41534-026-01403-y",
+      "summary": "Abstract Real-time, scalable, and accurate decoding is a critical component for realizing a fault-tolerant quantum computer. While Transformer-based neural decoders such as AlphaQubit have demonstrated high accuracy, the computational complexity of…",
+      "publishedAt": "2026-10-28T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Publisher abstract excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [],
+      "applications": [
+        11
+      ],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
+      "id": "126bc1e736122119",
+      "title": "Modular quantum computing takes shape with l-couplers",
+      "url": "https://www.ibm.com/quantum/blog/connecting-quantum-processors-with-l-couplers",
+      "summary": "IBM researchers achieve a critical advance for scaling quantum computers.",
+      "publishedAt": "2026-10-27T00:00:00.000Z",
+      "sourceId": "ibm",
+      "sourceName": "IBM Quantum",
+      "kind": "Company research",
+      "summaryType": "Source summary",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "ibm"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "c67151b490932ab3",
+      "title": "Device-independent certification of Majorana fermions and a new self-testing equivalence",
+      "url": "https://www.nature.com/articles/s41534-026-01383-z",
+      "summary": "Abstract Bell inequalities provide a fundamental tool for probing nonlocal correlations, yet their quantum bound, that is, the maximal value attainable by quantum strategies, is rarely accessible analytically. In this work, we introduce a general…",
+      "publishedAt": "2026-10-24T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Publisher abstract excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "bell",
+      "transport": "Crossref publisher metadata"
+    },
+    {
+      "id": "26daea7111f8c640",
+      "title": "High-fidelity flopping-mode single-spin operation via triple-dot orbital-band engineering",
+      "url": "https://www.nature.com/articles/s41534-026-01400-1",
+      "summary": "Abstract Fast electrical spin rotations in quantum dots require strong spin-charge hybridization, but the same hybridization can increase sensitivity to detuning noise. In a double-quantum-dot (DQD) flopping-mode qubit, the sweet-spot width and the…",
+      "publishedAt": "2026-10-24T00:00:00.000Z",
+      "sourceId": "nature",
+      "sourceName": "Nature · npj Quantum Information",
+      "kind": "Journal article",
+      "summaryType": "Publisher abstract excerpt",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing",
+        "physics",
+        "hardware"
+      ],
+      "companies": [],
+      "applications": [],
+      "lab": "qubit",
+      "transport": "Crossref publisher metadata"
+    },
+    {
+      "id": "040667c4bebedee4",
+      "title": "IBM supports award-winning projects in NEDO Quantum Challenge",
+      "url": "https://www.ibm.com/quantum/blog/ibm-nedo-challenge-2026",
+      "summary": "Teams across all three tracks of Japan's national quantum competition used IBM quantum computers during research on real-world applications.",
+      "publishedAt": "2026-10-23T00:00:00.000Z",
+      "sourceId": "ibm",
+      "sourceName": "IBM Quantum",
+      "kind": "Company research",
+      "summaryType": "Source summary",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "ibm"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
+    {
+      "id": "6b2b4ab6077e094d",
+      "title": "Qiskit SDK v2.6 release summary",
+      "url": "https://www.ibm.com/quantum/blog/qiskit-2-6-release-summary",
+      "summary": "Technical release summary for Qiskit SDK v2.6, including updates on top new features.",
+      "publishedAt": "2026-10-22T00:00:00.000Z",
+      "sourceId": "ibm",
+      "sourceName": "IBM Quantum",
+      "kind": "Company research",
+      "summaryType": "Source summary",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
+      "freshness": "live",
+      "categories": [
+        "research",
+        "computing"
+      ],
+      "companies": [
+        "ibm"
+      ],
+      "applications": [],
+      "lab": "qubit"
+    },
     {
       "id": "30b77afd86fd20a8",
       "title": "Bringing the magic: Google breaks open a bottleneck in quantum computing",
@@ -62,7 +952,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -76,370 +966,6 @@
       "lab": "qubit"
     },
     {
-      "id": "c1cb20c8436197cc",
-      "title": "Discovering state-of-the-art quantum circuits with large language models",
-      "url": "https://arxiv.org/abs/2610.22367v1",
-      "summary": "Significant efforts are currently being directed toward the implementation of large-scale quantum information processors, but realizing useful quantum advantage also requires the development of efficient quantum algorithms. While for many practical…",
-      "publishedAt": "2026-10-15T17:59:20.000Z",
-      "sourceId": "arxiv",
-      "sourceName": "arXiv · quant-ph",
-      "kind": "Preprint",
-      "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "computing",
-        "ai",
-        "hardware"
-      ],
-      "companies": [],
-      "applications": [
-        11
-      ],
-      "lab": "qubit"
-    },
-    {
-      "id": "47e331c1976939da",
-      "title": "Stability of Quantum LDPC States under Local Pauli Noise",
-      "url": "https://arxiv.org/abs/2610.22357v1",
-      "summary": "Quantum low-density parity-check (qLDPC) codes have a canonical mixed state---the normalized projector onto the code space---that lies at the intersection of quantum error correction and quantum many-body physics, yet the stability of its…",
-      "publishedAt": "2026-10-15T17:58:40.000Z",
-      "sourceId": "arxiv",
-      "sourceName": "arXiv · quant-ph",
-      "kind": "Preprint",
-      "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "computing",
-        "physics"
-      ],
-      "companies": [],
-      "applications": [],
-      "lab": "qubit"
-    },
-    {
-      "id": "39e23851980c3ed8",
-      "title": "Magic in quantum trajectory unravelings of noisy random quantum circuits",
-      "url": "https://arxiv.org/abs/2610.22318v1",
-      "summary": "The quantum-trajectory description of a noisy quantum circuit is not unique: every Kraus representation of the noise channel defines a different unraveling, i.e., a different ensemble of pure states that averages to the same density matrix. While…",
-      "publishedAt": "2026-10-15T17:51:22.000Z",
-      "sourceId": "arxiv",
-      "sourceName": "arXiv · quant-ph",
-      "kind": "Preprint",
-      "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "computing"
-      ],
-      "companies": [],
-      "applications": [],
-      "lab": "qubit"
-    },
-    {
-      "id": "e35818b5464c41ce",
-      "title": "Magna: simulating magic state factories as cheaply as Clifford circuits",
-      "url": "https://arxiv.org/abs/2610.22315v1",
-      "summary": "Classical simulation of magic state factories, including distillation, cultivation, and code switching, is challenging because of their substantial non-Clifford content. We introduce $\\texttt{magna}$ (magic-state-factory assessment via global…",
-      "publishedAt": "2026-10-15T17:51:13.000Z",
-      "sourceId": "arxiv",
-      "sourceName": "arXiv · quant-ph",
-      "kind": "Preprint",
-      "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "computing"
-      ],
-      "companies": [],
-      "applications": [],
-      "lab": "qubit"
-    },
-    {
-      "id": "31be2f0391d1ecaa",
-      "title": "Classical Capacity of Single-Mode Bosonic Gaussian Channels",
-      "url": "https://arxiv.org/abs/2610.22308v1",
-      "summary": "The classical capacity of a noisy optical channel is the maximum rate at which information can be transmitted reliably, given a constraint on the mean input energy. For the ubiquitous bosonic Gaussian channels, which include standard models of loss…",
-      "publishedAt": "2026-10-15T17:49:43.000Z",
-      "sourceId": "arxiv",
-      "sourceName": "arXiv · quant-ph",
-      "kind": "Preprint",
-      "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research"
-      ],
-      "companies": [],
-      "applications": [
-        6,
-        12
-      ],
-      "lab": "qubit"
-    },
-    {
-      "id": "264f3c84f59ec352",
-      "title": "Adding Temperature to the Adiabatic Connection: Hybrid Functionals for Static and Dynamic Correlation",
-      "url": "https://arxiv.org/abs/2610.22284v1",
-      "summary": "Capturing static and dynamic electron correlation simultaneously at manageable computational cost remains a key challenge in electronic structure theory. Motivated by the recurring role of effective temperature in self-consistent field methods we…",
-      "publishedAt": "2026-10-15T17:41:39.000Z",
-      "sourceId": "arxiv",
-      "sourceName": "arXiv · quant-ph",
-      "kind": "Preprint",
-      "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "physics"
-      ],
-      "companies": [],
-      "applications": [
-        2
-      ],
-      "lab": "qubit"
-    },
-    {
-      "id": "5766fa0b0a2d9e77",
-      "title": "SynDebug: A Framework to Debug Logic Bugs in Fault-Tolerant Quantum Computing Programs",
-      "url": "https://arxiv.org/abs/2610.22275v1",
-      "summary": "Fault-tolerant quantum computing (FTQC) introduces substantial systems-level complexity through quantum error correction (QEC), making debugging FTQC programs challenging. Existing quantum debugging approaches primarily target logical-level circuits…",
-      "publishedAt": "2026-10-15T17:37:29.000Z",
-      "sourceId": "arxiv",
-      "sourceName": "arXiv · quant-ph",
-      "kind": "Preprint",
-      "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "computing"
-      ],
-      "companies": [],
-      "applications": [],
-      "lab": "qubit"
-    },
-    {
-      "id": "ef59b414c577ae3b",
-      "title": "Constrained dissipation and the lifetime of quantum many-body scars",
-      "url": "https://arxiv.org/abs/2610.22223v1",
-      "summary": "We investigate the fate of quantum many-body scars in the PXP model subject to Markovian dissipation. We show that when local jump operators respect the same symmetries of the Hamiltonian the full Liouvillian spectrum displays a tower of states with…",
-      "publishedAt": "2026-10-15T17:03:36.000Z",
-      "sourceId": "arxiv",
-      "sourceName": "arXiv · quant-ph",
-      "kind": "Preprint",
-      "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "physics"
-      ],
-      "companies": [],
-      "applications": [],
-      "lab": "qubit"
-    },
-    {
-      "id": "ce1f0ce614a528d3",
-      "title": "Programmable all-to-all entangling gates for cavity-coupled atoms",
-      "url": "https://arxiv.org/abs/2610.22220v1",
-      "summary": "Fault tolerant quantum computers greatly benefit from having both high fidelity entangling gates and a non-local qubit connectivity. However, most entangling gates for neutral atoms are local, requiring separated atoms to be moved using optical…",
-      "publishedAt": "2026-10-15T17:03:11.000Z",
-      "sourceId": "arxiv",
-      "sourceName": "arXiv · quant-ph",
-      "kind": "Preprint",
-      "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "computing",
-        "physics",
-        "hardware"
-      ],
-      "companies": [],
-      "applications": [
-        6
-      ],
-      "lab": "bell"
-    },
-    {
-      "id": "cf23c549de5b4670",
-      "title": "Efficient quantum simulation of unitary gates based on atomic ensembles",
-      "url": "https://arxiv.org/abs/2610.22207v1",
-      "summary": "We develop a technique to perform efficient unitary time evolution of a general spin Hamiltonian based on the system with identical qubits, as naturally realized by permutation symmetric atomic ensembles. We employ Cartan decomposition method to the…",
-      "publishedAt": "2026-10-15T16:55:55.000Z",
-      "sourceId": "arxiv",
-      "sourceName": "arXiv · quant-ph",
-      "kind": "Preprint",
-      "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "computing",
-        "physics",
-        "hardware"
-      ],
-      "companies": [],
-      "applications": [],
-      "lab": "qubit"
-    },
-    {
-      "id": "b83b61459301f6eb",
-      "title": "Classification of bipartite observables III: simplicity, mixtures and quantum error correction",
-      "url": "https://arxiv.org/abs/2610.22205v1",
-      "summary": "The paradigm of a simple unstable theory in the sense of Shelah is the theory of the random graph, the Fraïssé limit of the finite graphs. Quantum error correction has a paradigm of its own, and we show that it is the counterpart of the random…",
-      "publishedAt": "2026-10-15T16:54:41.000Z",
-      "sourceId": "arxiv",
-      "sourceName": "arXiv · quant-ph",
-      "kind": "Preprint",
-      "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "computing"
-      ],
-      "companies": [],
-      "applications": [],
-      "lab": "qubit"
-    },
-    {
-      "id": "9399efc0d128bcf5",
-      "title": "Energetics of Fault-Tolerant Spin-Qubit Quantum Computation",
-      "url": "https://arxiv.org/abs/2610.22199v1",
-      "summary": "Semiconductor spin qubits offer a promising route to compact and scalable quantum computers, combining long coherence times in isotopically purified silicon with compatibility with semiconductor manufacturing. Beyond computational speedup, their…",
-      "publishedAt": "2026-10-15T16:50:41.000Z",
-      "sourceId": "arxiv",
-      "sourceName": "arXiv · quant-ph",
-      "kind": "Preprint",
-      "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "computing",
-        "physics",
-        "hardware"
-      ],
-      "companies": [],
-      "applications": [
-        0
-      ],
-      "lab": "qubit"
-    },
-    {
-      "id": "49670a26c17c3fa5",
-      "title": "Genuine continuous quantumness",
-      "url": "https://www.nature.com/articles/s41534-026-01389-7",
-      "summary": "Abstract Randomness is a key feature of quantum physics. Heisenberg’s uncertainty principle reveals the existence of an intrinsic noise, usually explored through Gaussian squeezed states. Due to their insufficiency for quantum advantage, the focus…",
-      "publishedAt": "2026-10-14T00:00:00.000Z",
-      "sourceId": "nature",
-      "sourceName": "Nature · npj Quantum Information",
-      "kind": "Journal article",
-      "summaryType": "Publisher abstract excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "physics"
-      ],
-      "companies": [],
-      "applications": [],
-      "lab": "qubit",
-      "transport": "Crossref publisher metadata"
-    },
-    {
-      "id": "76c3807ed9960c31",
-      "title": "Structural control of two-level defect density revealed by high-throughput correlative measurements of Josephson junctions",
-      "url": "https://www.nature.com/articles/s41534-026-01395-9",
-      "summary": "Journal research in npj Quantum Information. Read the original paper for the methods, results, and limitations.",
-      "publishedAt": "2026-10-14T00:00:00.000Z",
-      "sourceId": "nature",
-      "sourceName": "Nature · npj Quantum Information",
-      "kind": "Journal article",
-      "summaryType": "Journal metadata",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "hardware"
-      ],
-      "companies": [],
-      "applications": [],
-      "lab": "qubit",
-      "transport": "Crossref publisher metadata"
-    },
-    {
-      "id": "01777bf6f662a967",
-      "title": "Mirror subspace diagonalization: a real-time quantum Krylov algorithm with near-optimal sampling cost",
-      "url": "https://www.nature.com/articles/s41534-026-01384-y",
-      "summary": "Journal research in npj Quantum Information. Read the original paper for the methods, results, and limitations.",
-      "publishedAt": "2026-10-13T00:00:00.000Z",
-      "sourceId": "nature",
-      "sourceName": "Nature · npj Quantum Information",
-      "kind": "Journal article",
-      "summaryType": "Journal metadata",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "computing"
-      ],
-      "companies": [],
-      "applications": [],
-      "lab": "qubit",
-      "transport": "Crossref publisher metadata"
-    },
-    {
-      "id": "f904c54bcf3a635c",
-      "title": "Exponential advantage in continuous-variable quantum state learning",
-      "url": "https://www.nature.com/articles/s41534-026-01391-z",
-      "summary": "Journal research in npj Quantum Information. Read the original paper for the methods, results, and limitations.",
-      "publishedAt": "2026-10-12T00:00:00.000Z",
-      "sourceId": "nature",
-      "sourceName": "Nature · npj Quantum Information",
-      "kind": "Journal article",
-      "summaryType": "Journal metadata",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research"
-      ],
-      "companies": [],
-      "applications": [],
-      "lab": "qubit",
-      "transport": "Crossref publisher metadata"
-    },
-    {
-      "id": "715e84d051e10bba",
-      "title": "A quantitative model for embedding quantum-secure communications and evaluating communication autonomy in industrial control systems",
-      "url": "https://www.nature.com/articles/s41534-026-01396-8",
-      "summary": "Journal research in npj Quantum Information. Read the original paper for the methods, results, and limitations.",
-      "publishedAt": "2026-10-12T00:00:00.000Z",
-      "sourceId": "nature",
-      "sourceName": "Nature · npj Quantum Information",
-      "kind": "Journal article",
-      "summaryType": "Journal metadata",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research"
-      ],
-      "companies": [],
-      "applications": [
-        4
-      ],
-      "lab": "qubit",
-      "transport": "Crossref publisher metadata"
-    },
-    {
       "id": "21fc07b111056366",
       "title": "What's new at IBM Quantum Q3 2026",
       "url": "https://www.ibm.com/quantum/blog/whats-new-q3-2026",
@@ -449,7 +975,7 @@
       "sourceName": "IBM Quantum",
       "kind": "Company research",
       "summaryType": "Source summary",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -460,50 +986,6 @@
       ],
       "applications": [],
       "lab": "qubit"
-    },
-    {
-      "id": "e65ccbcf71800c9e",
-      "title": "Demonstration of subspace-search variational quantum eigensolver using photonic orbital angular momentum qudits",
-      "url": "https://www.nature.com/articles/s41534-026-01380-2",
-      "summary": "Abstract Accurate excited-state energies are essential for interpreting fluorescence and photochemical processes, yet variational quantum eigensolvers (VQEs) on noisy intermediate-scale quantum (NISQ) hardware have largely been confined to ground…",
-      "publishedAt": "2026-10-07T00:00:00.000Z",
-      "sourceId": "nature",
-      "sourceName": "Nature · npj Quantum Information",
-      "kind": "Journal article",
-      "summaryType": "Publisher abstract excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "physics",
-        "hardware"
-      ],
-      "companies": [],
-      "applications": [
-        6
-      ],
-      "lab": "slit",
-      "transport": "Crossref publisher metadata"
-    },
-    {
-      "id": "203837f090debd12",
-      "title": "High-order Magnus expansion for Hamiltonian simulation",
-      "url": "https://www.nature.com/articles/s41534-026-01385-x",
-      "summary": "Journal research in npj Quantum Information. Read the original paper for the methods, results, and limitations.",
-      "publishedAt": "2026-10-07T00:00:00.000Z",
-      "sourceId": "nature",
-      "sourceName": "Nature · npj Quantum Information",
-      "kind": "Journal article",
-      "summaryType": "Journal metadata",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research"
-      ],
-      "companies": [],
-      "applications": [],
-      "lab": "qubit",
-      "transport": "Crossref publisher metadata"
     },
     {
       "id": "eb96e415e63b660f",
@@ -515,7 +997,7 @@
       "sourceName": "IBM Quantum",
       "kind": "Company research",
       "summaryType": "Source summary",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -528,26 +1010,6 @@
       "lab": "qubit"
     },
     {
-      "id": "cfaeb529e01964e1",
-      "title": "Breaking Rayleigh’s curse: broadband frequency super-resolution via a quantum harmonic oscillator",
-      "url": "https://www.nature.com/articles/s41534-026-01388-8",
-      "summary": "Abstract Non-orthogonal quantum states cannot be distinguished with complete certainty, making their underlying physical parameters difficult to resolve. In frequency spectroscopy of two closely spaced electromagnetic fields, this challenge has…",
-      "publishedAt": "2026-10-06T00:00:00.000Z",
-      "sourceId": "nature",
-      "sourceName": "Nature · npj Quantum Information",
-      "kind": "Journal article",
-      "summaryType": "Publisher abstract excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research"
-      ],
-      "companies": [],
-      "applications": [],
-      "lab": "qubit",
-      "transport": "Crossref publisher metadata"
-    },
-    {
       "id": "e9b9d85ea42661c2",
       "title": "Directed execution: Scaling a research platform for quantum error correction",
       "url": "https://www.ibm.com/quantum/blog/directed-execution",
@@ -557,7 +1019,7 @@
       "sourceName": "IBM Quantum",
       "kind": "Company research",
       "summaryType": "Source summary",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -569,73 +1031,6 @@
       ],
       "applications": [],
       "lab": "qubit"
-    },
-    {
-      "id": "d0cc73fd2d197687",
-      "title": "The continuous path from error mitigation to fault-tolerant quantum computing",
-      "url": "https://www.ibm.com/quantum/blog/qec-continuum",
-      "summary": "A spectrum of error-correcting techniques is enabling useful quantum computation, measured not by logical qubits but by the circuits you can run with them.",
-      "publishedAt": "2026-09-15T00:00:00.000Z",
-      "sourceId": "ibm",
-      "sourceName": "IBM Quantum",
-      "kind": "Company research",
-      "summaryType": "Source summary",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "computing",
-        "hardware"
-      ],
-      "companies": [
-        "ibm"
-      ],
-      "applications": [],
-      "lab": "qubit"
-    },
-    {
-      "id": "07162c0ab4b4300a",
-      "title": "Switzerland will soon get its first IBM Quantum System Two",
-      "url": "https://www.ibm.com/quantum/blog/swiss-innovation-hub",
-      "summary": "Lockheed Martin and IBM are launching a Swiss quantum innovation hub at ETH Zurich to advance research, industry collaboration, and workforce development.",
-      "publishedAt": "2026-09-10T00:00:00.000Z",
-      "sourceId": "ibm",
-      "sourceName": "IBM Quantum",
-      "kind": "Company research",
-      "summaryType": "Source summary",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research"
-      ],
-      "companies": [
-        "ibm"
-      ],
-      "applications": [],
-      "lab": "qubit"
-    },
-    {
-      "id": "8cf8a2a4de10ea56",
-      "title": "Cleveland Clinic, RIKEN, IBM named Gordon Bell finalists",
-      "url": "https://www.ibm.com/quantum/blog/gordon-bell-finalists-2026",
-      "summary": "Finalist recognition for one of supercomputing’s top prizes arrives as researchers report new progress in automated quantum-HPC chemistry workflows.",
-      "publishedAt": "2026-09-09T00:00:00.000Z",
-      "sourceId": "ibm",
-      "sourceName": "IBM Quantum",
-      "kind": "Company research",
-      "summaryType": "Source summary",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research"
-      ],
-      "companies": [
-        "ibm"
-      ],
-      "applications": [
-        2
-      ],
-      "lab": "bell"
     },
     {
       "id": "2454552264b02567",
@@ -647,7 +1042,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -673,7 +1068,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -696,7 +1091,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -720,7 +1115,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -742,7 +1137,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -764,7 +1159,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -786,7 +1181,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -806,7 +1201,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -829,7 +1224,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -851,7 +1246,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -874,7 +1269,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -898,7 +1293,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -921,7 +1316,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -943,7 +1338,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -966,7 +1361,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -988,7 +1383,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -1013,7 +1408,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -1035,7 +1430,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -1058,7 +1453,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -1082,7 +1477,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -1104,7 +1499,7 @@
       "sourceName": "MIT News",
       "kind": "Research news",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
@@ -1126,29 +1521,7 @@
       "sourceName": "Google Quantum AI",
       "kind": "Company research",
       "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
-      "freshness": "live",
-      "categories": [
-        "research",
-        "computing"
-      ],
-      "companies": [
-        "google"
-      ],
-      "applications": [],
-      "lab": "qubit"
-    },
-    {
-      "id": "256b39ed5802a0ef",
-      "title": "3 real-world problems that quantum computers could help solve",
-      "url": "https://blog.google/innovation-and-ai/technology/research/google-quantum-computer-real-world-applications/",
-      "summary": "For World Quantum Day, we’re sharing three real-world ways quantum computers may advance science and benefit people.",
-      "publishedAt": "2025-04-14T00:00:00.000Z",
-      "sourceId": "google",
-      "sourceName": "Google Quantum AI",
-      "kind": "Company research",
-      "summaryType": "Source excerpt",
-      "retrievedAt": "2026-10-18T05:51:19.459Z",
+      "retrievedAt": "2026-11-05T00:42:19.204Z",
       "freshness": "live",
       "categories": [
         "research",
