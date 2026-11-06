@@ -27,9 +27,9 @@ const feed = { ...snapshot, mode: 'live', sources: snapshot.sources.map(source =
 const clone = value => structuredClone(value), flush = () => new Promise(resolve => setTimeout(resolve,0));
 let passed = 0;
 async function check(name, fn) { await fn(); passed++; console.log(`✓ ${name}`); }
-function setup({ failApi = false, failPillars = false, failSnapshot = false, catalog = content, edition = feed } = {}) {
+function setup({ failApi = false, failPillars = false, failSnapshot = false, catalog = content, edition = feed, url = 'https://quantum.test/' } = {}) {
   const errors = [], virtualConsole = new VirtualConsole(); virtualConsole.on('jsdomError', error => errors.push(error));
-  const dom = new JSDOM(html, { url: 'https://quantum.test/', pretendToBeVisual: true, virtualConsole });
+  const dom = new JSDOM(html, { url, pretendToBeVisual: true, virtualConsole });
   const { window } = dom, { document } = window;
   window.matchMedia = () => ({ matches: true }); window.HTMLElement.prototype.scrollIntoView = function () {};
   window.HTMLDialogElement.prototype.close = function () { this.open = false; this.dispatchEvent(new window.Event('close')); };
@@ -91,7 +91,7 @@ await check('Quantum AI appears in navigation and all four pillar panels expose 
     assert.equal($('#ai-pillar-panel h3').textContent,pillar.headline);
     assert.equal($('#ai-pillar-panel').getAttribute('aria-labelledby'),`ai-pillar-${pillar.id}`);
     assert.equal($$('#ai-pillar-tabs [aria-selected="true"]').length,1); assert.equal($$('#ai-pillar-tabs [tabindex="0"]').length,1);
-    assert.equal($$('.ai-topic-grid article').length,3); assert.equal($$('.ai-resources a').length,pillar.resources.length);
+    assert.equal($$('#ai-technical-notes details').length,3); assert.equal($$('.ai-resources a').length,pillar.resources.length);
     assert.equal($('#ai-pillar-panel [data-launch-sim]').dataset.launchSim,pillar.starter.lab);
     assert.equal($('#ai-news-pillars [aria-pressed="true"]').dataset.aiNewsPillar,pillar.id);
   }
@@ -103,6 +103,28 @@ await check('Pillar tabs and their four-step workflows support arrows, Home/End,
   keys('#ai-pillar-advanced','Home'); assert.equal(app.document.activeElement,$('#ai-pillar-tech'));
   for (let index=0;index<4;index++) { click(`[data-ai-step="${index}"]`); assert.equal($('#ai-workflow-detail h4').textContent,content.pillars[0].workflow[index].title); assert.equal($('#ai-workflow-detail').getAttribute('aria-labelledby'),`ai-workflow-step-${index}`); }
   keys('#ai-workflow-step-3','ArrowRight'); assert.equal(app.document.activeElement,$('#ai-workflow-step-0')); assert.equal($$('#ai-workflow-steps [aria-selected="true"]').length,1);
+});
+await check('Every pillar name is spelled out in the navigator and research filters', () => {
+  assert.deepEqual($$('#ai-pillar-tabs strong').map(element=>element.textContent),['Quantum Technology','Quantum Programming','Quantum Machine Learning','Advanced Quantum AI']);
+  assert.equal($('#ai-pillar-tabs').getAttribute('aria-orientation'),'vertical');
+  assert.ok(!/\bQ Programming\b|\bQ ML\b/.test($('#quantum-ai').textContent));
+});
+await check('Technical notes expand individually and together while preserving the selected pillar', () => {
+  click('[data-ai-pillar="tech"]'); assert.equal($$('#ai-technical-notes details[open]').length,1);
+  click('#ai-notes-toggle'); assert.equal($$('#ai-technical-notes details[open]').length,3); assert.equal($('#ai-notes-toggle').getAttribute('aria-expanded'),'true');
+  click('#ai-notes-toggle'); assert.equal($$('#ai-technical-notes details[open]').length,0); assert.equal($('#ai-notes-toggle').getAttribute('aria-expanded'),'false');
+  const note=$('#ai-technical-notes details'); note.open=true; note.dispatchEvent(new app.window.Event('toggle')); assert.equal($('#ai-pillar-tech').getAttribute('aria-selected'),'true');
+});
+await check('Advanced briefs expose their equations, assumptions, project deliverables, and evaluation criteria', () => {
+  for(const pillar of content.pillars) {
+    click(`[data-ai-pillar="${pillar.id}"]`);
+    assert.equal($('.ai-equation').textContent,pillar.model.expression); assert.ok($('.ai-equation').getAttribute('aria-label').includes(pillar.model.expression)); assert.ok($('#ai-working-model').textContent.includes(pillar.model.assumptions));
+    assert.equal($$('.ai-prerequisites li').length,pillar.prerequisites.length);
+    assert.equal($$('.ai-project-card>ol li').length,4); assert.equal($$('.ai-project-deliverables li').length,3);
+    assert.equal($$('.ai-evaluation-table tbody tr').length,4); assert.ok($('#ai-project').textContent.includes(pillar.project.baseline));
+    for(const link of $$('.ai-brief-contents a')) assert.ok(app.document.getElementById(link.hash.slice(1)));
+    for(const topic of pillar.topics) assert.ok($('#ai-technical-notes').textContent.includes(topic.detail));
+  }
 });
 await check('All pillar resource links retain safe official source attributes', () => {
   for (const pillar of content.pillars) { click(`[data-ai-pillar="${pillar.id}"]`); for (const link of $$('.ai-resources a')) { assert.equal(new URL(link.href).protocol,'https:'); assert.equal(link.target,'_blank'); assert.match(link.rel,/noopener/); } }
@@ -142,6 +164,15 @@ await check('Failures mark retained articles as saved without replacing their or
 });
 assert.deepEqual(app.errors,[]); app.cleanup();
 
+await check('A linked pillar loads its own brief and section links retain the selected pillar', async () => {
+  const linked=setup({url:'https://quantum.test/quantum-ai?pillar=ml#ai-working-model'}); await linked.ready;
+  assert.equal(linked.$('#ai-pillar-ml').getAttribute('aria-selected'),'true'); assert.equal(linked.$('.ai-equation').textContent,content.pillars[2].model.expression);
+  assert.ok(linked.$$('.ai-brief-contents a').every(link=>new URL(link.href).searchParams.get('pillar')==='ml'));
+  linked.click('#ai-pillar-programming'); assert.equal(new URL(linked.window.location.href).searchParams.get('pillar'),'programming');
+  linked.window.history.replaceState(null,'','/quantum-ai?pillar=advanced'); linked.document.dispatchEvent(new linked.window.CustomEvent('quantum:page-change',{detail:{page:'quantum-ai'}}));
+  assert.equal(linked.$('#ai-pillar-advanced').getAttribute('aria-selected'),'true'); linked.cleanup();
+  const invalid=setup({url:'https://quantum.test/quantum-ai?pillar=invalid'}); await invalid.ready; assert.equal(invalid.$('#ai-pillar-tech').getAttribute('aria-selected'),'true'); invalid.cleanup();
+});
 await check('Partial publisher outages remain visible and individual saved items stay labeled', async () => {
   const partial = clone(feed); partial.sources[0].state = 'saved'; partial.articles.filter(item=>item.sourceId==='arxiv').forEach(item=>{item.freshness='saved';});
   const other = setup({edition:partial}); await other.ready; assert.match(other.$('#ai-news-health').textContent,/4 \/ 5/); assert.ok(other.$$('.ai-news-card .saved-tag').length); assert.match(other.$('#ai-news-freshness').textContent,/Some sources/); other.cleanup();
